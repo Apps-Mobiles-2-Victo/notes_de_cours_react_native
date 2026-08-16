@@ -48,7 +48,7 @@ markdown_extensions:
 plugins:
 - search
 nav:
-- Accueil: 01-pub095-applications-mobiles-avec-react-native-2025.md
+- Accueil: index.md
 - 'PUB095 : Applications mobiles avec React Native, 2025': 01-pub095-applications-mobiles-avec-react-native-2025.md
 - Table des matières: 02-table-des-matires.md
 - 1. Applications mobiles multiplateformes: 03-1-applications-mobiles-multiplateformes.md
