@@ -1,0 +1,1791 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notes de cours pour le développement d'applications mobiles Android avec Jetpack Compose et Kotlin - 420-5B4-VI">
+      
+      
+        <meta name="author" content="Christiane Lagacé">
+      
+      
+      
+        <link rel="prev" href="../04-2-installation-de-react-native/">
+      
+      
+        <link rel="next" href="../06-4-les-mulateurs-et-appareils-physiques/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>3. Création et lancement d'un projet React Native - PUB095 : Applications mobiles avec React Native, 2025</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-creation-et-lancement-dun-projet-react-native" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="PUB095 : Applications mobiles avec React Native, 2025" class="md-header__button md-logo" aria-label="PUB095 : Applications mobiles avec React Native, 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PUB095 : Applications mobiles avec React Native, 2025
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Création et lancement d'un projet React Native
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-pub095-applications-mobiles-avec-react-native-2025/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  PUB095 : Applications mobiles avec React Native, 2025
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-table-des-matires/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Table des matières
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-1-applications-mobiles-multiplateformes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Applications mobiles multiplateformes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-2-installation-de-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Installation de React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Création et lancement d'un projet React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-4-les-mulateurs-et-appareils-physiques/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Les émulateurs et appareils physiques
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-5-vs-code/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. VS Code
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-6-initiation-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Initiation à React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-7-les-composants-du-noyau-core-components/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Les composants du noyau (core components)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../10-8-rendu-conditionnel/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Rendu conditionnel
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../11-9-dboguer-une-application-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. Déboguer une application React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../12-10-les-hooks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  10. Les hooks
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../13-11-composants-parents-vs-enfants/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  11. Composants parents vs enfants
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../14-12-la-navigation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  12. La navigation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../15-13-les-donnes-locales/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  13. Les données locales
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../16-14-accder-la-base-de-donnes-de-lmulateur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  14. Accéder à la base de données de l'émulateur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../17-15-formulaire-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  15. Formulaire React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../18-16-confirmation-avant-suppression/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  16. Confirmation avant suppression
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../19-17-quelques-rflexions/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  17. Quelques réflexions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../20-18-les-capteurs/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  18. Les capteurs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../21-19-utiliser-un-api/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  19. Utiliser un API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../22-chapitres-de-rfrence/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ────────── Chapitres de référence ──────────
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../23-20-dpannage-react-native-troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  20. Dépannage React Native (troubleshooting)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../24-21-quelques-notions-javascript/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  21. Quelques notions JavaScript
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../25-22-quelques-bibliothques-utiles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  22. Quelques bibliothèques utiles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../26-23-recrer-certains-dossiers-du-projet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  23. Recréer certains dossiers du projet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../27-24-eslint-et-prettier/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  24. ESLint et Prettier
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../28-25-code-propre-une-plateforme/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  25. Code propre à une plateforme
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PUB095 : Applications mobiles avec React Native, 2025" class="md-nav__button md-logo" aria-label="PUB095 : Applications mobiles avec React Native, 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PUB095 : Applications mobiles avec React Native, 2025
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-pub095-applications-mobiles-avec-react-native-2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PUB095 : Applications mobiles avec React Native, 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-table-des-matires/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table des matières
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-1-applications-mobiles-multiplateformes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Applications mobiles multiplateformes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-2-installation-de-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation de React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Création et lancement d'un projet React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-4-les-mulateurs-et-appareils-physiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les émulateurs et appareils physiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-5-vs-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-6-initiation-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Initiation à React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-7-les-composants-du-noyau-core-components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Les composants du noyau (core components)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-8-rendu-conditionnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Rendu conditionnel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-9-dboguer-une-application-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Déboguer une application React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-10-les-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Les hooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-11-composants-parents-vs-enfants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Composants parents vs enfants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-12-la-navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. La navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-13-les-donnes-locales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Les données locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-14-accder-la-base-de-donnes-de-lmulateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Accéder à la base de données de l'émulateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-15-formulaire-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Formulaire React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-16-confirmation-avant-suppression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Confirmation avant suppression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-17-quelques-rflexions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Quelques réflexions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-18-les-capteurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Les capteurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-19-utiliser-un-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utiliser un API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-chapitres-de-rfrence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Chapitres de référence ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-20-dpannage-react-native-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Dépannage React Native (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-21-quelques-notions-javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Quelques notions JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-22-quelques-bibliothques-utiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Quelques bibliothèques utiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-23-recrer-certains-dossiers-du-projet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Recréer certains dossiers du projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-24-eslint-et-prettier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. ESLint et Prettier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-25-code-propre-une-plateforme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Code propre à une plateforme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-creation-et-lancement-dun-projet-react-native">3. Création et lancement d'un projet React Native<a class="headerlink" href="#3-creation-et-lancement-dun-projet-react-native" title="Permanent link">&para;</a></h1>
+<h1 id="3-creation-et-lancement-dun-projet-react-native_1">3. Création et lancement d'un projet React Native<a class="headerlink" href="#3-creation-et-lancement-dun-projet-react-native_1" title="Permanent link">&para;</a></h1>
+<h2 id="31-creer-une-application-react-native-et-la-lancer-dans-lemulateur">3.1 Créer une application React Native et la lancer dans l'émulateur<a class="headerlink" href="#31-creer-une-application-react-native-et-la-lancer-dans-lemulateur" title="Permanent link">&para;</a></h2>
+<p>Un projet React Native est créé à l'aide d'une commande dans une fenêtre Terminal.</p>
+<p>Dans cette fiche :</p>
+<ul>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#base">Création des fichiers de base</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#ancienneversion">Créer un projet dans une ancienne version de React Native</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#metro">Lancer l'application avec Metro</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#probleme">Quelques solutions aux problèmes rencontrés</a></li>
+</ul>
+<h2 id="creation-des-fichiers-de-base">Création des fichiers de base<a class="headerlink" href="#creation-des-fichiers-de-base" title="Permanent link">&para;</a></h2>
+<p>D'abord, placez-vous dans le dossier qui contiendra vos projets.</p>
+<p>Attention : ne placez pas les projets dans un dossier dont le chemin est trop long sinon, vous risquez d'obtenir un message d'erreur qui indique que la limite de 260 caractères est dépassée (Filename longer than 260 characters).</p>
+<p>Terminal</p>
+<p>cd /dossier/sousdossier</p>
+<p>Lancez ensuite cette commande pour créer les fichiers de base du projet :</p>
+<p>Terminal</p>
+<p>npx @react-native-community/cli init MonProjet</p>
+<p>Notez que la commande précédente, qui crée les fichiers de base, remplace la suivante, qui a été retirée en 2024 :</p>
+<p>Terminal</p>
+<p>npx react-native@latest init MonProjet</p>
+<p>Attention : si vous obtenez l'erreur « npx : Impossible de charger le fichier C:\Program Files\nodejs\npx.ps1, car l'exécution de scripts est désactivée sur ce système. », c'est que vous devez d'abord lancer cette commande :</p>
+<p>Terminal</p>
+<p>Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force</p>
+<h3 id="creer-un-projet-dans-une-ancienne-version-de-react-native">Créer un projet dans une ancienne version de React Native<a class="headerlink" href="#creer-un-projet-dans-une-ancienne-version-de-react-native" title="Permanent link">&para;</a></h3>
+<p>Si vous désirez plutôt créer un projet dans une ancienne version de React Native, par exemple dans la version 0.75.3 :</p>
+<p>Terminal</p>
+<p>npx @react-native-community/cli init MonProjet --version 0.75.3</p>
+<p>Suivi de :</p>
+<p>Terminal</p>
+<p>cd MonProjet/android<br />
+./gradlew clean</p>
+<h2 id="lancer-lapplication-avec-metro">Lancer l'application avec Metro<a class="headerlink" href="#lancer-lapplication-avec-metro" title="Permanent link">&para;</a></h2>
+<p>Pour lancer une application React Native, il n'est pas nécessaire qu'Android Studio soit en cours d'exécution. Son utilité se résumait à installer les outils SDK et à créer des émulateurs.</p>
+<p>Pour convertir le code JavaScript en application Android ou iOS, React Native utilise <a href="https://metrobundler.dev/">Metro</a>.</p>
+<p>Après la conversion, cet environnement permet de lancer l'application dans l'émulateur ou [apical_lien_interne][executer_une_application_react_native_sur_un_telephone_android,lsur un appareil mobile][/apical_lien_interne].</p>
+<p>Dans certains sens, on peut comparer Metro pour React-Native à un serveur Web pour PHP.</p>
+<p>Une fois les fichiers de base créés, même si vous n'avez encore rien codé, vous pouvez lancer l'application à l'aide de Metro grâce à cette commande :</p>
+<p>Terminal</p>
+<p>cd /chemin/MonProjet</p>
+<p>npx react-native run-android</p>
+<p>La commande suivante permet de faire la même chose mais elle dépend d'une configuration du fichier package.json situé à la racine du projet :</p>
+<p>Terminal</p>
+<p>cd /chemin/MonProjet<br />
+npm run android</p>
+<p>Avant la version 0.77 de Metro, il était possible de lancer l'application à partir de cette commande :</p>
+<p>Terminal</p>
+<p>cd /chemin/MonProjet<br />
+npx react-native start</p>
+<p>On pouvait appuyer sur la lettre a pour lancer dans Android ou sur i pour lancer dans iOS. Ceci n'est désormais plus possible.</p>
+<p>La première fois que vous lancez un projet, vous devez être patients (j'ai déjà vu une attente de 5 à 10 minutes). Les lancements suivants seront plus rapides.</p>
+<p>Une fois l'application lancée dans l'émulateur, la console vous affichera ceci :</p>
+<p>Résultat à l'écran</p>
+<p>info Starting the app on "emulateor-9999" ...</p>
+<p>Starting: intent { act=android.intent.action. MAIN ... ./MainActivity }</p>
+<p>Et l'émulateur affichera l'application de base :</p>
+<p><img alt="Application React Native dans l'émulateur" src="../assets/05-3-cration-et-lancement-dun-projet-react-native-32.png" /></p>
+<p>Si vous obtenez un écran noir, vous devez cliquer sur l'icône Power à droite de l'émulateur afin de mettre l'émulateur en marche.</p>
+<p>Pendant le lancement, remarquez que la fenêtre Metro est ouverte puis couverte par d'autres fenêtres.</p>
+<p>Au besoin, il est possible de cliquer sur la fenêtre Metro pour accéder à différents outils.</p>
+<p>Parmi les fonctionnalités disponibles à partir de la fenêtre Metro, notons qu'il est possible de recharger l'application en appuyant sur la touche r ou encore accéder aux outils de développement en appuyant sur la touche j.</p>
+<p><img alt="Fenêtres Metro et lancement" src="../assets/05-3-cration-et-lancement-dun-projet-react-native-33.png" /></p>
+<h2 id="quelques-solutions-aux-problemes-rencontres">Quelques solutions aux problèmes rencontrés<a class="headerlink" href="#quelques-solutions-aux-problemes-rencontres" title="Permanent link">&para;</a></h2>
+<p>En cas de problème, cette commande pourrait vous mettre sur la bonne piste :</p>
+<p>Terminal</p>
+<p>npx react-native doctor</p>
+<p>Parfois, vider le cache de Metro permet de régler des problèmes.</p>
+<p>Terminal</p>
+<p>npx react-native start --reset-cache</p>
+<p>Vous pouvez aussi tenter cette commande :</p>
+<p>Terminal</p>
+<p>cd MonProjet/android<br />
+./gradlew clean</p>
+<p>Pour en savoir plus sur le système et les bibliothèques utilisées par React Native :</p>
+<p>Terminal</p>
+<p>npx react-native info</p>
+<p>Pour redémarrer le serveur adb (Android Debug Bridge), l'outil qui se charge de faire le pont entre l'émulateur et l'ordinateur :</p>
+<p>Terminal</p>
+<p>adb kill-server<br />
+adb start-server</p>
+<p>Les manipulations suivantes sont souvent aidantes :</p>
+<ul>
+<li>refermer l'émulateur</li>
+<li>refermer la fenêtre Metro avec Ctrl + C</li>
+<li>relancer l'application.</li>
+</ul>
+<p>Toujours lors du lancement de l'application dans l'émulateur, si vous obtenez une erreur du genre « Syntax error in cmake code when parsing string ... invalid character escape \U », ceci est dû à l'utilisation de l'outil <a href="https://cmake.org/">CMake</a> sous Windows. Le problèmes est dû aux barres obliques inverses () utilisées par Windows, qui ne sont pas supportées par CMake. Ce problème est présent seulement sur certaines versions de React Native, par exemple la version 0.76.</p>
+<p>La solution consiste à utiliser une ancienne version d'Android, par exemple la version 0.75.</p>
+<h2 id="pour-plus-dinformation">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation" title="Permanent link">&para;</a></h2>
+<p>« Troubleshooting ». React Native. <a href="https://reactnative.dev/docs/troubleshooting">https://reactnative.dev/docs/troubleshooting</a></p>
+<h2 id="32-environnement-web-pour-tester-une-application-react-native">3.2 Environnement Web pour tester une application React Native<a class="headerlink" href="#32-environnement-web-pour-tester-une-application-react-native" title="Permanent link">&para;</a></h2>
+<p><a href="https://snack.expo.dev/">Expo Snack</a> est un environnement de développement Web qui permet de développer et de tester des applications React Native directement dans le navigateur.</p>
+<p>Un exemple d'utilisation est donné dans ce tutoriel : <a href="https://www.freecodecamp.org/news/react-native-networking-api-requests-using-fetchapi/">https://www.freecodecamp.org/news/react-native-networking-api-requests-using-fetchapi/</a></p>
+<h2 id="33-expo">3.3 Expo<a class="headerlink" href="#33-expo" title="Permanent link">&para;</a></h2>
+<p><a href="https://expo.dev/">Expo</a> est un cadre d'application qui facilite la création d'applications React Native. Il permet de tester les applications dans son interface Expo GO.</p>
+<p>Cet environnement convient pour la grande majorité des applications React Native.</p>
+<p>Notez qu'il ne s'agit pas d'un simple environnement de développement. Les applications créées avec Expo auront une structure différentes de celles créées directement avec React Native CLI.</p>
+<p>Il faut savoir que certains modules pourraient ne pas être disponibles dans Expo. Aussi, les applications seront plus lourdes que celles déveloopées avec React Native CLI.</p>
+<h2 id="pour-plus-dinformation_1">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_1" title="Permanent link">&para;</a></h2>
+<p>« Expo vs React Native CLI: Key Differences Explained ». Swovo. <a href="https://swovo.com/blog/expo-vs-react-native/">https://swovo.com/blog/expo-vs-react-native/</a></p>
+<p>« Should you use Expo or Bare React Native? ». Medium. <a href="https://medium.com/@andrew.chester/should-you-use-expo-or-bare-react-native-8dd400f4a468">https://medium.com/@andrew.chester/should-you-use-expo-or-bare-react-native-8dd400f4a468</a></p>
+<p>« Why Choose React Native Expo Over React Native CLI in 2025 ». Dev.to. <a href="https://dev.to/singhvishal802/why-choose-react-native-expo-over-react-native-cli-in-2025-1087">https://dev.to/singhvishal802/why-choose-react-native-expo-over-react-native-cli-in-2025-1087</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

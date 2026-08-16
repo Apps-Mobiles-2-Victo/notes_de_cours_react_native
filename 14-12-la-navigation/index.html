@@ -1,0 +1,1976 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notes de cours pour le développement d'applications mobiles Android avec Jetpack Compose et Kotlin - 420-5B4-VI">
+      
+      
+        <meta name="author" content="Christiane Lagacé">
+      
+      
+      
+        <link rel="prev" href="../13-11-composants-parents-vs-enfants/">
+      
+      
+        <link rel="next" href="../15-13-les-donnes-locales/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>12. La navigation - PUB095 : Applications mobiles avec React Native, 2025</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#12-la-navigation" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="PUB095 : Applications mobiles avec React Native, 2025" class="md-header__button md-logo" aria-label="PUB095 : Applications mobiles avec React Native, 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PUB095 : Applications mobiles avec React Native, 2025
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12. La navigation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-pub095-applications-mobiles-avec-react-native-2025/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  PUB095 : Applications mobiles avec React Native, 2025
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-table-des-matires/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Table des matières
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-1-applications-mobiles-multiplateformes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Applications mobiles multiplateformes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-2-installation-de-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Installation de React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-3-cration-et-lancement-dun-projet-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Création et lancement d'un projet React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-4-les-mulateurs-et-appareils-physiques/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Les émulateurs et appareils physiques
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-5-vs-code/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. VS Code
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-6-initiation-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Initiation à React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-7-les-composants-du-noyau-core-components/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Les composants du noyau (core components)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../10-8-rendu-conditionnel/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Rendu conditionnel
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../11-9-dboguer-une-application-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. Déboguer une application React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../12-10-les-hooks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  10. Les hooks
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../13-11-composants-parents-vs-enfants/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  11. Composants parents vs enfants
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  12. La navigation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../15-13-les-donnes-locales/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  13. Les données locales
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../16-14-accder-la-base-de-donnes-de-lmulateur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  14. Accéder à la base de données de l'émulateur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../17-15-formulaire-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  15. Formulaire React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../18-16-confirmation-avant-suppression/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  16. Confirmation avant suppression
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../19-17-quelques-rflexions/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  17. Quelques réflexions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../20-18-les-capteurs/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  18. Les capteurs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../21-19-utiliser-un-api/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  19. Utiliser un API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../22-chapitres-de-rfrence/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ────────── Chapitres de référence ──────────
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../23-20-dpannage-react-native-troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  20. Dépannage React Native (troubleshooting)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../24-21-quelques-notions-javascript/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  21. Quelques notions JavaScript
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../25-22-quelques-bibliothques-utiles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  22. Quelques bibliothèques utiles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../26-23-recrer-certains-dossiers-du-projet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  23. Recréer certains dossiers du projet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../27-24-eslint-et-prettier/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  24. ESLint et Prettier
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../28-25-code-propre-une-plateforme/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  25. Code propre à une plateforme
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PUB095 : Applications mobiles avec React Native, 2025" class="md-nav__button md-logo" aria-label="PUB095 : Applications mobiles avec React Native, 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PUB095 : Applications mobiles avec React Native, 2025
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-pub095-applications-mobiles-avec-react-native-2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PUB095 : Applications mobiles avec React Native, 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-table-des-matires/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table des matières
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-1-applications-mobiles-multiplateformes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Applications mobiles multiplateformes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-2-installation-de-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation de React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-3-cration-et-lancement-dun-projet-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Création et lancement d'un projet React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-4-les-mulateurs-et-appareils-physiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les émulateurs et appareils physiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-5-vs-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-6-initiation-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Initiation à React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-7-les-composants-du-noyau-core-components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Les composants du noyau (core components)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-8-rendu-conditionnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Rendu conditionnel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-9-dboguer-une-application-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Déboguer une application React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-10-les-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Les hooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-11-composants-parents-vs-enfants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Composants parents vs enfants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. La navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-13-les-donnes-locales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Les données locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-14-accder-la-base-de-donnes-de-lmulateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Accéder à la base de données de l'émulateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-15-formulaire-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Formulaire React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-16-confirmation-avant-suppression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Confirmation avant suppression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-17-quelques-rflexions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Quelques réflexions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-18-les-capteurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Les capteurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-19-utiliser-un-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utiliser un API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-chapitres-de-rfrence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Chapitres de référence ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-20-dpannage-react-native-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Dépannage React Native (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-21-quelques-notions-javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Quelques notions JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-22-quelques-bibliothques-utiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Quelques bibliothèques utiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-23-recrer-certains-dossiers-du-projet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Recréer certains dossiers du projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-24-eslint-et-prettier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. ESLint et Prettier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-25-code-propre-une-plateforme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Code propre à une plateforme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="12-la-navigation">12. La navigation<a class="headerlink" href="#12-la-navigation" title="Permanent link">&para;</a></h1>
+<h1 id="12-la-navigation_1">12. La navigation<a class="headerlink" href="#12-la-navigation_1" title="Permanent link">&para;</a></h1>
+<h2 id="121-bibliotheque-react-navigation">12.1 Bibliothèque React Navigation<a class="headerlink" href="#121-bibliotheque-react-navigation" title="Permanent link">&para;</a></h2>
+<p>Lorsqu'une application React Native comporte plusieurs pages, il faut implanter un système de navigation à l'aide d'une bibliothèque externe.</p>
+<p><a href="https://reactnavigation.org/">React Navigation</a> est l'une de ces bibliothèques, très utilisée sur le marché. Elle est d'ailleurs la <a href="https://reactnative.dev/docs/navigation">bibliothèque recommandée pour React Native</a>.</p>
+<p>Remarquez que pour un projet React Web, il est plutôt conseillé d'utiliser <a href="https://reactrouter.com/en/main">React Router</a>.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Pour travailler avec React Navigation, vous devez installer quelques paquets.</p>
+<p>Terminal</p>
+<p>cd /chemin/MonProjet</p>
+<p>npm install @react-navigation/native<br />
+npm install react-native-screens<br />
+npm install @react-navigation/native-stack</p>
+<p>Si vous développez pour iOS, ajoutez également ceci :</p>
+<p>Terminal</p>
+<p>npx pod-install ios</p>
+<h2 id="definition-du-systeme-de-navigation">Définition du système de navigation<a class="headerlink" href="#definition-du-systeme-de-navigation" title="Permanent link">&para;</a></h2>
+<p>Typiquement, le système de navigation sera déclaré dans le fichier principal de l'application.</p>
+<p>Fichier App.tsx (React Native)</p>
+<p>import React from 'react';<br />
+...<br />
+import {NavigationContainer} from '@react-navigation/native';<br />
+import {createNativeStackNavigator} from '@react-navigation/native-stack';  </p>
+<p>// Pour la vérification de type des routes (voir https://reactnavigation.org/docs/typescript#type-checking-the-navigator)<br />
+export type RootStackParamList = {<br />
+  Home: undefined; // cette route n'a aucun paramètre<br />
+  Edit: {id: number};<br />
+};  </p>
+<p>const Stack = createNativeStackNavigator<RootStackParamList>();  </p>
+<p>const App = () =&gt; {<br />
+  // Définition du système de navigation.<br />
+  return (<br />
+    <NavigationContainer><br />
+      <Stack.Navigator initialRouteName="Home"><br />
+        <Stack.Screen name="Home" component={HomeScreen} /><br />
+        <Stack.Screen<br />          name="Edit"<br />          component={EditScreen}<br />          initialParams={{id: 0}} // si la route ne reçoit pas le paramètre id, la valeur 0 sera utilisée<br />        /><br />
+      </Stack.Navigator><br />
+    </NavigationContainer><br />
+  );<br />
+};</p>
+<p>Par défaut, une barre de titre apparaîtra dans le haut de chaque page et affichera le nom de la route.</p>
+<p>Il est possible de spécifier un titre pour chaque route afin que ce titre soit affiché dans la barre de navigation au lieu du nom.</p>
+<p>Fichier App.tsx (React Native)</p>
+<p><Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Accueil' }} /></p>
+<h2 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">&para;</a></h2>
+<p>Pour chaque composant associé à une route, on recevra un objet route et un objet navigation.</p>
+<p>Les paramètres de la route, s'il y a lieu, pourront être retrouvés à l'aide de l'objet route. Dans l'extrait plus bas, j'ai simplement affiché la valeur du paramètre pour fins de démonstration.</p>
+<p>Pour naviguer d'une route à l'autre, on utilisera <a href="https://reactnavigation.org/docs/navigating/#navigating-to-a-new-screen">navigation.navigate</a>.</p>
+<p>Fichier EditScreen.tsx</p>
+<p>import React from 'react';<br />
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';<br />
+...  </p>
+<p>// Pour la vérification de type des paramètres, même pour les routes sans paramètre (voir https://reactnavigation.org/docs/typescript#type-checking-screens)</p>
+<p>type Props = NativeStackScreenProps<RootStackParamList, 'Edit'>;  </p>
+<p>// Ajustez les paramètres selon ce qui est requis. Ex : route pourrait ne pas être utile s'il n'y a pas de paramètre.</p>
+<p>const EditScreen = ({route, navigation}: Props) =&gt; {<br />
+  const {id} = route.params;<br />
+  return (<br />
+    &lt;&gt;<br />
+      <Text>{JSON.stringify(id)}</Text><br />
+      <Button<br />        onPress={() => navigation.navigate('Home')}<br />
+        title="Accueil"<br />
+      /&gt;<br />
+    &lt;/&gt;<br />
+  );<br />
+};</p>
+<p>export default EditScreen;</p>
+<p>Dès qu'on navigue vers une route, une flèche apparaît dans la barre de titre afin de permettre le retour à la page précédente.</p>
+<p>Pour passer des paramètres à une route :</p>
+<p>Voir « [apical_lien_interne]passer_des_parametres_a_une_route[/apical_lien_interne] ».</p>
+<h2 id="pour-plus-dinformation">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation" title="Permanent link">&para;</a></h2>
+<p>« Navigating Between Screens  ». React Native. <a href="https://reactnative.dev/docs/navigation">https://reactnative.dev/docs/navigation</a></p>
+<p>« Getting Started ». React Navigation. <a href="https://reactnavigation.org/docs/getting-started/">https://reactnavigation.org/docs/getting-started/</a></p>
+<p>« Hello React Navigation ». React Navigation. <a href="https://reactnavigation.org/docs/hello-react-navigation/">https://reactnavigation.org/docs/hello-react-navigation/</a></p>
+<p>« Type checking with TypeScript ». React Navigation. <a href="https://reactnavigation.org/docs/typescript">https://reactnavigation.org/docs/typescript</a></p>
+<p>« Working with Stack Navigation in React Native with Typescript ». Medium. <a href="https://medium.com/timeless/working-with-stack-navigation-in-react-native-with-typescript-2deda91eab8a">https://medium.com/timeless/working-with-stack-navigation-in-react-native-with-typescript-2deda91eab8a</a></p>
+<p>« Getting Started with React Navigation v6 and TypeScript in React Native ». jscrambler. <a href="https://jscrambler.com/blog/getting-started-with-react-navigation-v6-and-typescript-in-react-native">https://jscrambler.com/blog/getting-started-with-react-navigation-v6-and-typescript-in-react-native</a></p>
+<h2 id="122-passer-des-parametres-a-une-route">12.2 Passer des paramètres à une route<a class="headerlink" href="#122-passer-des-parametres-a-une-route" title="Permanent link">&para;</a></h2>
+<p>Quand une route a besoin de savoir sur quel objet elle doit travailler, il est préférable de passer en paramètre à la route seulement l'identifiant de l'objet plutôt que l'objet en tant que tel.</p>
+<p>Selon la documentation de React Navigation<a href="https://reactnavigation.org/docs/params/#:~:text=What%20should%20be%20in%20params">1</a>:</p>
+<blockquote>
+<p>Avoid passing the full data which will be displayed on the screen itself (e.g. pass a user id instead of user object).</p>
+</blockquote>
+<p>React Native</p>
+<p><Button<br />  title="Modifier"<br />  onPress={() => {<br />
+    navigation.navigate('Edit', {<br />
+      id: ...,<br />
+    });<br />
+  }}<br />
+ /&gt;</p>
+<h2 id="source">Source<a class="headerlink" href="#source" title="Permanent link">&para;</a></h2>
+<ol>
+<li>« Passing parameters to routes ». React Navigation. <a href="https://reactnavigation.org/docs/params/#:~:text=What%20should%20be%20in%20params">https://reactnavigation.org/docs/params</a></li>
+</ol>
+<h2 id="123-retourner-a-la-page-precedente">12.3 Retourner à la page précédente<a class="headerlink" href="#123-retourner-a-la-page-precedente" title="Permanent link">&para;</a></h2>
+<p>Lorsqu'on travaille avec navigation.navigate(), on empile les pages.</p>
+<p>L'animation pour passer à la nouvelle page est un léger mouvement à partir de la droite et on voit une flèche apparaître à gauche du nom de la nouvelle page afin de permettre de revenir à la page précédente.</p>
+<p>Il est possible de retourner à la page précédente par programmation, et donc de retirer une page de la pile. L'animation sera alors un léger mouvement à partir de la gauche.</p>
+<p>Pour revenir à la page précédente :</p>
+<p>JavaScript</p>
+<p>navigation.goBack();</p>
+<h2 id="124-parametres-dun-composant-utilise-par-deux-routes-differentes">12.4 Paramètres d'un composant utilisé par deux routes différentes<a class="headerlink" href="#124-parametres-dun-composant-utilise-par-deux-routes-differentes" title="Permanent link">&para;</a></h2>
+<p>Prenons le cas où un même composant permet d'afficher un formulaire d'ajout ou de modification.</p>
+<p>Voici comment les paramètres seront définis pour les deux routes requises.</p>
+<p>Fichier App.tsx (React Native)</p>
+<p>export type RootStackParamList = {<br />
+  Ajouter: undefined;<br />
+  Modifier: {id: number};<br />
+  ...<br />
+};  </p>
+<p>...</p>
+<p>Si les routes Ajouter et Modifier sont associés au composant nommé Formulaire, ce composant ne recevra aucun paramètre quand c'est pour un ajout et un paramètre id quand c'est une modification.</p>
+<p>Voici comment déclarer correctement ces paramètres.</p>
+<p>Fichier Formulaire.tsx</p>
+<p>// Code emprunté généré par Microsoft Copilot, novembre 2024<br />
+type AjouterProps = NativeStackScreenProps<RootStackParamList, 'Ajouter'>;<br />
+type ModifierProps = NativeStackScreenProps<RootStackParamList, 'Modifier'>;<br />
+type Props = AjouterProps | ModifierProps;<br />
+// Fin du code emprunté</p>
+<p>const Formulaire = ({route, navigation}: Props) =&gt; {<br />
+  const {id} = route.params ?? { id: null };<br />
+  ...<br />
+};  </p>
+<p>export default Formulaire;</p>
+<h2 id="125-route-avec-parametre-optionnel">12.5 Route avec paramètre optionnel<a class="headerlink" href="#125-route-avec-parametre-optionnel" title="Permanent link">&para;</a></h2>
+<p>Une route peut avoir un paramètre optionnel.</p>
+<p>Pour déclarer les types de cette route, on procédera comme suit :</p>
+<p>React Native</p>
+<p>export type RootStackParamList = {<br />
+  ...<br />
+  MonComposant: {maProp: string} | undefined;<br />
+};</p>
+<h2 id="126-acceder-a-la-navigation-de-partout">12.6 Accéder à la navigation de partout<a class="headerlink" href="#126-acceder-a-la-navigation-de-partout" title="Permanent link">&para;</a></h2>
+<p>L'objet navigation est celui qui permet d'accéder à une route.</p>
+<p>C'est react-navigation qui se charge d'instancier cet objet lors de la définition du système de navigation.</p>
+<p>Je vous présente ici quelques technique pour accéder à cet objet à partir de différents contextes.</p>
+<h2 id="parametre-passe-par-la-route">Paramètre passé par la route<a class="headerlink" href="#parametre-passe-par-la-route" title="Permanent link">&para;</a></h2>
+<p>Le cas le plus simple consiste à recevoir le paramètre directement de la route.</p>
+<p>Il n'y a rien à modifier du côté du composant <NavigationContainer> utilisé dans App.tsx. Tout se passe dans les composants associés à chacune des routes.</p>
+<p>Chaque composant recevra le paramètre comme suit :</p>
+<p>React Native</p>
+<p>import type { NativeStackScreenProps } from '@react-navigation/native-stack';<br />
+...</p>
+<p>// Pour la vérification de type des paramètres (voir https://reactnavigation.org/docs/typescript#type-checking-screens)</p>
+<p>type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;</p>
+<p>const HomeScreen = ({route, navigation}: Props) =&gt; {<br />
+  ...<br />
+  return (<br />
+    ...<br />
+    <Button<br />      onPress={() => navigation.navigate('PageDeux')}<br />
+      title="Page deux"<br />
+    /&gt;<br />
+    ...<br />
+  );<br />
+};</p>
+<p>Ou, si la route n'a aucun paramètre :</p>
+<p>React Native</p>
+<p>const HomeScreen = ({navigation}: Props) =&gt; {<br />
+  ...<br />
+};</p>
+<h2 id="methode-usenavigation">Méthode useNavigation()<a class="headerlink" href="#methode-usenavigation" title="Permanent link">&para;</a></h2>
+<p>Une autre façon d'accéder à l'objet navigation consiste à utiliser le hook <a href="https://reactnavigation.org/docs/use-navigation/">useNavigation()</a>.</p>
+<p>Ce hook permet de retrouver l'objet navigation du composant dans lequel il est appelé, sans qu'il ait été passé en paramètre.</p>
+<p>Sous JavaScript, la variable de navigation peut être initialisée comme suit :</p>
+<p>Terminal</p>
+<p>const navigation = useNavigation();</p>
+<p>Si vous travaillez avec TypeScript, il vous faudra préciser le type de useNavigation(). Si vous ne le faites pas, vous aurez un avertissement. Le code fonctionnera tout de même mais vous devez apporter les correctifs nécessaires.</p>
+<p>Voici un extrait de code qui initialise la variable de navigation avec useNavigation().</p>
+<p>React Native</p>
+<p>import {useNavigation, NavigationProp} from '@react-navigation/native';<br />
+import {RootStackParamList} from "./App"<br />
+...<br />
+const HomeScreen = () =&gt; {</p>
+<p>const navigation = useNavigation<NavigationProp\<RootStackParamList>>();<br />
+  ...<br />
+  return (<br />
+    ...<br />
+    <Button<br />      onPress={() => navigation.navigate('PageDeux')}<br />
+      title="Page deux"<br />
+    /&gt;<br />
+    ...<br />
+  );<br />
+};</p>
+<p>Cette technique permet également d'accéder à l'objet navigation dans un composant qui n'est pas associé à une route, tout comme la technique suivante.</p>
+<h2 id="propriete-passee-a-un-composant">Propriété passée à un composant<a class="headerlink" href="#propriete-passee-a-un-composant" title="Permanent link">&para;</a></h2>
+<p>Prenons le cas où vous codez une barre de navigation dans un composant. Ce composant n'est évidemment pas associé à une route.</p>
+<p>Pour avoir accès à l'objet navigation, le composant peut le recevoir en tant que propriété.</p>
+<p>Composant parent (React Native)</p>
+<p><BarreNavigation navigation={navigation} /></p>
+<p>Composant enfant (React Native)</p>
+<p>...<br />
+import {NavigationProp, ParamListBase} from '@react-navigation/native';</p>
+<p>type BarreNavigationProps = {<br />
+  navigation: NavigationProp<ParamListBase>;<br />
+};</p>
+<p>const BarreNavigation = (props: BarreNavigationProps) =&gt; {<br />
+  ...<br />
+  return (<br />
+    ...<br />
+    <Button<br />      onPress={() => props.navigation.navigate('PageDeux')}<br />
+      title="Page deux"<br />
+    /&gt;<br />
+    ...<br />
+  );<br />
+};</p>
+<h2 id="pour-plus-dinformation_1">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_1" title="Permanent link">&para;</a></h2>
+<p>« Access the navigation prop from any component ». React Navigation. <a href="https://reactnavigation.org/docs/connecting-navigation-prop/">https://reactnavigation.org/docs/connecting-navigation-prop/</a></p>
+<p>« useNavigation ». React Navigation. <a href="https://reactnavigation.org/docs/use-navigation/">https://reactnavigation.org/docs/use-navigation/</a></p>
+<p>« Type checking with TypeScript ». React Navigation. <a href="https://reactnavigation.org/docs/typescript/">https://reactnavigation.org/docs/typescript/</a></p>
+<h2 id="127-placer-un-element-jsx-dans-le-bas-completement-de-lecran">12.7 Placer un élément JSX dans le bas complètement de l'écran<a class="headerlink" href="#127-placer-un-element-jsx-dans-le-bas-completement-de-lecran" title="Permanent link">&para;</a></h2>
+<p>Puisque les composants React Native utilisent le positionnement CSS flex par défaut, il est facile de placer un élément dans le bas complètement de l'écran, par exemple un bouton ou même une barre de navigation.</p>
+<p>L'astuce consiste à donner le style flex: 1 à une vue (balise <View>) et à y placer tout le code qui doit être placé dans l'écran. La partie qui doit être au bas de l'écran sera placée en dehors de cette vue.</p>
+<p>Fichier styles.ts (React Native)</p>
+<p>import {StyleSheet} from 'react-native';</p>
+<p>const styles = StyleSheet.create({<br />
+  conteneur: {<br />
+    flex: 1,<br />
+  },<br />
+  ...<br />
+});</p>
+<p>export {styles};</p>
+<p>Fichier MonComposant.tsx (Reat Native)</p>
+<p>...  </p>
+<p>return (<br />
+  &lt;&gt;<br />
+    <View style={styles.conteneur}><br />
+      <Text>Placer dans cette vue tout le contenu de la page à l'exception de ce qui va dans le bas de l'écran.</Text><br />
+    </View><br />
+    <Text>Ceci apparaîtra dans le bas de l'écran.</Text><br />
+  &lt;/&gt;<br />
+ );</p>
+<p><img alt="Élément dans le bas de l'écran" src="../assets/14-12-la-navigation-50.png" /></p>
+<h2 id="contenu-qui-defile">Contenu qui défile<a class="headerlink" href="#contenu-qui-defile" title="Permanent link">&para;</a></h2>
+<p>Dans le cas où la partie principale de l'écran doit pouvoir défiler, il faudra plutôt travailler avec flexGrow: 1.</p>
+<p>En effet, la règle flex: 1 est un raccourci pour flex-grow: 1, flex-shrink: 1, flex-basis: 0. Donc, le contenu du ScrollView sera contracté (shrink) à la taille du parent alors il ne pourra plus défiler.</p>
+<h3 id="scrollview">ScrollView<a class="headerlink" href="#scrollview" title="Permanent link">&para;</a></h3>
+<p>Voici un exemple avec un ScrollView.</p>
+<p>Fichier styles.ts (React Native)</p>
+<p>import {StyleSheet} from 'react-native';</p>
+<p>const styles = StyleSheet.create({<br />
+  conteneur: {<br />
+    flexGrow: 1,<br />
+  },<br />
+  ami: {<br />
+    fontSize: 30,<br />
+    padding: 30,<br />
+  },<br />
+  ...<br />
+});</p>
+<p>export {styles};</p>
+<p>Fichier MonComposant.tsx (Reat Native)</p>
+<p>...  </p>
+<p>return (<br />
+  &lt;&gt;<br />
+    <ScrollView contentContainerStyle={styles.conteneur}><br />
+      {amis.map((ami, index) =&gt; (<br />
+        <Text style={styles.ami} key={index}>{ami}</Text><br />
+      ))}<br />
+    </ScrollView><br />
+    <Text>Ceci apparaîtra dans le bas de l'écran.</Text><br />
+  &lt;/&gt;<br />
+ );</p>
+<h3 id="flatlist">FlatList<a class="headerlink" href="#flatlist" title="Permanent link">&para;</a></h3>
+<p>Et voici un exemple avec un [apical_lien_interne][flatlist,FlatList][/apical_lien_interne].</p>
+<p>Fichier src/styles/styles.ts (React Native)</p>
+<p>import {StyleSheet} from 'react-native';</p>
+<p>const styles = StyleSheet.create({<br />
+  conteneur: {<br />
+    flexGrow: 1,<br />
+  },<br />
+  ami: {<br />
+    fontSize: 30,<br />
+    padding: 30,<br />
+  },<br />
+  ...<br />
+});</p>
+<p>export {styles};</p>
+<p>Fichier src/components/MonComposant.tsx (Reat Native)</p>
+<p>...  </p>
+<p>return (<br />
+  &lt;&gt;<br />
+    <FlatList<br />      contentContainerStyle={styles.conteneur}<br />      numColumns={1}<br />      data={amis}<br />      renderItem={({item, index}) => (<br />
+        <Text style={styles.ami} key={index}>{item}</Text><br />
+      )}<br />
+    /&gt;<br />
+    <Text>Ceci apparaîtra dans le bas de l'écran.</Text><br />
+  &lt;/&gt;<br />
+ );</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

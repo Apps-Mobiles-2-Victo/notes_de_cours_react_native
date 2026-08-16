@@ -1,0 +1,1825 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notes de cours pour le développement d'applications mobiles Android avec Jetpack Compose et Kotlin - 420-5B4-VI">
+      
+      
+        <meta name="author" content="Christiane Lagacé">
+      
+      
+      
+        <link rel="prev" href="../11-9-dboguer-une-application-react-native/">
+      
+      
+        <link rel="next" href="../13-11-composants-parents-vs-enfants/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>10. Les hooks - PUB095 : Applications mobiles avec React Native, 2025</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#10-les-hooks" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="PUB095 : Applications mobiles avec React Native, 2025" class="md-header__button md-logo" aria-label="PUB095 : Applications mobiles avec React Native, 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PUB095 : Applications mobiles avec React Native, 2025
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              10. Les hooks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-pub095-applications-mobiles-avec-react-native-2025/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  PUB095 : Applications mobiles avec React Native, 2025
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-table-des-matires/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Table des matières
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-1-applications-mobiles-multiplateformes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Applications mobiles multiplateformes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-2-installation-de-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Installation de React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-3-cration-et-lancement-dun-projet-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Création et lancement d'un projet React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-4-les-mulateurs-et-appareils-physiques/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Les émulateurs et appareils physiques
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-5-vs-code/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. VS Code
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-6-initiation-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Initiation à React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-7-les-composants-du-noyau-core-components/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Les composants du noyau (core components)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../10-8-rendu-conditionnel/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Rendu conditionnel
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../11-9-dboguer-une-application-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. Déboguer une application React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  10. Les hooks
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../13-11-composants-parents-vs-enfants/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  11. Composants parents vs enfants
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../14-12-la-navigation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  12. La navigation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../15-13-les-donnes-locales/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  13. Les données locales
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../16-14-accder-la-base-de-donnes-de-lmulateur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  14. Accéder à la base de données de l'émulateur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../17-15-formulaire-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  15. Formulaire React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../18-16-confirmation-avant-suppression/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  16. Confirmation avant suppression
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../19-17-quelques-rflexions/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  17. Quelques réflexions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../20-18-les-capteurs/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  18. Les capteurs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../21-19-utiliser-un-api/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  19. Utiliser un API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../22-chapitres-de-rfrence/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ────────── Chapitres de référence ──────────
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../23-20-dpannage-react-native-troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  20. Dépannage React Native (troubleshooting)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../24-21-quelques-notions-javascript/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  21. Quelques notions JavaScript
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../25-22-quelques-bibliothques-utiles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  22. Quelques bibliothèques utiles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../26-23-recrer-certains-dossiers-du-projet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  23. Recréer certains dossiers du projet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../27-24-eslint-et-prettier/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  24. ESLint et Prettier
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../28-25-code-propre-une-plateforme/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  25. Code propre à une plateforme
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PUB095 : Applications mobiles avec React Native, 2025" class="md-nav__button md-logo" aria-label="PUB095 : Applications mobiles avec React Native, 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PUB095 : Applications mobiles avec React Native, 2025
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-pub095-applications-mobiles-avec-react-native-2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PUB095 : Applications mobiles avec React Native, 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-table-des-matires/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table des matières
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-1-applications-mobiles-multiplateformes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Applications mobiles multiplateformes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-2-installation-de-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation de React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-3-cration-et-lancement-dun-projet-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Création et lancement d'un projet React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-4-les-mulateurs-et-appareils-physiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les émulateurs et appareils physiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-5-vs-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-6-initiation-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Initiation à React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-7-les-composants-du-noyau-core-components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Les composants du noyau (core components)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-8-rendu-conditionnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Rendu conditionnel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-9-dboguer-une-application-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Déboguer une application React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Les hooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-11-composants-parents-vs-enfants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Composants parents vs enfants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-12-la-navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. La navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-13-les-donnes-locales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Les données locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-14-accder-la-base-de-donnes-de-lmulateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Accéder à la base de données de l'émulateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-15-formulaire-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Formulaire React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-16-confirmation-avant-suppression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Confirmation avant suppression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-17-quelques-rflexions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Quelques réflexions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-18-les-capteurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Les capteurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-19-utiliser-un-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utiliser un API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-chapitres-de-rfrence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Chapitres de référence ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-20-dpannage-react-native-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Dépannage React Native (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-21-quelques-notions-javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Quelques notions JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-22-quelques-bibliothques-utiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Quelques bibliothèques utiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-23-recrer-certains-dossiers-du-projet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Recréer certains dossiers du projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-24-eslint-et-prettier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. ESLint et Prettier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-25-code-propre-une-plateforme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Code propre à une plateforme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="10-les-hooks">10. Les hooks<a class="headerlink" href="#10-les-hooks" title="Permanent link">&para;</a></h1>
+<h1 id="10-les-hooks_1">10. Les hooks<a class="headerlink" href="#10-les-hooks_1" title="Permanent link">&para;</a></h1>
+<h2 id="101-quest-ce-quun-hook-react-native">10.1 Qu'est-ce qu'un hook React Native?<a class="headerlink" href="#101-quest-ce-quun-hook-react-native" title="Permanent link">&para;</a></h2>
+<p>Dans React et React Native, les hooks sont un mécanisme qui permet de suivre l'état d'un composant de type fonction (functional component).</p>
+<p>Parmi les hooks les plus utilisés, notons :</p>
+<ul>
+<li>[apical_lien_interne][variables_d_etat,useState][/apical_lien_interne]: permet de définir une variable d'état</li>
+<li>[apical_lien_interne][rendre_une_variable_d_etat_disponible_a_tous_les_enfants,useContext][/apical_lien_interne]: permet de définir une variable partagée entre différents composants</li>
+<li>[apical_lien_interne][reagir_seulement_lorsqu_une_variable_d_etat_a_change_de_valeur,useEffect][/apical_lien_interne]: permet de réagir à un changement de valeur</li>
+<li><a href="https://react.dev/reference/react/useRef">useRef</a> : permet de définir une variable qui n'est pas utilisée dans le rendu</li>
+<li>[apical_lien_interne][memoriser_des_informations_longues_a_calculer_usememo,useMemo][/apical_lien_interne]: permet de mémoriser des informations longues à calculer.</li>
+<li>[apical_lien_interne][optimiser_les_performances_usecallback,useCallback][/apical_lien_interne]: permet de mettre une fonction en cache entre deux rendus</li>
+<li>[apical_lien_interne][effectuer_une_action_quand_un_composant_gagne_le_focus,useFocusEffect][/apical_lien_interne]: permet d'effectuer du code lorsqu'un écran prend le focus (fonctionne avec React Navigation)</li>
+</ul>
+<h2 id="pour-plus-dinformation">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation" title="Permanent link">&para;</a></h2>
+<p>« Built-in React Hooks ». React. <a href="https://react.dev/reference/react/hooks">https://react.dev/reference/react/hooks</a></p>
+<p>« React Hooks cheat sheet: Best practices with examples ». LogRocket. <a href="https://blog.logrocket.com/react-hooks-cheat-sheet-solutions-common-problems/">https://blog.logrocket.com/react-hooks-cheat-sheet-solutions-common-problems/</a></p>
+<h2 id="102-effectuer-un-traitement-lors-du-chargement-du-composant-useeffect-sans-dependances">10.2 Effectuer un traitement lors du chargement du composant (useEffect sans dépendances)<a class="headerlink" href="#102-effectuer-un-traitement-lors-du-chargement-du-composant-useeffect-sans-dependances" title="Permanent link">&para;</a></h2>
+<p>Le hook <a href="https://react.dev/reference/react/useEffect">useEffect</a> permet d'effectuer un traitement lorsqu'une variable change de valeur.</p>
+<p>Mais si on ne fournit aucune variable en paramètre, le traitement n'aura lieu qu'une seule fois, lorsque le composant vient de se charger.</p>
+<p>React Native</p>
+<p>const MonComposant = () =&gt; {<br />
+  ...  </p>
+<p>useEffect(() =&gt; {<br />
+    ...   // ce code sera exécuté une fois, lorsque le composant sera chargé<br />
+  }, []);  </p>
+<p>return (<br />
+    ...<br />
+  );<br />
+};</p>
+<h2 id="103-reagir-seulement-lorsquune-variable-detat-a-change-de-valeur-useeffect">10.3 Réagir seulement lorsqu'une variable d'état a changé de valeur (useEffect)<a class="headerlink" href="#103-reagir-seulement-lorsquune-variable-detat-a-change-de-valeur-useeffect" title="Permanent link">&para;</a></h2>
+<p>Le hook <a href="https://react.dev/reference/react/useEffect">useEffect</a> permet d'effectuer un traitement seulement lorsqu'une variable change de valeur.</p>
+<p>React Native</p>
+<p>useEffect(() =&gt; {<br />
+  ...   // Ce code sera effectué seulement lorsque maVariable change de valeur.<br />
+}, [maVariable]);</p>
+<p>Il sera utile notamment pour effectuer un traitement qui requiert que le changement de valeur soit effectivement fait.</p>
+<p>React Native</p>
+<p>setMaVariable('nouvelle valeur');   // la nouvelle valeur ne sera effective que lors du prochain rendu<br />
+...<br />
+useEffect(() =&gt; {<br />
+  ...   // Ici, on sait que le changement de valeur a eu lieu.<br />
+}, [maVariable]);</p>
+<h2 id="104-appeler-une-fonction-asynchrone-dans-un-useeffect">10.4 Appeler une fonction asynchrone dans un useEffect<a class="headerlink" href="#104-appeler-une-fonction-asynchrone-dans-un-useeffect" title="Permanent link">&para;</a></h2>
+<p>Si vous utilisez le hook useEffect pour appeler une fonction asynchrone lorsqu'une variable change de valeur, vous obtiendrez l'erreur « Les expressions 'await' sont autorisées uniquement dans les fonctions asynchrones et aux niveaux supérieurs des modules. ».</p>
+<p>React Native</p>
+<p>useEffect(() =&gt; {<br />
+  const db = await getDBConnection();<br />
+  ...<br />
+}, [id]);</p>
+<p>Une des techniques pour régler ce problème consiste à définir une fonction asynchrone dans le useEffect et immédiatement appeler cette fonction.</p>
+<p>React Native</p>
+<p>useEffect(() =&gt; {<br />
+  // pour appeler une fonction asynchrone dans un useEffect, il faut déclarer une fonction async qui fait le await puis appeler cette fonction.<br />
+  // autres pistes de solutions : https://stackoverflow.com/questions/53332321/react-hook-warnings-for-async-function-in-useeffect-useeffect-function-must-ret<br />
+  async function retrouverItem() {<br />
+    ...<br />
+    const db = await getDBConnection();<br />
+    ...</p>
+<p>}</p>
+<p>retrouverItem();<br />
+ }, [id]);</p>
+<p>Je vous propose une autre syntaxe que vous pourriez rencontrer mais qui est moins facile à comprendre pour un débutant.</p>
+<p>Il s'agit de déclarer une fonction anonyme et de l'appeler immédiatement grâce aux <a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">fonctions immédiatement invoquées</a> (IIFE, Immediately Invoked Function Expression).</p>
+<p>Notez que cet acronyme se prononce « iffy ».</p>
+<p>Dans le contexte actuel, la IIFE est asynchrone mais il est possible d'avoir une IIFE sans le mot-clé async.</p>
+<p>React Native</p>
+<p>useEffect(() =&gt; {<br />
+  (async () =&gt; {<br />
+    ...<br />
+  })();   // ces parenthèses sont ce qui fait que la fonction est immédiatement invoquée<br />
+ }, [id]);</p>
+<h2 id="105-rendre-une-variable-detat-disponible-a-tous-les-enfants-usecontext">10.5 Rendre une variable d'état disponible à tous les enfants (useContext)<a class="headerlink" href="#105-rendre-une-variable-detat-disponible-a-tous-les-enfants-usecontext" title="Permanent link">&para;</a></h2>
+<p>Le hook <a href="https://react.dev/reference/react/useContext">useContext</a> permet de définir une variable qui sera disponible pour tous les enfants.</p>
+<p>Pour l'utiliser avec TypeScript, il faut d'abord définir le type d'information qu'il permet de passer. De façon générale, il s'agira d'une variable d'état et de la fonction qui permet de la modifier.</p>
+<p>Ce type peut être défini dans le même fichier que la définition d'une interface.</p>
+<p>Fichier src/models/Categorie.ts</p>
+<p>export interface Categorie {<br />
+  id: number | null;<br />
+  description: string;<br />
+}</p>
+<p>export type CategorieContextType = {<br />
+  categories: Categorie[];<br />
+  setCategories: (categories: Categorie[]) =&gt; void;<br />
+};</p>
+<p>La définition du contexte sera effectuée dans le composant le plus proche parent de ceux qui en ont besoin.</p>
+<p>Dans cet exemple, j'ai utilisé le composant de base de l'application.</p>
+<p>Fichier App.tsx (React Native)</p>
+<p>...<br />
+import {Categorie,CategorieContextType} from "./models/Categorie";  </p>
+<p>export const CategoriesContext = React.createContext<CategorieContextType | null>(null);  </p>
+<p>const App = () =&gt; {<br />
+  const [categories, setCategories] = useState<Categorie[]>([]);<br />
+  ...<br />
+  return (<br />
+    <CategoriesContext.Provider value={{categories, setCategories}}><br />
+      {/* Les composant qui sont ici auront accès au contexte */}<br />
+    </CategoriesContext.Provider><br />
+  );<br />
+};</p>
+<p>Dans un composant enfant, on retrouvera le contexte comme suit :</p>
+<p>Composant enfant (Reat Native)</p>
+<p>const ComposantEnfant = () =&gt; {<br />
+  const {categories, setCategories} = React.useContext(CategoriesContext) as CategorieContextType;<br />
+  ...   // il est désormais possible d'utiliser la variable categories et de la modifier à l'aide de setCategories.<br />
+};</p>
+<h2 id="pour-plus-dinformation_1">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_1" title="Permanent link">&para;</a></h2>
+<p>«  createContext ». React. <a href="https://react.dev/reference/react/createContext">https://react.dev/reference/react/createContext</a></p>
+<p>« How to use React Context with TypeScript ». LogRocket. <a href="https://blog.logrocket.com/how-to-use-react-context-typescript/">https://blog.logrocket.com/how-to-use-react-context-typescript/</a></p>
+<h2 id="106-memoriser-des-informations-longues-a-calculer-usememo">10.6 Mémoriser des informations longues à calculer (useMemo)<a class="headerlink" href="#106-memoriser-des-informations-longues-a-calculer-usememo" title="Permanent link">&para;</a></h2>
+<p>Le hook <a href="https://react.dev/reference/react/useMemo">useMemo</a> permet de mettre en cache le résultat de calculs entre deux rendus.</p>
+<h2 id="pour-plus-dinformation_2">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_2" title="Permanent link">&para;</a></h2>
+<p>« Understanding useMemo and useCallback ». Josh Comeau. <a href="https://www.joshwcomeau.com/react/usememo-and-usecallback/">https://www.joshwcomeau.com/react/usememo-and-usecallback/</a></p>
+<p>« How to Work with useMemo in React – with Code Examples ». Free Code Camp. <a href="https://www.freecodecamp.org/news/how-to-work-with-usememo-in-react/">https://www.freecodecamp.org/news/how-to-work-with-usememo-in-react/</a></p>
+<p>« You Might Not Need an Effect ». React.dev. <a href="https://react.dev/learn/you-might-not-need-an-effect">https://react.dev/learn/you-might-not-need-an-effect</a></p>
+<h2 id="107-mettre-une-fonction-en-cache-entre-deux-rendus-usecallback">10.7 Mettre une fonction en cache entre deux rendus (useCallback)<a class="headerlink" href="#107-mettre-une-fonction-en-cache-entre-deux-rendus-usecallback" title="Permanent link">&para;</a></h2>
+<p>Le hook <a href="https://react.dev/reference/react/useCallback">useCallback</a> permet de mettre une fonction en cache afin d'optimiser les performances de l'application.</p>
+<p>Il est souvent utilisé en combinaison avec d'autres hooks, par exemple [apical_lien_interne][effectuer_une_action_quand_un_composant_gagne_le_focus,useFocusEffect][/apical_lien_interne]. Ceci assure que le code de la fonction mise en cache ne sera pas réexécuté à chaque rafraîchissement d'écran. On précisera dans quelles conditions il faut réexécuter ce code.</p>
+<h2 id="pour-plus-dinformation_3">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_3" title="Permanent link">&para;</a></h2>
+<p>« Understanding useMemo and useCallback ». Josh Comeau. <a href="https://www.joshwcomeau.com/react/usememo-and-usecallback/">https://www.joshwcomeau.com/react/usememo-and-usecallback/</a></p>
+<p>« Optimizing React Native Performance with useCallback ». Medium. <a href="https://viniciuspetrachin.medium.com/optimizing-react-native-performance-with-usecallback-bdb6d801c9cf">https://viniciuspetrachin.medium.com/optimizing-react-native-performance-with-usecallback-bdb6d801c9cf</a></p>
+<h2 id="108-effectuer-une-action-quand-un-composant-gagne-le-focus-usefocuseffect">10.8 Effectuer une action quand un composant gagne le focus (useFocusEffect)<a class="headerlink" href="#108-effectuer-une-action-quand-un-composant-gagne-le-focus-usefocuseffect" title="Permanent link">&para;</a></h2>
+<p>Dans une application qui utilise React Navigation, le hook <a href="https://reactnavigation.org/docs/use-focus-effect/">useFocusEffect</a> permet d'effectuer une action seulement si le composant a le focus.</p>
+<p>Ce hook doit être utilisé en combinaison avec le hook <a href="https://react.dev/reference/react/useCallback">useCallback</a> sinon, le code sera exécuté à chaque fois que l'écran est rafraîchi.</p>
+<p>De façon plus précise, le code sera exécuté seulement si le composant a le focus ET que la dépendance associée au hook useCallback change de valeur.</p>
+<p>Dans le cas où useCallback n'a aucune dépendance (lorqu'on retrouve [] comme second paramètre), le code sera exécuté lorsque le composant gagne le focus.</p>
+<p>React Native</p>
+<p>useFocusEffect(<br />
+  useCallback(() =&gt; {<br />
+    // code à exécuter à chaque fois que le composant gagne le focus, par exemple retrouver des informations dans la BD.  </p>
+<p>return () =&gt; {<br />
+      // code à exécuter à chaque fois que le composant perd le focus, par exemple effectuer des tâches de nettoyage.<br />
+    };<br />
+  }, [])<br />
+ );</p>
+<h2 id="pour-plus-dinformation_4">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_4" title="Permanent link">&para;</a></h2>
+<p>« useFocusEffect ». React Navigation. <a href="https://reactnavigation.org/docs/use-focus-effect/#:~:text=The%20effect%20will%20run%20whenever%20the%20dependencies%20passed%20to%20React.useCallback%20change">https://reactnavigation.org/docs/use-focus-effect/</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

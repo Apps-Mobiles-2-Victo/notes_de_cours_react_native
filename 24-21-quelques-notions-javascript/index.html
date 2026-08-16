@@ -1,0 +1,2072 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notes de cours pour le développement d'applications mobiles Android avec Jetpack Compose et Kotlin - 420-5B4-VI">
+      
+      
+        <meta name="author" content="Christiane Lagacé">
+      
+      
+      
+        <link rel="prev" href="../23-20-dpannage-react-native-troubleshooting/">
+      
+      
+        <link rel="next" href="../25-22-quelques-bibliothques-utiles/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>21. Quelques notions JavaScript - PUB095 : Applications mobiles avec React Native, 2025</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#21-quelques-notions-javascript" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="PUB095 : Applications mobiles avec React Native, 2025" class="md-header__button md-logo" aria-label="PUB095 : Applications mobiles avec React Native, 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PUB095 : Applications mobiles avec React Native, 2025
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              21. Quelques notions JavaScript
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-pub095-applications-mobiles-avec-react-native-2025/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  PUB095 : Applications mobiles avec React Native, 2025
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-table-des-matires/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Table des matières
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-1-applications-mobiles-multiplateformes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Applications mobiles multiplateformes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-2-installation-de-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Installation de React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-3-cration-et-lancement-dun-projet-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Création et lancement d'un projet React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-4-les-mulateurs-et-appareils-physiques/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Les émulateurs et appareils physiques
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-5-vs-code/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. VS Code
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-6-initiation-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Initiation à React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-7-les-composants-du-noyau-core-components/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Les composants du noyau (core components)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../10-8-rendu-conditionnel/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Rendu conditionnel
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../11-9-dboguer-une-application-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. Déboguer une application React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../12-10-les-hooks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  10. Les hooks
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../13-11-composants-parents-vs-enfants/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  11. Composants parents vs enfants
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../14-12-la-navigation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  12. La navigation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../15-13-les-donnes-locales/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  13. Les données locales
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../16-14-accder-la-base-de-donnes-de-lmulateur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  14. Accéder à la base de données de l'émulateur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../17-15-formulaire-react-native/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  15. Formulaire React Native
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../18-16-confirmation-avant-suppression/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  16. Confirmation avant suppression
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../19-17-quelques-rflexions/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  17. Quelques réflexions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../20-18-les-capteurs/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  18. Les capteurs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../21-19-utiliser-un-api/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  19. Utiliser un API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../22-chapitres-de-rfrence/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ────────── Chapitres de référence ──────────
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../23-20-dpannage-react-native-troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  20. Dépannage React Native (troubleshooting)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  21. Quelques notions JavaScript
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../25-22-quelques-bibliothques-utiles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  22. Quelques bibliothèques utiles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../26-23-recrer-certains-dossiers-du-projet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  23. Recréer certains dossiers du projet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../27-24-eslint-et-prettier/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  24. ESLint et Prettier
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../28-25-code-propre-une-plateforme/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  25. Code propre à une plateforme
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PUB095 : Applications mobiles avec React Native, 2025" class="md-nav__button md-logo" aria-label="PUB095 : Applications mobiles avec React Native, 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PUB095 : Applications mobiles avec React Native, 2025
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-pub095-applications-mobiles-avec-react-native-2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PUB095 : Applications mobiles avec React Native, 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-table-des-matires/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Table des matières
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-1-applications-mobiles-multiplateformes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Applications mobiles multiplateformes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-2-installation-de-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation de React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-3-cration-et-lancement-dun-projet-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Création et lancement d'un projet React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-4-les-mulateurs-et-appareils-physiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les émulateurs et appareils physiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-5-vs-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-6-initiation-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Initiation à React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-7-les-composants-du-noyau-core-components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Les composants du noyau (core components)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-8-rendu-conditionnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Rendu conditionnel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-9-dboguer-une-application-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Déboguer une application React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-10-les-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Les hooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-11-composants-parents-vs-enfants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Composants parents vs enfants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-12-la-navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. La navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-13-les-donnes-locales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Les données locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-14-accder-la-base-de-donnes-de-lmulateur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Accéder à la base de données de l'émulateur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-15-formulaire-react-native/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Formulaire React Native
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-16-confirmation-avant-suppression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Confirmation avant suppression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-17-quelques-rflexions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Quelques réflexions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-18-les-capteurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Les capteurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-19-utiliser-un-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utiliser un API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-chapitres-de-rfrence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ────────── Chapitres de référence ──────────
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-20-dpannage-react-native-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Dépannage React Native (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Quelques notions JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-22-quelques-bibliothques-utiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Quelques bibliothèques utiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-23-recrer-certains-dossiers-du-projet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Recréer certains dossiers du projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-24-eslint-et-prettier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. ESLint et Prettier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-25-code-propre-une-plateforme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Code propre à une plateforme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="21-quelques-notions-javascript">21. Quelques notions JavaScript<a class="headerlink" href="#21-quelques-notions-javascript" title="Permanent link">&para;</a></h1>
+<h1 id="21-quelques-notions-javascript_1">21. Quelques notions JavaScript<a class="headerlink" href="#21-quelques-notions-javascript_1" title="Permanent link">&para;</a></h1>
+<h2 id="211-les-tableaux-avec-react-native">21.1 Les tableaux avec React Native<a class="headerlink" href="#211-les-tableaux-avec-react-native" title="Permanent link">&para;</a></h2>
+<p>Prenon l'exemple d'une application React Native qui doit afficher les valeurs d'un tableau dont voici la structure.</p>
+<p>React Native</p>
+<p>interface Ami {<br />
+  id: number;<br />
+  prenom: string;<br />
+  nomFamille: string;<br />
+}  </p>
+<p>...  </p>
+<p>const amis: Ami[] = [<br />
+  {id: 1, prenom: 'Annie', nomFamille: 'Gagnon'},</p>
+<p>{id: 2, prenom: 'Justin', nomFamille: 'Bellemare'},<br />
+  {id: 3, prenom: 'Aurélie', nomFamille: 'Dubuc'},<br />
+];</p>
+<p>Pour afficher les valeurs d'un tel tableau à l'aide d'une boucle, vous pouvez utiliser la méthode <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map()</a>.</p>
+<p>React Native</p>
+<p>{amis.map((ami, i) =&gt; (<br />
+  <React.Fragment key={i}><br />
+    <Text>{ami.prenom}</Text><br />
+    <Text>{ami.nomFamille}</Text><br />
+  </React.Fragment><br />
+ ))}</p>
+<h2 id="fragments-pour-specifier-la-cle-unique">Fragments pour spécifier la clé unique<a class="headerlink" href="#fragments-pour-specifier-la-cle-unique" title="Permanent link">&para;</a></h2>
+<p>Remarquez l'utilisation [apical_lien_interne][les_fragments,des fragments][/apical_lien_interne], c'est-à-dire les balises <React.Fragment></React.Fragment>.  Elles sont l'équivalent de &lt;&gt;&lt;/&gt; mais elles permettent d'ajouter des propriétés.</p>
+<p>Ceci est requis ici puisque si vous ne spécifiez pas de clé unique (attribut key) pour chaque itération, vous obtiendrez ce message d'erreur au bas de l'émulateur : « Each child in a list should have a uniaque "key" prop. ».</p>
+<p><img alt="Each child in a list should have a uniaque " src="../assets/24-21-quelques-notions-javascript-57.png" /></p>
+<p>Si on n'avait qu'un composant à afficher dans la boucle, il aurait été possible de lui passer directement l'attribut key.</p>
+<p>React Native</p>
+<p>{amis.map((ami, i) =&gt; (<br />
+  <Text key={i}>{ami.prenom}</Text><br />
+ ))}</p>
+<h2 id="si-la-valeur-de-i-nest-pas-toujours-associee-au-meme-element">Si la valeur de i n'est pas toujours associée au même élément<a class="headerlink" href="#si-la-valeur-de-i-nest-pas-toujours-associee-au-meme-element" title="Permanent link">&para;</a></h2>
+<p>React Native a besoin de connaître en tout temps à quel élément la clé est associée. L'utilisation de i fonctionnera dans la majorité des cas.</p>
+<p>Mais si le tableau devait être trié, par exemple après l'ajout d'un élément, la valeur de i ne permettrait plus de faire le suivi avec les valeurs originales. Ceci pourrait entraîner des problèmes de performance ou des incohérences dans l'affichage puisque React Native ne pourra plus gérer correctement l'état.</p>
+<p>Dans un tel cas, on devra utiliser une valeur qui identifie chaque élément de façon unique, par exemple son identifiant s'il existe.</p>
+<p>React Native</p>
+<p>{amis.map((ami) =&gt; (<br />
+  <React.Fragment key={ami.id}><br />
+    <Text>{ami.prenom}</Text><br />
+    <Text>{ami.nomFamille}</Text><br />
+  </React.Fragment><br />
+))}</p>
+<p>En fait, lorsqu'on a accès à une donnée qui identifie chaque élément de façon unique, on devrait toujours l'utiliser comme clé plutôt que de travailler avec i.</p>
+<h2 id="ajouter-un-element-a-la-fin-dun-tableau">Ajouter un élément à la fin d'un tableau<a class="headerlink" href="#ajouter-un-element-a-la-fin-dun-tableau" title="Permanent link">&para;</a></h2>
+<p>Le code qui suit permet d'ajouter un élément à la fin d'un tableau existant.</p>
+<p>React Native</p>
+<p>setDonnees((donnees) =&gt; [...donnees, nouvelleDonnee]);</p>
+<p>Voici un extrait de code qui fait la même chose mais de façon plus explicite (explications tirées de <a href="https://react.dev/learn/updating-arrays-in-state">https://react.dev/learn/updating-arrays-in-state</a>) :</p>
+<p>React Native</p>
+<p>setDonnees((donnees) =&gt;<br />
+  // remplace le tableau<br />
+  [<br />
+    // avec un nouveau tableau<br />
+    ...donnees, // qui comprend les éléments originaux<br />
+    {id: null, ...}, // et un nouvel élément à la fin<br />
+  ],<br />
+);</p>
+<h2 id="212-les-litteraux-de-gabarits">21.2 Les littéraux de gabarits<a class="headerlink" href="#212-les-litteraux-de-gabarits" title="Permanent link">&para;</a></h2>
+<p>En JavaScript, un littéral de gabarit (en anglais : template literal) et une chaîne de caractère dans laquelle une expression peut être introduite et correctement interprétée.</p>
+<p>On utilise les guillemets obliques (backticks : `) pour entourer un littéral de gabarit.</p>
+<p>JavaScript</p>
+<p>const nom = 'Annie';<br />
+ const libelle = <code>Mon nom est ${nom}.</code>;   // libellé vaut « Mon nom est Annie. »</p>
+<p>À l'intérieur du littéral de gabarit, il faut entourer d'accolades la variable qui doit être interprétée et faire précéder le tout par un signe $.</p>
+<p>On peut comparer les littéraux de gabarits JavaScript aux chaînes entourées d'apostrophes en PHP : les deux permettent d'interpréter une variable à l'intérieur de la chaîne.</p>
+<p>Cependant, les littéraux de gabarits vont plus loin : ils permettent d'exécuter des fonctions, ce qui n'est pas permis dans une chaîne PHP entourée d'apostrophes.</p>
+<p>JavaScript</p>
+<p>const libellé = <code>J'ai ${getAge("1993/06/04")} ans.</code>;</p>
+<h2 id="pour-plus-dinformation">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation" title="Permanent link">&para;</a></h2>
+<p>« Littéraux de gabarits ». MDN. <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Litt%C3%A9raux_gabarits">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Litt%C3%A9raux_gabarits</a></p>
+<h2 id="213-la-copie-de-tableaux-javascript-par-reference-superficielle-profonde">21.3 La copie de tableaux JavaScript - par référence, superficielle, profonde<a class="headerlink" href="#213-la-copie-de-tableaux-javascript-par-reference-superficielle-profonde" title="Permanent link">&para;</a></h2>
+<h2 id="copie-par-reference">Copie par référence<a class="headerlink" href="#copie-par-reference" title="Permanent link">&para;</a></h2>
+<p>Lorsqu'on copie un tableau  JavaScript dans un autre tableau à l'aide de l'opérateur d'assignation, on obtient deux variables qui pointent sur les mêmes cases mémoire.</p>
+<p>Autrement dit, toute modification au premier tableau se reflète dans le second tableau.</p>
+<p>JavaScript</p>
+<p>const tableauOriginal = ['Table', 'Chaise', 'Bureau'];<br />
+const copieReference = tableauOriginal;<br />
+tableauOriginal[1]= 'Lampe';<br />
+console.log(copieReference[1]);   // la copie est également modifiée : 'Lampe'</p>
+<h2 id="copie-superficielle-shallow-copy">Copie superficielle (shallow copy)<a class="headerlink" href="#copie-superficielle-shallow-copy" title="Permanent link">&para;</a></h2>
+<p>Il est souvent préférable de créer une copie du tableau plutôt que de simplement faire pointer le second tableau sur les cases mémoire du premier.</p>
+<p>La première technique que je vous présente permet d'effectuer une copie superficielle, c'est-à-dire que les éléments du second tableau seront des copies de celles du premier. Par contre, on dit que la copie est superficielle puisque si les tableaux ont des éléments qui sont des objets, ces éléments dans le second tableau seront des références à ceux du premier tableau.</p>
+<p>Voyons d'abord un exemple sans élément objet. Les deux tableaux seront alors complètement distincts.</p>
+<p>JavaScript</p>
+<p>const tableauOriginal = ['Table', 'Chaise', 'Bureau'];<br />
+const copieSuperficielle = tableauOriginal.slice(0);<br />
+tableauOriginal[1]= 'Lampe';<br />
+console.log(copieSuperficielle[1]);   // la copie est inchangée : 'Chaise'</p>
+<p>Maintenant, faisons le test avec des éléments objet.</p>
+<p>JavaScript</p>
+<p>const tableauOriginal = [<br />
+    {id: 1, description: 'Table'},<br />
+    {id: 2, description: 'Chaise'},<br />
+    {id: 3, description: 'Bureau'},<br />
+];  </p>
+<p>const copieSuperficielle = tableauOriginal.slice(0);<br />
+tableauOriginal[1].description = 'Lit';<br />
+console.log(copieSuperficielle[1]);   // l'élément objet de la copie est également modifié : <br />
+                                      // {id: 2, description: 'Lit'}</p>
+<p>La copie superficielle peut également être réalisée à l'aide de l'<a href="https://fr.legacy.reactjs.org/docs/jsx-in-depth.html#spread-attributes">opérateur de décomposition</a> (spread operator).</p>
+<p>JavaScript</p>
+<p>const tableauOriginal = [<br />
+    {id: 1, description: 'Table'},<br />
+    {id: 2, description: 'Chaise'},<br />
+    {id: 3, description: 'Bureau'},<br />
+];  </p>
+<p>const copieSuperficielle = {...tableauOriginal};<br />
+tableauOriginal[1].description = 'Lit';<br />
+console.log(copieSuperficielle[1]);   // l'élément objet de la copie est également modifié : <br />
+                                      // {id: 2, description: 'Lit'}</p>
+<h2 id="copie-profonde-deep-copy">Copie profonde (deep copy)<a class="headerlink" href="#copie-profonde-deep-copy" title="Permanent link">&para;</a></h2>
+<p>Avec une copie profonde, tous les éléments du second tableau sont distincts de ceux du premier, même les éléments qui sont des objets.</p>
+<p>La technique la plus intéressante pour réaliser une copie profonde consiste à utiliser <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone">structuredClone()</a>.</p>
+<p>JavaScript</p>
+<p>const tableauOriginal = [<br />
+    {id: 1, description: 'Table'},<br />
+    {id: 2, description: 'Chaise'},<br />
+    {id: 3, description: 'Bureau'},<br />
+];  </p>
+<p>const copieProfonde = structuredClone(tableauOriginal);<br />
+tableauOriginal[1].description = 'Lit';<br />
+console.log(copieProfonde[1]);   // l'élément objet de la copie demeure inchangé : <br />
+                                 // {id: 2, description: 'Chaise'}</p>
+<p>Les deux objets sont vraiment distincts peu importe le niveau de profondeur des éléments objet.</p>
+<p>JavaScript</p>
+<p>const tableauOriginal = [<br />
+    {id: 1, description: 'Table', categorie: {code: 'a', description: 'Catégorie A'}},<br />
+    {id: 2, description: 'Chaise', categorie: {code: 'b', description: 'Catégorie B'}},<br />
+    {id: 3, description: 'Bureau', categorie: {code: 'c', description: 'Catégorie C'}},<br />
+];  </p>
+<p>const copieProfonde = structuredClone(tableauOriginal);  </p>
+<p>tableauOriginal[1].categorie = {code: 'd', description: 'Catégorie D'};  </p>
+<p>console.log(copieProfonde[1]);   // l'élément objet de la copie demeure inchangé : <br />
+                                // {id: 2, description: 'Chaise', categorie": {code: 'b', description: "Catégorie B'}}</p>
+<p>La méthode structuredClone() est largement supportée depuis 2021, mais pas dans tous les environnements. Par exemple, lors de mes tests en React Native en 2025, elle n'était pas implantée.</p>
+<p>Dans le code produit avant son arrivée, et dans les environnements où structuredClone() n'est pas implantée, les développeurs utilisent cette astuce pour effectuer un travail à peu près équivalent.</p>
+<p>JavaScript</p>
+<p>const tableauOriginal = [<br />
+    {id: 1, description: 'Table', categorie: {code: 'a', description: 'Catégorie A'}},<br />
+    {id: 2, description: 'Chaise', categorie: {code: 'b', description: 'Catégorie B'}},<br />
+    {id: 3, description: 'Bureau', categorie: {code: 'c', description: 'Catégorie C'}},<br />
+];  </p>
+<p>const copieProfonde = JSON.parse(JSON.stringify(tableauOriginal));<br />
+tableauOriginal[1].categorie = {code: 'd', description: 'Catégorie D'};<br />
+console.log(copieProfonde[1]);   // l'élément objet de la copie demeure inchangé : <br />
+                                 // {id: 2, description: 'Chaise', categorie": {code: 'b', description: "Catégorie B'}}</p>
+<h2 id="214-comment-fonctionnent-les-fonctions-flechees">21.4 Comment fonctionnent les fonctions fléchées<a class="headerlink" href="#214-comment-fonctionnent-les-fonctions-flechees" title="Permanent link">&para;</a></h2>
+<p>Les fonctions fléchées (arrow functions), vous connaissez?</p>
+<p>Ce concept existe dans différents langages, par exemple JavaScript, Java, Kotlin, Python, PHP.</p>
+<p>Dans certains langage, on les appelle plutôt expressions lambda.</p>
+<p>Je vous fait une démonstration ici en JavaScript mais les concepts peuvent être étendus aux autres langages si on y apporte quelques ajustements, notamment au niveau de la syntaxe.</p>
+<p>Dans cette fiche :</p>
+<ul>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#syntaxe">Syntaxe de base</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#raccourcis">Quelques raccourcis</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#return">Instruction return</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#utilisation">Utilisation</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#boucle">Exemple avec boucle</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#fetch">Exemple avec fetch</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#differences">Quelques différences</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#declaration">Déclaration avant utilisation</a></li>
+<li><a href="https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#this">this</a></li>
+</ul>
+<h2 id="syntaxe-de-base">Syntaxe de base<a class="headerlink" href="#syntaxe-de-base" title="Permanent link">&para;</a></h2>
+<p>Une fonction fléchée, c'est une façon différente, plus concise de déclarer une fonction.</p>
+<p>Plutôt que de déclarer une fonction régulière comme ceci :</p>
+<p>JavaScript</p>
+<p>function faireQuelqueChose() {<br />
+  console.log('Test!');<br />
+}</p>
+<p>on déclarera une fonction fléchée comme cela :</p>
+<p>JavaScript</p>
+<p>const faireQuelqueChose = () =&gt; {<br />
+  console.log('Test!');<br />
+}</p>
+<p>Remarquez :</p>
+<ul>
+<li>la fonction est assignée à une variable</li>
+<li>il pourrait y avoir des paramètres entre les parenthèses</li>
+<li>la flèche (=&gt;) indique le début du code à exécuter</li>
+</ul>
+<p>Dans le cas où la fonction attend un ou plusieurs paramètres, on aura plutôt ceci.</p>
+<p>Fonction régulière :</p>
+<p>JavaScript</p>
+<p>function faireQuelqueChose(unParametre) {<br />
+  console.log(<code>Paramètre: ${unParametre}!</code>);<br />
+}</p>
+<p>Fonction fléchée :</p>
+<p>JavaScript</p>
+<p>const faireQuelqueChose = (unParametre) =&gt; {<br />
+  console.log(<code>Paramètre: ${unParametre}!</code>);<br />
+}</p>
+<p>Oui mais la fonction fléchée dans cet exemple n'est pas plus concise que la fonction régulière.</p>
+<p>Pour donner un exemple vraiment équivalent, la fonction régulière aurait été elle aussi assignée à une variable. On voit que la syntaxe fléchée est plus concise dans ce contexte.</p>
+<p>JavaScript</p>
+<p>const faireQuelqueChose = function(unParametre) {<br />
+  console.log(<code>Paramètre: ${unParametre}!</code>);<br />
+}</p>
+<h2 id="quelques-raccourcis">Quelques raccourcis<a class="headerlink" href="#quelques-raccourcis" title="Permanent link">&para;</a></h2>
+<p>Avec une fonction fléchée, il est possible d'omettre les parenthèses alentour du paramètre lorsqu'il n'y en a qu'un seul.</p>
+<p>JavaScript</p>
+<p>const faireQuelqueChose = unParametre =&gt; {<br />
+  console.log(<code>Paramètre: ${unParametre}!</code>);<br />
+}</p>
+<p>Il est également possible d'omettre les accolades lorsqu'il n'y a qu'une seule instruction et qu'il ne s'agit pas d'un return.</p>
+<p>JavaScript</p>
+<p>const faireQuelqueChose = unParametre =&gt; console.log(<code>Paramètre: ${unParametre}!</code>);</p>
+<p>Remarquez que plusieurs développeurs préfèrent toujours utiliser les accolades et les parenthèses puisqu'elles contribuent à clarifier le code.</p>
+<h2 id="instruction-return">Instruction return<a class="headerlink" href="#instruction-return" title="Permanent link">&para;</a></h2>
+<p>Lorsque la fonction doit faire un return et qu'elle ne comprend qu'une seule instruction, il n'est pas requis d'écrire le return. Il est implicite.</p>
+<p>Version avec return explicite :</p>
+<p>JavaScript</p>
+<p>const doubler = nombre =&gt; { return nombre * 2 };</p>
+<p>Version avec return implicite :</p>
+<p>JavaScript</p>
+<p>const doubler = nombre =&gt; nombre * 2;</p>
+<p>Si on écrit le return, il faut absolument utiliser les accolades même s'il n'y a qu'une seule instruction.</p>
+<p>JavaScript</p>
+<p>const doubler = nombre =&gt; return nombre * 2;<br />
+console.log(doubler(3)); // Unexpected token 'return'</p>
+<p>Et si on désire retourner une valeur et qu'on utilise les accolades, il faut absolument écrire le mot return.</p>
+<p>JavaScript</p>
+<p>const doubler = nombre =&gt; { nombre * 2 }<br />
+console.log(doubler(3)); // undefined car il y a des accolades sans return</p>
+<h2 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">&para;</a></h2>
+<p>Que la fonction ait été définie de façon régulière ou en tant que fonction fléchée, elle sera appelée de la même façon.</p>
+<p>JavaScript</p>
+<p>faireQuelqueChose('Allô!');<br />
+const resultat = doubler(3);</p>
+<h3 id="exemple-avec-boucle">Exemple avec boucle<a class="headerlink" href="#exemple-avec-boucle" title="Permanent link">&para;</a></h3>
+<p>On pourrait définir et appeler la fonction fléchée directement comme fonction de rappel (callback function) dans une boucle.</p>
+<p>On n'aura alors pas besoin de l'assigner à une variable.</p>
+<p>JavaScript</p>
+<p>const valeurs = ['A', 'B', 'C'];</p>
+<p>valeurs.map((unParametre) =&gt; {<br />
+  console.log(<code>Paramètre: ${unParametre}!</code>);<br />
+})</p>
+<p>Sans les fonctions fléchées, le code est moins élégant.</p>
+<p>JavaScript</p>
+<p>valeurs.map(function(unParametre) {<br />
+  console.log(<code>Paramètre: ${unParametre}!</code>);<br />
+})</p>
+<h3 id="exemple-avec-fetch">Exemple avec fetch<a class="headerlink" href="#exemple-avec-fetch" title="Permanent link">&para;</a></h3>
+<p>Lorsqu'on réalise un appel AJAX avec fetch, les fonctions fléchées sont particulièrement intéressantes.</p>
+<p>JavaScript</p>
+<p>fetch('https://...', {<br />
+  method: 'POST',<br />
+  headers: {<br />
+    'Content-Type': 'application/json',<br />
+  },<br />
+  body: JSON.stringify({<br />
+    // ...<br />
+  }),<br />
+ }).then(response =&gt; {<br />
+  if (!response.ok) {<br />
+    // le catch pourra réagir à l'erreur<br />
+    throw new Error(<code>Erreur API : ${response.status} ${response.statusText}</code>);<br />
+  }<br />
+  return response.json();<br />
+ }).then(result =&gt; {<br />
+  console.log(result.message);<br />
+ }).catch(error =&gt; {<br />
+  console.log(error);<br />
+ }).finally(() =&gt; {<br />
+  // ...<br />
+ });</p>
+<p>Sans les fonctions fléchées, le code est ici aussi moins élégant.</p>
+<p>JavaScript</p>
+<p>fetch('https://...', {<br />
+  method: 'POST',<br />
+  headers: {<br />
+    'Content-Type': 'application/json',<br />
+  },<br />
+  body: JSON.stringify({<br />
+    // ...<br />
+  }),<br />
+ }).then(function(response) {<br />
+  if (!response.ok) {<br />
+    // le catch pourra réagir à l'erreur<br />
+    throw new Error(<code>Erreur API : ${response.status} ${response.statusText}</code>);<br />
+  }<br />
+  return response.json(); <br />
+ }).then(function(result) {<br />
+  console.log(result.message);<br />
+ }).catch(function(error) {<br />
+  console.log(error);<br />
+ }).finally(function() {<br />
+  // ...<br />
+ });</p>
+<h2 id="quelques-differences">Quelques différences<a class="headerlink" href="#quelques-differences" title="Permanent link">&para;</a></h2>
+<p>Voyons maintenant quelques différences entre les fonctions régulières et les fonctions fléchées.</p>
+<h3 id="declaration-avant-utilisation">Déclaration avant utilisation<a class="headerlink" href="#declaration-avant-utilisation" title="Permanent link">&para;</a></h3>
+<p>Une fonction régulière peut être appelée dans le haut d'un fichier puis déclarée plus bas.</p>
+<p>JavaScript</p>
+<p>faireQuelqueChose('Appel avant déclaration');   // ok</p>
+<p>function faireQuelqueChose(unParametre) {<br />
+  console.log(<code>Paramètre: ${unParametre}!</code>);<br />
+}</p>
+<p>Avec les fonctions fléchées, il faut absolument déclarer la fonction avant de l'appeler.</p>
+<p>JavaScript</p>
+<p>faireQuelqueChose('Appel avant déclaration');   // Uncaught ReferenceError: Cannot access 'faireQuelqueChose' before initialization  </p>
+<p>const faireQuelqueChose = unParametre =&gt; {<br />
+  console.log(<code>Paramètre: ${unParametre}!</code>);<br />
+}</p>
+<p>Par contre, ce code React fonctionne puisque le contenu du hook useEffect n'est exécuté que lorsque le composant est chargé.</p>
+<p>JavaScript</p>
+<p>useEffect(() =&gt; {<br />
+  faireQuelqueChose('ok dans useEffect');<br />
+ }, []);  </p>
+<p>const faireQuelqueChose = unParametre =&gt; {<br />
+  console.log(<code>Paramètre: ${unParametre}!</code>);<br />
+}</p>
+<h3 id="this">this<a class="headerlink" href="#this" title="Permanent link">&para;</a></h3>
+<p>Dans une fonction régulière, le mot-clé this fait référence au contexte d'exécution.</p>
+<p>Par exemple, dans un gestionnaire d'événement, il s'agit de l'élément du DOM qui a déclenché l'événement.</p>
+<p>JavaScript</p>
+<p>class MaClasse {<br />
+  constructor() {<br />
+    this.bouton = document.getElementById('bouton');<br />
+    this.compteur = 0;     <br />
+  }  </p>
+<p>maMethode() {    <br />
+    this.bouton.addEventListener('click', function() {<br />
+      this.compteur++;   // this est l'élément DOM sur lequel on a cliqué. Ceci n'a aucun effet sur la propriété compteur de la classe.<br />
+    });<br />
+  }<br />
+}  </p>
+<p>let test = new MaClasse();<br />
+test.maMethode();</p>
+<p>Dans une fonction fléchée, le mot-clé this fait référence au contexte dans lequel la fonction a été créée.</p>
+<p>Par exemple, à l'intérieur d'une classe, il s'agit de l'instance de la classe.</p>
+<p>JavaScript</p>
+<p>class MaClasse {<br />
+  constructor() {<br />
+    this.bouton = document.getElementById('bouton');<br />
+    this.compteur = 0;     <br />
+  }</p>
+<p>maMethode() {<br />
+    this.element.addEventListener('click', () =&gt; {<br />
+      this.compteur++;    // this est l'instance de la classe. Ceci fonctionne correctement.<br />
+    });<br />
+  }<br />
+}  </p>
+<p>let test = new MaClasse();<br />
+test.maMethode();</p>
+<p>Voici un exemple que j'ai vécu il y a quelques années dans un programme réel.</p>
+<p>Avant de réaliser que les fonctions fléchées pourraient régler mon problème avec this, j'avais développé une astuce pour contourner ce problème.</p>
+<p>Ce code fait partie d'une application WordPress qui utilise la bibliothèque <a href="https://threejs.org/">three.js</a> pour afficher une image 3D.</p>
+<p>JavaScript</p>
+<p>class MonGestionnaireImages {<br />
+  ...<br />
+  chargerImage( urlImage ) {<br />
+    let referenceAThis = this;   // ici, this est l'instance de la classe</p>
+<p>let textureLoader = new THREE.TextureLoader();</p>
+<p>textureLoader.load( urlImage,<br />
+       function ( texture ) {<br />
+        var spriteMaterial = new THREE.SpriteMaterial( { map: texture } );</p>
+<p>referenceAThis.objet = new THREE.Sprite( spriteMaterial );   // ici, this serait undefined car c'est le code interne de la classe THREE.TextureLoader qui exécute la fonction de rappel<br />
+         ...<br />
+      },<br />
+      ...<br />
+    );</p>
+<p>}<br />
+}</p>
+<p>Le code serait beaucoup plus élégant avec une fonction fléchée :</p>
+<p>JavaScript</p>
+<p>class MonGestionnaireImages {<br />
+  ...<br />
+  chargerImage( urlImage ) {<br />
+    let textureLoader = new THREE.TextureLoader();</p>
+<p>textureLoader.load( urlImage,<br />
+      (texture) =&gt; {<br />
+        var spriteMaterial = new THREE.SpriteMaterial( { map: texture } );<br />
+        this.objet = new THREE.Sprite( spriteMaterial );   // ici, this est l'instance de la classe<br />
+      },<br />
+      ...<br />
+    ); <br />
+  }<br />
+}</p>
+<p>Selon vous, les parenthèses alentour de texture sont-elles obligatoires?</p>
+<h2 id="pour-plus-dinformation_1">Pour plus d'information<a class="headerlink" href="#pour-plus-dinformation_1" title="Permanent link">&para;</a></h2>
+<p>« How to Use JavaScript Arrow Functions – Explained in Detail ». Free Code Camp. <a href="https://www.freecodecamp.org/news/javascript-arrow-functions-in-depth/">https://www.freecodecamp.org/news/javascript-arrow-functions-in-depth/</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
