@@ -1,6 +1,6 @@
 # 6. Les composants du noyau (core components)
 
-## 6.1 <View>
+## 6.1 <View> { #view }
 
 Le composant [<View>](https://reactnative.dev/docs/view) est un conteneur qui permet notamment de spécifier une mise en forme.
 
@@ -24,7 +24,7 @@ const App = () => {
 
 export default App;
 
-## 6.2 <Text>
+## 6.2 <Text> { #text }
 
 Le composant [<Text>](https://reactnative.dev/docs/text) permet d'afficher un simple texte à l'écran.
 
@@ -44,13 +44,13 @@ React Native
 
 <Text>{maVariable}</Text>
 
-Il est possible de lui ajouter [apical\_lien\_interne][ajouter\_des\_styles,des styles][/apical\_lien\_interne].
+Il est possible de lui ajouter [des styles](08-6-initiation-react-native.md#styles).
 
 React Native
 
 <Text style={styles.titre}>Mon titre</Text>
 
-## 6.3 <Image>
+## 6.3 <Image> { #image }
 
 Le composant [<Image>](http://reactnative.dev/docs/image) permet d'afficher une image locale ou encore une image à partir d'un URL.
 
@@ -60,7 +60,7 @@ React Native
 
 <Image source={require('../images/home.png')} />
 
-Dans le cas d'une image chargée à partir d'un URL, il faut absolument spécifier sa taille [apical\_lien\_interne][ajouter\_des\_styles,à l'aide d'un style][/apical\_lien\_interne] puisque React Native n'est pas en mesure de connaître sa taille avant que le téléchargement soit complété.
+Dans le cas d'une image chargée à partir d'un URL, il faut absolument spécifier sa taille [à l'aide d'un style](08-6-initiation-react-native.md#styles) puisque React Native n'est pas en mesure de connaître sa taille avant que le téléchargement soit complété.
 
 React Native
 
@@ -70,7 +70,7 @@ React Native
 
 « Image Style Props ». React Native. <https://reactnative.dev/docs/image-style-props>
 
-## 6.4 <Button>
+## 6.4 <Button> { #button }
 
 Dans React Native, le composant [<Button>](https://reactnative.dev/docs/button), comme son nom l'indique, permet de créer un bouton cliquable.
 
@@ -93,7 +93,7 @@ Voici l'apparence du bouton sur chacune des plateformes.
 | Button sur Android |  | Button sur iOS |
 | Androïd |  | iOS |
 
-Si vous désirez créer un bouton avec une apparence personnalisée, vous devez vous tourner vers d'autres composants, par exemple <[apical\_lien\_interne][pressable,Pressable][/apical\_lien\_interne]>.
+Si vous désirez créer un bouton avec une apparence personnalisée, vous devez vous tourner vers d'autres composants, par exemple [<Pressable>](#pressable).
 
 React Native
 
@@ -115,7 +115,7 @@ Il existe également le composant <TouchableOpacity> mais React Native suggère 
 
 « Buttons on React Native: Understanding the difference and which one to use ». Medium. <https://gabrielvrl.medium.com/buttons-on-react-native-understanding-the-difference-and-which-one-to-use-756760140119>
 
-## 6.5 <Pressable>
+## 6.5 <Pressable> { #pressable }
 
 Le composant [<Pressable>](https://reactnative.dev/docs/pressable) permet de réagir à un clic sur n'importe quoi à l'écran.
 
@@ -173,7 +173,7 @@ boutonPresse: {
   opacity: 0.2,  
  },
 
-## 6.6 <FlatList>
+## 6.6 <FlatList> { #flatlist }
 
 Le composant [<FlatList>](https://reactnative.dev/docs/flatlist.html) est intéressant pour afficher une liste d'items en colonne ou en quadrillé.
 
@@ -211,7 +211,7 @@ React Native
   renderItem={({item, index}) => <Text>{index}: {item.nom}</Text>}  
 />
 
-## 6.7 <Alert>
+## 6.7 <Alert> { #alert }
 
 Avec React Native, [Alert](https://reactnative.dev/docs/alert) permet d'afficher un popup qui permet par exemple d'afficher un message ou de demander une confirmation.
 

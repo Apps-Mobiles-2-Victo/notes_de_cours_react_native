@@ -36,7 +36,7 @@ React Native
 
 ## Fragments pour spécifier la clé unique
 
-Remarquez l'utilisation [apical\_lien\_interne][les\_fragments,des fragments][/apical\_lien\_interne], c'est-à-dire les balises <React.Fragment></React.Fragment>.  Elles sont l'équivalent de <></> mais elles permettent d'ajouter des propriétés.
+Remarquez l'utilisation [des fragments](08-6-initiation-react-native.md#fragments), c'est-à-dire les balises <React.Fragment></React.Fragment>.  Elles sont l'équivalent de <></> mais elles permettent d'ajouter des propriétés.
 
 Ceci est requis ici puisque si vous ne spécifiez pas de clé unique (attribut key) pour chaque itération, vous obtiendrez ce message d'erreur au bas de l'émulateur : « Each child in a list should have a uniaque "key" prop. ».
 
@@ -228,7 +228,7 @@ tableauOriginal[1].categorie = {code: 'd', description: 'Catégorie D'};
 console.log(copieProfonde[1]);   // l'élément objet de la copie demeure inchangé :   
                                  // {id: 2, description: 'Chaise', categorie": {code: 'b', description: "Catégorie B'}}
 
-## 20.4 Comment fonctionnent les fonctions fléchées
+## 20.4 Comment fonctionnent les fonctions fléchées { #fonctions-flechees }
 
 Les fonctions fléchées (arrow functions), vous connaissez?
 

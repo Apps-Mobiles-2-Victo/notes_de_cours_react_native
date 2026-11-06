@@ -130,7 +130,7 @@ Si l'émulateur apparaît partiellement hors de l'écran ou, pire encore, compl�
   window.y = 0  
   ...
 
-## 4.2 Exécuter une application React Native sur un téléphone Android
+## 4.2 Exécuter une application React Native sur un téléphone Android { #appareil-android }
 
 Il est possible de tester une application React Native sur un téléphone Android plutôt que d'utiliser un émulateur.
 

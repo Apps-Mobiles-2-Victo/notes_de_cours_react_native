@@ -1,6 +1,6 @@
 # 22. Recréer certains dossiers du projet
 
-## 22.1 Recréer le dossier node\_modules
+## 22.1 Recréer le dossier node\_modules { #node-modules }
 
 Le dossier node\_modules d'une application React Native est généralement volumineux et il contient un nombre impressionnant de petits fichiers. Par exemple, dans une petite application toute simple que j'ai codée, il pesait 381 Mo et contenait 29 715 fichiers.
 
@@ -8,7 +8,7 @@ Ce dossier peut facilement être recréé à partir des informations du fichier 
 
 La procédure qui suit permet donc d'installer un projet React Native sur un autre ordinateur à partir d'un fichier .zip ou à partir de Git.
 
-* Assurez-vous d'avoir pris en note les configurations effecutées dans les fichiers du dossier node\_modules, par exemple [apical\_lien\_interne][interagir\_avec\_sqlite\_dans\_une\_application\_react\_native,celles qui permettent d'utiliser la bibliothèque react-native-sqlite-storage][/apical\_lien\_interne].
+* Assurez-vous d'avoir pris en note les configurations effectuées dans les fichiers du dossier node\_modules, par exemple [celles qui permettent d'utiliser la bibliothèque react-native-sqlite-storage](15-13-les-données-locales.md#sqlite).
 * Si ce n'est pas déjà fait, supprimez le dossier node\_modules du projet.
 * Supprimez le fichier package-lock.json situé à la racine du projet.
 * Dans une fenêtre Terminal, lancez ces commandes.

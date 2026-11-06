@@ -15,7 +15,7 @@ Un menu apparaîtra directement dans l'émulateur et vous offrira différentes o
 
 ![DevMenu](assets/11-9-déboguer-une-application-react-native-43.png)
 
-## 8.2 Les outils de développement (DevTools)
+## 8.2 Les outils de développement (DevTools) { #devtools }
 
 Pour ouvrir les outils de développement de React Native :
 
@@ -53,7 +53,7 @@ React Native
 
 console.log(`maVariable: ${maVariable}`);
 
-Le résultat apparaîtra dans [apical\_lien\_interne][les\_outils\_de\_developpement\_devtools,la fenêtre DevTools][/apical\_lien\_interne], onglet Console.
+Le résultat apparaîtra dans [la fenêtre DevTools](#devtools), onglet Console.
 
 ![console.log](assets/11-9-déboguer-une-application-react-native-46.png)
 

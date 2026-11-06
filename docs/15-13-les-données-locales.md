@@ -13,9 +13,9 @@ export interface Categorie {
   description: string;  
 }
 
-L'interface d'un modèle sera utilisée avec [apical\_lien\_interne][rendre\_une\_variable\_d\_etat\_disponible\_a\_tous\_les\_enfants,le hook useContext][/apical\_lien\_interne] afin qu'une variable d'état qui l'implémente puisse être déclarée dans le plus proche parent et être disponible dans tous les enfants.
+L'interface d'un modèle sera utilisée avec [le hook useContext](12-10-les-hooks.md#use-context) afin qu'une variable d'état qui l'implémente puisse être déclarée dans le plus proche parent et être disponible dans tous les enfants.
 
-## 12.2 Interagir avec SQLite dans une application React Native
+## 12.2 Interagir avec SQLite dans une application React Native { #sqlite }
 
 ## Installation
 
@@ -42,7 +42,7 @@ Si vous obtenez une erreur du genre « A problem occurred evaluating project ':
 
 Le problème est que JCenter, un gestionnaire de dépendances, [a été fermé en 2024](https://medium.com/@nikhilkhant/jcenters-shutdown-key-alternatives-every-developer-should-know-7499dffa2cdd). Il faut donc le remplacer par un autre gestionnaire de dépendances comme MavenCentral.
 
-Attention : ces modifications seront écrasées si vous [apical\_lien\_interne][recreer\_le\_dossier\_node\_modules,réinstallez les paquets de l'application][/apical\_lien\_interne].
+Attention : ces modifications seront écrasées si vous [réinstallez les paquets de l'application](26-23-recréer-certains-dossiers-du-projet.md#node-modules).
 
 Fichier MonProjet/node\_modules/react-native-sqlite-storage/platforms/android/build.gradle
 
@@ -173,7 +173,7 @@ const App = () => {
   ...  
   return (  
     // si la liste des données a été initialisée dans ce composant,   
-    // on peut la rendre disponible aux composants enfants à l'aide du [apical\_lien\_interne][rendre\_une\_variable\_d\_etat\_disponible\_a\_tous\_les\_enfants,hook useContext][/apical\_lien\_interne]  
+    // on peut la rendre disponible aux composants enfants à l'aide du hook useContext
     ...  
   );  
 };
@@ -217,7 +217,7 @@ const MonComposant = ({navigation}: Props) => {
 Quelques idées :
 
 * Pour chaque composant, se brancher à la BD avant de faire son travail. C'est d'ailleurs l'approche utilisée par <https://blog.logrocket.com/using-sqlite-with-react-native/> (il y a une ligne const db = await getDBConnection(); dans chaque fonction qui a besoin de la BD).
-* Stocker la référence à la BD [apical\_lien\_interne][rendre\_une\_variable\_d\_etat\_disponible\_a\_tous\_les\_enfants,dans un contexte][/apical\_lien\_interne].
+* Stocker la référence à la BD [dans un contexte](12-10-les-hooks.md#use-context).
 * Passer la référence à la BD dans chaque route.
 
 Souvent, la liste d'items devra elle aussi être utilisée par plusieurs composants.
@@ -226,7 +226,7 @@ Cette fois, l'option de la route ne fonctionnera pas puisque depuis react-naviga
 
 Quelques idées :
 
-* Stocker la liste [apical\_lien\_interne][rendre\_une\_variable\_d\_etat\_disponible\_a\_tous\_les\_enfants,dans un contexte][/apical\_lien\_interne].
+* Stocker la liste [dans un contexte](12-10-les-hooks.md#use-context).
 * Dans la route qui mène au composant dans lequel la liste a été déclarée comme variable d'état (c'est la source unique de vérité, single source of truth), recevoir les nouvelles valeurs en paramètre à partir du composant qui a modifié un élément. La liste sera donc toujours mise à jour directement dans la source unique de vérité.
 
 ## Pour plus d'information

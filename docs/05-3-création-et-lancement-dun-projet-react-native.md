@@ -60,7 +60,7 @@ Pour lancer une application React Native, il n'est pas nécessaire qu'Android St
 
 Pour convertir le code JavaScript en application Android ou iOS, React Native utilise [Metro](https://metrobundler.dev/).
 
-Après la conversion, cet environnement permet de lancer l'application dans l'émulateur ou [apical\_lien\_interne][executer\_une\_application\_react\_native\_sur\_un\_telephone\_android,lsur un appareil mobile][/apical\_lien\_interne].
+Après la conversion, cet environnement permet de lancer l'application dans l'émulateur ou [sur un appareil mobile](06-4-les-émulateurs-et-appareils-physiques.md#appareil-android).
 
 Dans certains sens, on peut comparer Metro pour React-Native à un serveur Web pour PHP.
 

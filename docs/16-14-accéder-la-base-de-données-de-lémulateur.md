@@ -1,12 +1,12 @@
 # 13. Accéder à la base de données de l'émulateur
 
-## 13.1 Base de données de l'émulateur Android
+## 13.1 Base de données de l'émulateur Android { #base-de-donnees-android }
 
 Lorsque vous développez une application Android avec React Native, c'est Android Studio qui est responsable de l'émulateur.
 
 C'est le même logiciel qui permet de voir la base de données présente sur l'émulateur et ce, même si l'application a été lancée depuis une fenêtre Terminal plutôt que directement dans l'application.
 
-Pour accéder à la base de données, suivez [apical\_lien\_interne][database\_inspector\_pour\_voir\_la\_base\_de\_donnees\_dans\_l\_emulateur,les instructions pour accéder à Database Inspector][/apical\_lien\_interne].
+Pour accéder à la base de données de l'émulateur, consultez la section [Base de données de l'émulateur Android](#base-de-donnees-android).
 
 Si vous désirez effectuer une copie de la base de données ou encore la supprimer de l'émulateur, vous devez connaître son namespace, au format d'un nom de domaine en format inverse.
 
@@ -36,4 +36,4 @@ android {
  ...  
 }
 
-Une fois cette information connue, vous pouvez appliquer la technique pour retrouver les fichiers de la base de données dans Android Studio : « [apical\_lien\_interne]voir\_les\_fichiers\_stockes\_sur\_un\_emulateur\_android[/apical\_lien\_interne] ».
+Une fois cette information connue, vous pouvez appliquer la technique pour retrouver les fichiers de la base de données dans Android Studio, décrite dans la section [Base de données de l'émulateur Android](#base-de-donnees-android).

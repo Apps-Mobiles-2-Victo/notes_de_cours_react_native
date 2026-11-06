@@ -6,13 +6,13 @@ Dans React et React Native, les hooks sont un mécanisme qui permet de suivre l'
 
 Parmi les hooks les plus utilisés, notons :
 
-* [apical\_lien\_interne][variables\_d\_etat,useState][/apical\_lien\_interne]: permet de définir une variable d'état
-* [apical\_lien\_interne][rendre\_une\_variable\_d\_etat\_disponible\_a\_tous\_les\_enfants,useContext][/apical\_lien\_interne]: permet de définir une variable partagée entre différents composants
-* [apical\_lien\_interne][reagir\_seulement\_lorsqu\_une\_variable\_d\_etat\_a\_change\_de\_valeur,useEffect][/apical\_lien\_interne]: permet de réagir à un changement de valeur
+* [useState](08-6-initiation-react-native.md#use-state): permet de définir une variable d'état
+* [useContext](#use-context): permet de définir une variable partagée entre différents composants
+* [useEffect](#use-effect): permet de réagir à un changement de valeur
 * [useRef](https://react.dev/reference/react/useRef) : permet de définir une variable qui n'est pas utilisée dans le rendu
-* [apical\_lien\_interne][memoriser\_des\_informations\_longues\_a\_calculer\_usememo,useMemo][/apical\_lien\_interne]: permet de mémoriser des informations longues à calculer.
-* [apical\_lien\_interne][optimiser\_les\_performances\_usecallback,useCallback][/apical\_lien\_interne]: permet de mettre une fonction en cache entre deux rendus
-* [apical\_lien\_interne][effectuer\_une\_action\_quand\_un\_composant\_gagne\_le\_focus,useFocusEffect][/apical\_lien\_interne]: permet d'effectuer du code lorsqu'un écran prend le focus (fonctionne avec React Navigation)
+* [useMemo](#use-memo): permet de mémoriser des informations longues à calculer.
+* [useCallback](#use-callback): permet de mettre une fonction en cache entre deux rendus
+* [useFocusEffect](#use-focus-effect): permet d'effectuer du code lorsqu'un écran prend le focus (fonctionne avec React Navigation)
 
 ## Pour plus d'information
 
@@ -40,7 +40,7 @@ const MonComposant = () => {
   );  
 };
 
-## 9.3 Réagir seulement lorsqu'une variable d'état a changé de valeur (useEffect)
+## 9.3 Réagir seulement lorsqu'une variable d'état a changé de valeur (useEffect) { #use-effect }
 
 Le hook [useEffect](https://react.dev/reference/react/useEffect) permet d'effectuer un traitement seulement lorsqu'une variable change de valeur.
 
@@ -108,7 +108,7 @@ useEffect(() => {
   })();   // ces parenthèses sont ce qui fait que la fonction est immédiatement invoquée  
  }, [id]);
 
-## 9.5 Rendre une variable d'état disponible à tous les enfants (useContext)
+## 9.5 Rendre une variable d'état disponible à tous les enfants (useContext) { #use-context }
 
 Le hook [useContext](https://react.dev/reference/react/useContext) permet de définir une variable qui sera disponible pour tous les enfants.
 
@@ -166,7 +166,7 @@ const ComposantEnfant = () => {
 
 « How to use React Context with TypeScript ». LogRocket. <https://blog.logrocket.com/how-to-use-react-context-typescript/>
 
-## 9.6 Mémoriser des informations longues à calculer (useMemo)
+## 9.6 Mémoriser des informations longues à calculer (useMemo) { #use-memo }
 
 Le hook [useMemo](https://react.dev/reference/react/useMemo) permet de mettre en cache le résultat de calculs entre deux rendus.
 
@@ -178,11 +178,11 @@ Le hook [useMemo](https://react.dev/reference/react/useMemo) permet de mettre en
 
 « You Might Not Need an Effect ». React.dev. <https://react.dev/learn/you-might-not-need-an-effect>
 
-## 9.7 Mettre une fonction en cache entre deux rendus (useCallback)
+## 9.7 Mettre une fonction en cache entre deux rendus (useCallback) { #use-callback }
 
 Le hook [useCallback](https://react.dev/reference/react/useCallback) permet de mettre une fonction en cache afin d'optimiser les performances de l'application.
 
-Il est souvent utilisé en combinaison avec d'autres hooks, par exemple [apical\_lien\_interne][effectuer\_une\_action\_quand\_un\_composant\_gagne\_le\_focus,useFocusEffect][/apical\_lien\_interne]. Ceci assure que le code de la fonction mise en cache ne sera pas réexécuté à chaque rafraîchissement d'écran. On précisera dans quelles conditions il faut réexécuter ce code.
+Il est souvent utilisé en combinaison avec d'autres hooks, par exemple [useFocusEffect](#use-focus-effect). Ceci assure que le code de la fonction mise en cache ne sera pas réexécuté à chaque rafraîchissement d'écran. On précisera dans quelles conditions il faut réexécuter ce code.
 
 ## Pour plus d'information
 
@@ -190,7 +190,7 @@ Il est souvent utilisé en combinaison avec d'autres hooks, par exemple [apical
 
 « Optimizing React Native Performance with useCallback ». Medium. <https://viniciuspetrachin.medium.com/optimizing-react-native-performance-with-usecallback-bdb6d801c9cf>
 
-## 9.8 Effectuer une action quand un composant gagne le focus (useFocusEffect)
+## 9.8 Effectuer une action quand un composant gagne le focus (useFocusEffect) { #use-focus-effect }
 
 Dans une application qui utilise React Navigation, le hook [useFocusEffect](https://reactnavigation.org/docs/use-focus-effect/) permet d'effectuer une action seulement si le composant a le focus.
 

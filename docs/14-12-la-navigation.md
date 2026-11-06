@@ -116,7 +116,7 @@ Dès qu'on navigue vers une route, une flèche apparaît dans la barre de titre 
 
 Pour passer des paramètres à une route :
 
-Voir « [apical\_lien\_interne]passer\_des\_parametres\_a\_une\_route[/apical\_lien\_interne] ».
+Voir « [Passer des paramètres à une route](#parametres-route) ».
 
 ## Pour plus d'information
 
@@ -132,7 +132,7 @@ Voir « [apical\_lien\_interne]passer\_des\_parametres\_a\_une\_route[/apical\_
 
 « Getting Started with React Navigation v6 and TypeScript in React Native ». jscrambler. <https://jscrambler.com/blog/getting-started-with-react-navigation-v6-and-typescript-in-react-native>
 
-## 11.2 Passer des paramètres à une route
+## 11.2 Passer des paramètres à une route { #parametres-route }
 
 Quand une route a besoin de savoir sur quel objet elle doit travailler, il est préférable de passer en paramètre à la route seulement l'identifiant de l'objet plutôt que l'objet en tant que tel.
 
@@ -438,7 +438,7 @@ Fichier MonComposant.tsx (Reat Native)
 
 ### FlatList
 
-Et voici un exemple avec un [apical\_lien\_interne][flatlist,FlatList][/apical\_lien\_interne].
+Et voici un exemple avec un [FlatList](09-7-les-composants-du-noyau-core-components.md#flatlist).
 
 Fichier src/styles/styles.ts (React Native)
 

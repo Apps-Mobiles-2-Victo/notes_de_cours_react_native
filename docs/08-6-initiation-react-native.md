@@ -98,7 +98,7 @@ La moindre modification à ce code sera immédiatement reflétée dans l'émulat
 
 Tout ce code peut être effacé.
 
-On y codera plutôt une fonction App() déclarée à l'aide de la [apical\_lien\_interne][comment\_fonctionnent\_les\_fonctions\_flechees,syntaxe des fonctions fléchées][/apical\_lien\_interne].
+On y codera plutôt une fonction App() déclarée à l'aide de la [syntaxe des fonctions fléchées](24-21-quelques-notions-javascript.md#fonctions-flechees).
 
 Dans le return de cette fonction, on ajoutera des composants à l'aide de code [JSX](https://react.dev/learn/writing-markup-with-jsx) afin de préciser ce qui sera affiché.
 
@@ -158,12 +158,12 @@ La documentation officielle de React Native mentionne qu'il y a des basic compon
 
 Les composants de base sont les composants de plus bas niveau, par exemple :
 
-* <[apical\_lien\_interne][view,View][/apical\_lien\_interne]>
-* <[apical\_lien\_interne][text\_003,Text][/apical\_lien\_interne]>
-* <[apical\_lien\_interne][image\_003,Image][/apical\_lien\_interne]>
+* [<View>](09-7-les-composants-du-noyau-core-components.md#view)
+* [<Text>](09-7-les-composants-du-noyau-core-components.md#text)
+* [<Image>](09-7-les-composants-du-noyau-core-components.md#image)
 * <ScrollView>
 * <TextInput>
-* <[apical\_lien\_interne][pressable,Pressable][/apical\_lien\_interne]>
+* [<Pressable>](09-7-les-composants-du-noyau-core-components.md#pressable)
 
 Voici un exemple d'utilisation de composants de base.
 
@@ -185,9 +185,9 @@ Les composants du noyau regroupent l'ensemble des composants fournis par React N
 
 Parmi eux, on retrouve également d'autres composants de plus haut niveau, par exemple :
 
-* <[apical\_lien\_interne][button\_003,Button][/apical\_lien\_interne]>
-* <[apical\_lien\_interne][flatlist,FlatList][/apical\_lien\_interne]>
-* <[apical\_lien\_interne][alert\_002,Alert][/apical\_lien\_interne]>
+* [<Button>](09-7-les-composants-du-noyau-core-components.md#button)
+* [<FlatList>](09-7-les-composants-du-noyau-core-components.md#flatlist)
+* [<Alert>](09-7-les-composants-du-noyau-core-components.md#alert)
 * <StatusBar>
 
 Pour une liste plus complète : <https://reactnative.dev/docs/components-and-apis>.
@@ -206,13 +206,13 @@ Pour une liste plus complète : <https://reactnative.dev/docs/components-and-api
 
 Le composant est l'unité de base d'une vue React Native.
 
-Il existe des [apical\_lien\_interne][composants\_de\_base,composants de base][/apical\_lien\_interne] fournis par React Native. Nous allons développer nos propres composants à partir de ces composants de base.
+Il existe des [composants de base](#basic) fournis par React Native. Nous allons développer nos propres composants à partir de ces composants de base.
 
 Il est d'usage de placer chaque composant dans son propre fichier.
 
 Je vous présente deux syntaxes possibles. Les deux syntaxes offrent chacune quelques particularités mais dans l'ensemble, elles sont équivalentes.
 
-Remarquez que dans le return, il n'est pas possible de retourner plus d'un composant. Il est possible de retourner un composant qui en englobe d'autres, ou encore d'entourer plusieurs composants par [apical\_lien\_interne][les\_fragments,des fragments][/apical\_lien\_interne] (<> ... </>).
+Remarquez que dans le return, il n'est pas possible de retourner plus d'un composant. Il est possible de retourner un composant qui en englobe d'autres, ou encore d'entourer plusieurs composants par [des fragments](#fragments) (<> ... </>).
 
 Nous prendrons l'habitude de placer tous les composants dans le dossier MonProjet/src/components. Vous devez créer le dossier src et son sous-dossier.
 
@@ -220,7 +220,7 @@ Parmi les fichiers que vous aurez modifiés dans votre projet, seul App.tsx deme
 
 ## Syntaxe des fonctions fléchées
 
-Ce premier exemple utilise la [apical\_lien\_interne][comment\_fonctionnent\_les\_fonctions\_flechees,syntaxe des fonctions fléchées][/apical\_lien\_interne].
+Ce premier exemple utilise la [syntaxe des fonctions fléchées](24-21-quelques-notions-javascript.md#fonctions-flechees).
 
 C'est cette syntaxe qui sera utilisée partout dans les notes de cours.
 
@@ -349,7 +349,7 @@ React Native
 
 <Image source={{ uri: 'https://apical.xyz/medias/fr/LogoApical.png' }} ... />
 
-## 5.7 Les fragments (<>...</> ou <React.Fragment>...</React.Fragment>)
+## 5.7 Les fragments (<>...</> ou <React.Fragment>...</React.Fragment>) { #fragments }
 
 Dans certains blocs React Native, il n'est pas possible d'avoir plus d'un composant.
 
@@ -410,13 +410,13 @@ React Native
   </React.Fragment>  
 ))}
 
-## 5.8 Ajouter des styles
+## 5.8 Ajouter des styles { #styles }
 
 Les styles dans React Native ressemblent beaucoup aux règles CSS en Web.
 
 Les bonnes pratiques veulent que les styles soient déclarés dans des fichiers distincts et importés dans le fichier du composant.
 
-Contrairement aux classes CSS, qui utilisent généralement la [apical\_lien\_interne][casse\_kebab\_la-casse-kebab,casse kebab][/apical\_lien\_interne] (tout en minuscules et traits d'union entre les mots), le nom d'un style React Native sera écrit en [apical\_lien\_interne][Casse\_chameau\_laCasseChameau,casse chameau][/apical\_lien\_interne] (débute par minuscule et majuscule à chaque changement de mot).
+Contrairement aux classes CSS, qui utilisent généralement la [casse kebab](#styles) (tout en minuscules et traits d'union entre les mots), le nom d'un style React Native sera écrit en [casse chameau](#styles) (débute par minuscule et majuscule à chaque changement de mot).
 
 Nous prendrons l'habitude de placer tous les fichiers de styles dans le dossier MonProjet/src/styles.
 
@@ -559,7 +559,7 @@ MonComposant.defaultProps = defaultProps;
 
 « Mastering TypeScript: A Guide to Choosing Between ‘type’ and ‘interface’ ». Medium. <https://levelup.gitconnected.com/mastering-typescript-a-guide-to-choosing-between-type-and-interface-c31d3527693b>
 
-## 5.10 Variables d'état (useState)
+## 5.10 Variables d'état (useState) { #use-state }
 
 Les variables d'état React Native, appelées states, permettent de rafraîchir l'écran dès que leur valeur change.
 
@@ -631,7 +631,7 @@ if (quantiteLocale == 3) {
   ...  
 }
 
-Une autre technique consiste à utiliser un [apical\_lien\_interne][reagir\_seulement\_lorsqu\_une\_variable\_d\_etat\_a\_change\_de\_valeur,useEffect][/apical\_lien\_interne] qui prendra effet quand cette variable d'état aura effectivement changé de valeur.
+Une autre technique consiste à utiliser un [useEffect](12-10-les-hooks.md#use-effect) qui prendra effet quand cette variable d'état aura effectivement changé de valeur.
 
 React Native
 

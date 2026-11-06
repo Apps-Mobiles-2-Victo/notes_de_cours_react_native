@@ -6,12 +6,12 @@ Pour développer une application React Native, Android Studio est requis pour av
 
 Voici quelques choix qui s'offrent à vous :
 
-* [apical\_lien\_interne][visual\_studio\_code\_pour\_react\_native,Visual Studio Code][/apical\_lien\_interne]
+* [Visual Studio Code](#visual-studio-code)
 * [WebStorm](https://www.jetbrains.com/webstorm/)
 * Android Studio (évidemment!)
 * [Deco IDE](https://www.decoide.org/)
 
-## 5.2 Visual Studio Code pour React Native
+## 5.2 Visual Studio Code pour React Native { #visual-studio-code }
 
 Visual Studio Code est un environnement de développement intégré très flexible et adapté à plusieurs langages de programmation.
 

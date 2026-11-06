@@ -58,13 +58,13 @@ C'est pour cette raison que plusieurs paquets ont des problèmes de compatibilit
 
 Au moment d'écrire ces lignes (décembre 2025), il n'y avait pas de paquet disponible pour travailler avec des capteurs dans un projet React Native 0.82 ou plus récent.
 
-La solution consiste alors à créer un projet [apical\_lien\_interne][creer\_une\_application\_react\_native\_et\_la\_lancer\_dans\_l\_emulateur,avec une ancienne version de React Native,ancienneversion][/apical\_lien\_interne], par exemple avec la version 0.75.3 que j'utilisais en 2024. Vous pourrez alors [apical\_lien\_interne][paquet\_react\_native\_sensors,travailler avec le paquet react-native-sensors][/apical\_lien\_interne].
+La solution consiste alors à créer un projet [avec une ancienne version de React Native](05-3-création-et-lancement-dun-projet-react-native.md#ancienneversion), par exemple avec la version 0.75.3 que j'utilisais en 2024. Vous pourrez alors [travailler avec le paquet react-native-sensors](#react-native-sensors).
 
-## 17.3 Paquet react-native-sensors
+## 17.3 Paquet react-native-sensors { #react-native-sensors }
 
 Note : ce paquet n'est plus maintenu depuis 2022 et présente des problèmes de compatibilité avec les versions récentes de React Native basées sur la nouvelle architecture (dernier tests effectués avec React Native 0.82.1 en décembre 2025).  
   
-Si vous désirez tout de même l'utiliser, vous devez créer un projet [apical\_lien\_interne][creer\_une\_application\_react\_native\_et\_la\_lancer\_dans\_l\_emulateur,avec une ancienne version de React Native,ancienneversion][/apical\_lien\_interne], par exemple avec la version 0.75.3 que j'utilisais en 2024.
+Si vous désirez tout de même l'utiliser, vous devez créer un projet [avec une ancienne version de React Native](05-3-création-et-lancement-dun-projet-react-native.md#ancienneversion), par exemple avec la version 0.75.3 que j'utilisais en 2024.
 
 Le paquet [react-native-sensors](https://react-native-sensors.github.io/) permet à une application React Native de réagir face aux données envoyées par un des capteurs du téléphone.
 
@@ -81,7 +81,7 @@ Si vous obtenez une erreur du genre « EACCES: permission denied », refaites 
 
 Tout comme pour une application native Android ou iOS, une application React Native qui utilise des capteurs doit en faire la déclaration et demander les permissions requises.
 
-Les détails sont donnés sur cette fiche : « [apical\_lien\_interne]declarer\_l\_utilisation\_des\_capteurs\_et\_demander\_les\_permissions\_requises[/apical\_lien\_interne] ».
+Les détails sont donnés dans la section [Déclarer l'utilisation des capteurs et demander les permissions requises](#permissions-capteurs).
 
 ## Utilisation
 
@@ -155,15 +155,15 @@ Pour un exemple qui fonctionne avec la version 7.3.6 (la version installée dans
 
 « react-native-sensors/docs/API.md ». GitHub. <https://github.com/react-native-sensors/react-native-sensors/blob/master/docs/API.md>
 
-## 17.4 Déclarer l'utilisation des capteurs et demander les permissions requises
+## 17.4 Déclarer l'utilisation des capteurs et demander les permissions requises { #permissions-capteurs }
 
 Tout comme pour une application native Android ou iOS, une application React Native qui utilise des capteurs doit en faire la déclaration et demander les permissions requises.
 
 Les étapes sont les mêmes que pour une application native.
 
-Pour Android : « [apical\_lien\_interne]declarer\_l\_utilisation\_des\_capteurs[/apical\_lien\_interne] »
+Pour Android : consultez les [consignes communes sur les permissions](#permissions-capteurs).
 
-Pour iOS : « [apical\_lien\_interne]permission\_requise\_pour\_travailler\_avec\_un\_capteur[/apical\_lien\_interne] »
+Pour iOS : consultez les [consignes communes sur les permissions](#permissions-capteurs).
 
 Note : si vous obtenez tout de même un message d'erreur dans l'émulateur, comme illustré par l'image plus bas, avec le message « Tu use the sampling rate of 0 microseconds, app needs to declare the normal permission HIGH\_SAMPLING\_RATE\_SENSORS », vous devez reconstruire (build) votre projet afin que les modifications au fichier AndroidManifest.xml soit prises en compte.
 
