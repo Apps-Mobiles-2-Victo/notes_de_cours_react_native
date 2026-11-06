@@ -1,7 +1,5 @@
 # 10. Les hooks
 
-# 10. Les hooks
-
 ## 10.1 Qu'est-ce qu'un hook React Native?
 
 Dans React et React Native, les hooks sont un mécanisme qui permet de suivre l'état d'un composant de type fonction (functional component).

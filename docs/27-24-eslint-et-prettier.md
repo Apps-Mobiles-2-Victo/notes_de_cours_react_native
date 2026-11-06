@@ -1,7 +1,5 @@
 # 24. ESLint et Prettier
 
-# 24. ESLint et Prettier
-
 ## 24.1 Changer le niveau de sévérité des règles ESLint
 
 Lorsqu'une règle ESLint est définie avec le niveau 2 ou 'error', le code qui enfreint cette règle apparaît avec un souligage ondulé rouge.

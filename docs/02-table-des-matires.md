@@ -1,7 +1,5 @@
 # Table des matières
 
-# Table des matières
-
 [1. Applications mobiles multiplateformes](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#chapitre-applications_mobiles_multiplateformes20251210101311)  
 [2. Installation de React Native](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#chapitre-installation_de_react_native20251210101311)  
 [3. Création et lancement d'un projet React Native](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#chapitre-creation_d_un_projet_react_native20251210101311)  

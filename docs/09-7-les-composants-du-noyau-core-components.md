@@ -1,7 +1,5 @@
 # 7. Les composants du noyau (core components)
 
-# 7. Les composants du noyau (core components)
-
 ## 7.1 <View>
 
 Le composant [<View>](https://reactnative.dev/docs/view) est un conteneur qui permet notamment de spécifier une mise en forme.

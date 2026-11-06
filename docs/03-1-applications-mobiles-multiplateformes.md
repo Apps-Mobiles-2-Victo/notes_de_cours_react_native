@@ -1,7 +1,5 @@
 # 1. Applications mobiles multiplateformes
 
-# 1. Applications mobiles multiplateformes
-
 ## 1.1 Développement natif vs multi-plateformes
 
 Le développement natif pour iOS ou pour Android permet de développer une application mobile qui :

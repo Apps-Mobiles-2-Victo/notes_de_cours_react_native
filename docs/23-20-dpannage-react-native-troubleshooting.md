@@ -1,7 +1,5 @@
 # 20. Dépannage React Native (troubleshooting)
 
-# 20. Dépannage React Native (troubleshooting)
-
 ## 20.1 Erreur « Could not read package.json »
 
 ### Problème :

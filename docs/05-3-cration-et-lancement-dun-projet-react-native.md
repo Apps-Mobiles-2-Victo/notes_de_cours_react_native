@@ -1,7 +1,5 @@
 # 3. Création et lancement d'un projet React Native
 
-# 3. Création et lancement d'un projet React Native
-
 ## 3.1 Créer une application React Native et la lancer dans l'émulateur
 
 Un projet React Native est créé à l'aide d'une commande dans une fenêtre Terminal.

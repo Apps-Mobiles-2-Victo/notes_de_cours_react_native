@@ -1,7 +1,5 @@
 # 18. Les capteurs
 
-# 18. Les capteurs
-
 ## 18.1 L'orientation du téléphone (attitude)
 
 Avant de se lancer dans le développement d'une application mobile qui réagit aux capteurs, prenons le temps de comprendre comment déterminer l'orientation du téléphone.

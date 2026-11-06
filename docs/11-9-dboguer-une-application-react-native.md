@@ -1,7 +1,5 @@
 # 9. Déboguer une application React Native
 
-# 9. Déboguer une application React Native
-
 ## 9.1 Menu Dev de l'émulateur
 
 Pour ouvrir le menu Dev de l'émulateur :

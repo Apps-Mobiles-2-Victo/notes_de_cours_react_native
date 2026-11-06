@@ -1,7 +1,5 @@
 # 12. La navigation
 
-# 12. La navigation
-
 ## 12.1 Bibliothèque React Navigation
 
 Lorsqu'une application React Native comporte plusieurs pages, il faut implanter un système de navigation à l'aide d'une bibliothèque externe.

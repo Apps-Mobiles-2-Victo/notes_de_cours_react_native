@@ -1,7 +1,5 @@
 # 13. Les données locales
 
-# 13. Les données locales
-
 ## 13.1 Modèle pour définir la structure des données
 
 Quand une application React Native a besoin d'une base de données SQLite, elle doit définir un modèle qui indique la structure de chacune des tables.

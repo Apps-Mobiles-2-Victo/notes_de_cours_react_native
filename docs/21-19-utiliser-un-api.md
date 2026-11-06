@@ -1,7 +1,5 @@
 # 19. Utiliser un API
 
-# 19. Utiliser un API
-
 ## 19.1 Utiliser fetch avec React Native
 
 L'utilisation de [fetch avec React Native](https://reactnative.dev/docs/network) est très semblable à l'utilisation que l'on en fait en React ou même en JavaScript pur.

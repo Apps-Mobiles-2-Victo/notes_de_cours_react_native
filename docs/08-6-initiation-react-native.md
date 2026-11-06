@@ -1,7 +1,5 @@
 # 6. Initiation à React Native
 
-# 6. Initiation à React Native
-
 ## 6.1 Structure du projet
 
 Dans le cadre de ce cours, tous les fichiers que vous créerez seront placés dans le dossier src, que vous devez créer à la racine du projet.

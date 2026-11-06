@@ -1,7 +1,5 @@
 # 11. Composants parents vs enfants
 
-# 11. Composants parents vs enfants
-
 ## 11.1 Changer la valeur d'une variable d'état à partir d'un composant enfant
 
 Le flux de l'information circule généralement du composant parent vers ses composants enfants.

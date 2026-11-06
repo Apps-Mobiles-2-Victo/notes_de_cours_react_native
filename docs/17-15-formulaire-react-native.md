@@ -1,7 +1,5 @@
 # 15. Formulaire React Native
 
-# 15. Formulaire React Native
-
 ## 15.1 La validation
 
 Dans sa plus simple expression, la validation d'un formulaire React Native consiste à vérifier la valeur d'une variable d'état à l'un de ces moments :

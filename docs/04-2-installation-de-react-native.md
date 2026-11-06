@@ -1,7 +1,5 @@
 # 2. Installation de React Native
 
-# 2. Installation de React Native
-
 ## 2.1 React Native
 
 React Native utilise le langage de programmation JavaScript.

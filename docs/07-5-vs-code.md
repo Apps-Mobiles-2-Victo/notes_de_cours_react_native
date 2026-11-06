@@ -1,7 +1,5 @@
 # 5. VS Code
 
-# 5. VS Code
-
 ## 5.1 Choisir le meilleur IDE
 
 Pour développer une application React Native, Android Studio est requis pour avoir accès à un émulateur. Cependant, il n'est pas le seul environnement de développement à votre disposition.

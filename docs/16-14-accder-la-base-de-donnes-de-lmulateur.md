@@ -1,7 +1,5 @@
 # 14. Accéder à la base de données de l'émulateur
 
-# 14. Accéder à la base de données de l'émulateur
-
 ## 14.1 Base de données de l'émulateur Android
 
 Lorsque vous développez une application Android avec React Native, c'est Android Studio qui est responsable de l'émulateur.

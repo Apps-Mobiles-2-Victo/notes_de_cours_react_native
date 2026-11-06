@@ -1,7 +1,5 @@
 # 22. Quelques bibliothèques utiles
 
-# 22. Quelques bibliothèques utiles
-
 ## 22.1 react-native-image-picker
 
 Cette bibliothèque permet de sélectionner des images ou vidéo à partir de la caméra du téléphone ou des médias enregistrés.

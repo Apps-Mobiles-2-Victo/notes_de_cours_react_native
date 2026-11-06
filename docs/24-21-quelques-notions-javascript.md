@@ -1,7 +1,5 @@
 # 21. Quelques notions JavaScript
 
-# 21. Quelques notions JavaScript
-
 ## 21.1 Les tableaux avec React Native
 
 Prenon l'exemple d'une application React Native qui doit afficher les valeurs d'un tableau dont voici la structure.

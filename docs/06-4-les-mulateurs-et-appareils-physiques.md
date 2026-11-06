@@ -1,7 +1,5 @@
 # 4. Les émulateurs et appareils physiques
 
-# 4. Les émulateurs et appareils physiques
-
 ## 4.1 Travailler avec les émulateurs
 
 Puisque React Native permet de tester une application à l'aide d'un émulateur installé par Android Studio, il est intéressant de mieux comprendre la mécanique derrière cette fonctionnalité.

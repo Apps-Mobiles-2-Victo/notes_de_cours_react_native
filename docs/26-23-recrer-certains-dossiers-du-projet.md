@@ -1,7 +1,5 @@
 # 23. Recréer certains dossiers du projet
 
-# 23. Recréer certains dossiers du projet
-
 ## 23.1 Recréer le dossier node\_modules
 
 Le dossier node\_modules d'une application React Native est généralement volumineux et il contient un nombre impressionnant de petits fichiers. Par exemple, dans une petite application toute simple que j'ai codée, il pesait 381 Mo et contenait 29 715 fichiers.
