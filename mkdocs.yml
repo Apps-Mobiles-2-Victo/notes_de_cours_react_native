@@ -1,4 +1,4 @@
-site_name: 'PUB095 : Applications mobiles avec React Native, 2025'
+site_name: 'Applications mobiles avec React Native, 2025'
 site_description: Notes de cours pour le développement d'applications mobiles Android
   avec Jetpack Compose et Kotlin - 420-5B4-VI
 site_author: Christiane Lagacé
@@ -49,7 +49,6 @@ plugins:
 - search
 nav:
 - Accueil: index.md
-- 'PUB095 : Applications mobiles avec React Native, 2025': 01-pub095-applications-mobiles-avec-react-native-2025.md
 - Table des matières: 02-table-des-matires.md
 - 1. Applications mobiles multiplateformes: 03-1-applications-mobiles-multiplateformes.md
 - 2. Installation de React Native: 04-2-installation-de-react-native.md
