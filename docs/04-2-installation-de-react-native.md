@@ -8,31 +8,23 @@ Si vous avez déjà développé une application Web avec React, vous réussirez 
 
 Avec React Native, votre code vous permettra de créer une application pour Android et pour iOS mais à certaines conditions.
 
-D'abord, pas la plupart des situations, vous aurez besoin d'un ordinateur Apple pour tester et pour publier une application pour iOS.
-
-Ensuite, il faudra probablement apporter quelques modifications au code afin de le rendre optimal pour Android ou pour iOS. Le but est d'obtenir une application qui est le plus près de l'apparence et du comportement par défaut de la plateforme.
+* Vous aurez besoin d'un ordinateur Apple pour tester et pour publier une application pour iOS.
+* Il faudra probablement apporter quelques modifications au code afin de le rendre optimal pour Android ou pour iOS. Le but est d'obtenir une application qui est le plus près de l'apparence et du comportement par défaut de la plateforme.
 
 ![Welcome to React Native](assets/04-2-installation-de-react-native-31.png)
 
 ## Pour plus d'information
 
-« React Native Beginners Tutorial—A Cold Dive ». Toptal. <https://www.toptal.com/react-native/cold-dive-into-react-native-a-beginners-tutorial>
-
-« The Ultimate React Native Tutorial ». Simpli Learn. <https://www.simplilearn.com/react-native-tutorial-article>
-
-« Créer une application React Native ». Grafikart. <https://grafikart.fr/tutoriels/react-native-pokedex-2245>
-
-« Formation React ». Dyma. <https://dyma.fr/formations/react>
+* « React Native Beginners Tutorial—A Cold Dive ». Toptal. <https://www.toptal.com/react-native/cold-dive-into-react-native-a-beginners-tutorial>
+* « The Ultimate React Native Tutorial ». Simpli Learn. <https://www.simplilearn.com/react-native-tutorial-article>
+* « Créer une application React Native ». Grafikart. <https://grafikart.fr/tutoriels/react-native-pokedex-2245> 
+* « Formation React ». Dyma. <https://dyma.fr/formations/react>
 
 ## 2.2 Installation de React Native
 
-Pour développer une application React Native, vous aurez besoin de quelques morceaux. Les détails d'installation sont fournis plus bas, je vous donne ici simplement une vue d'ensemble pour vous aider à comprendre.
+Vous pouvez utiliser l'éditeur de votre choix pour développer votre application mais vous aurez besoin d'Android Studio pour gérer les *émulateurs*.
 
-Vous pouvez utiliser l'éditeur de votre choix pour développer votre application mais vous aurez besoin d'Android Studio pour gérer les émulateurs.
-
-Notez qu'ici, j'ai choisi de ne pas utliser [Expo](https://expo.dev/), un écosystème d'outils pour React Native.
-
-Pour comprendre ce que l'utilisation d'Expo implique, lisez ceci : <https://upstackhq.com/blog/software-development/should-i-use-expo-for-react-native>.
+Nous n'utiliserons pas [Expo](https://expo.dev/), un écosystème d'outils pour React Native. Pour comprendre ce que l'utilisation d'Expo implique, lisez ceci : <https://upstackhq.com/blog/software-development/should-i-use-expo-for-react-native>.
 
 Dans cette fiche :
 
@@ -48,9 +40,8 @@ Les morceaux requis sont :
 
 * Un ordinateur Windows ou macOS
 * Android Studio ou IntellilJ (requis pour construire l'application et pour fournir un émulateur)
-* Android
 * Node LTS
-* Java SE Development Kit (JDK)
+* Java SE Development Kit (JDK) - inclus avec Android Studio
 * L'interface en ligne de commande de React Native (React Native CLI - Command Line Interface)
 * Un IDE de votre choix
 
@@ -70,11 +61,9 @@ Les morceaux requis sont :
 
 ## Installation { #installation }
 
-Voici quelques précisions sur l'installation. Je n'ai traité que l'installation sous Windows. Je vous conseille d'en faire une lecture mais de ne rien faire à l'ordinateur pour l'instant puisque les étapes d'installation officielles pourraient différer.
+Voici quelques précisions sur l'installation sous Windows.  Après en avoir pris connaissance, suivez les instructions d'installation pour votre système d'exploitation : <https://reactnative.dev/docs/set-up-your-environment>.
 
-Après en avoir pris connaissance, suivez les instructions d'installation pour votre système d'exploitation : <https://reactnative.dev/docs/set-up-your-environment>.
-
-Notez qu'il est également possible d'[apical\_lien\_interne][react\_native\_et\_docker,installer React Native dans un conteneur Docker][/apical\_lien\_interne].
+Notez qu'il est également possible d'[installer React Native dans un conteneur Docker](#docker).
 
 * Ouvrez la fenêtre Terminal en mode administrateur.
 * Effectuez cette configuration qui vous permettra de lancer des commandes dans une fenêtre Terminal :
@@ -146,6 +135,6 @@ Avant de poursuivre, effectuez les vérifications suivantes pour vous assurer qu
 
 Vous êtes maintenant prêts à [apical\_lien\_interne][creer\_un\_nouveau\_projet\_react\_native,créer votre premier projet React Native][/apical\_lien\_interne].
 
-## 2.3 React Native et Docker
+## 2.3 React Native et Docker { #docker }
 
 Si vous préférez effectuer votre installation React Native dans Docker, et ainsi avoir un environnement propre sans risquer de modifier vos configurations actuelles, suivez les instructions de ce tutoriel : <https://bspalamutcu.medium.com/dockerize-your-react-native-app-5b8020849c92>.

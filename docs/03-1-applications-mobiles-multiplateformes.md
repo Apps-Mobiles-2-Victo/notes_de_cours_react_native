@@ -32,7 +32,6 @@ Cependant, ceci se fait à un coût :
 * Puisque l'application est en fait une coquille alentour d'un site Web, l'aspect et le comportement (look and feel) de l'application sera différent des standards de la plateforme.
 * Il y aura un petit délai d'exécution puisqu'une couche logicielle doit faire le lien entre le Web et le mobile.
 * Il n'est pas possible de travailler avec plus d'un fil d'exécution.
-* ...
 
 ## Pont JavaScript entre l'application et le langage natif
 
@@ -48,6 +47,5 @@ Les applications Flutter offrent un aspect et un comportement qui se rapprochent
 
 ## Pour plus d'information
 
-« Top 10 Best Cross-Platform App Development Frameworks ». Tech Ahead. <https://www.techaheadcorp.com/blog/best-cross-platform-app-development-frameworks/>
-
-« A Comparison of Flutter Vs. React – An Overview ». Techtiz. <https://techtiz.co/blogs/a-comparison-of-flutter-vs-react/>
+* « Top 10 Best Cross-Platform App Development Frameworks ». Tech Ahead. <https://www.techaheadcorp.com/blog/best-cross-platform-app-development-frameworks/>
+* « A Comparison of Flutter Vs. React – An Overview ». Techtiz. <https://techtiz.co/blogs/a-comparison-of-flutter-vs-react/>
