@@ -7,7 +7,7 @@ Le développement natif pour iOS ou pour Android permet de développer une appli
 * respecte l'apparence et les comportements habituels de la plateforme (look and feel)
 * offre les meilleures performances
 * peut tirer avantage de toutes les fonctionnalités du système d'exploitation natif et de l'appareil utilisé
-* utilise un cadre d'application dont les risques de disparition sont quasi-nuls
+* utilise un cadre d'application qui est financé et maintenu par l'entreprise qui développe le système d'exploitation (Apple pour iOS et Google pour Android)
 
 Par contre, le développement natif offre des défis :
 
