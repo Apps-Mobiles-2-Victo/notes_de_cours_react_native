@@ -27,8 +27,6 @@ Les outils qui permettent de développer des applications mobiles pour iOS ou po
 
 Cette approche est intéressante puisqu'elle n'implique pas de développer une nouvelle application mobile. Le même code HTML, CSS et JavaScript sera utilisé pour le site Web, l'application iOS et l'application Android.
 
-[Apache Cordova](https://cordova.apache.org/) (anciennement PhoneGap) utilise ce principe.
-
 Cependant, ceci se fait à un coût :
 
 * Puisque l'application est en fait une coquille alentour d'un site Web, l'aspect et le comportement (look and feel) de l'application sera différent des standards de la plateforme.

@@ -12,13 +12,7 @@ D'abord, pas la plupart des situations, vous aurez besoin d'un ordinateur Apple 
 
 Ensuite, il faudra probablement apporter quelques modifications au code afin de le rendre optimal pour Android ou pour iOS. Le but est d'obtenir une application qui est le plus près de l'apparence et du comportement par défaut de la plateforme.
 
-> React Native’s tagline, “Learn once, write anywhere” differs from the usual cross-platform mantra, “Write once, run anywhere.”[1](https://www.toptal.com/mobile/comparing-react-native-to-cordova#:~:text=React%20Native%E2%80%99s%20tagline)
-
 ![Welcome to React Native](assets/04-2-installation-de-react-native-31.png)
-
-## Source
-
-1. « The Duel: React Native vs. Cordova ». Toptal. [https://www.toptal.com/mobile/comparing-react-native-to-cordova](https://www.toptal.com/mobile/comparing-react-native-to-cordova#:~:text=React%20Native%E2%80%99s%20tagline)
 
 ## Pour plus d'information
 

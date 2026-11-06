@@ -48,8 +48,7 @@ markdown_extensions:
 plugins:
 - search
 nav:
-- Accueil: index.md
-- Table des matières: 02-table-des-matières.md
+- Table des matières: index.md
 - 1. Applications mobiles multiplateformes: 03-1-applications-mobiles-multiplateformes.md
 - 2. Installation de React Native: 04-2-installation-de-react-native.md
 - 3. Création et lancement d'un projet React Native: 05-3-création-et-lancement-dun-projet-react-native.md
