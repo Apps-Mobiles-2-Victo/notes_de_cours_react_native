@@ -42,13 +42,13 @@ Pour comprendre ce que l'utilisation d'Expo implique, lisez ceci : <https://ups
 
 Dans cette fiche :
 
-* [Programmation pour Android](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#android)
-* [Programmation pour iOS](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#ios)
-* [Installation](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#installation)
-* [Vérification](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#verification)
-* [Création d'un projet React Native](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#projet)
+* [Programmation pour Android](#android)
+* [Programmation pour iOS](#ios)
+* [Installation](#installation)
+* [Vérification](#verification)
+* [Création d'un projet React Native](#projet)
 
-## Programmation pour Android
+## Programmation pour Android { #android }
 
 Les morceaux requis sont :
 
@@ -60,7 +60,7 @@ Les morceaux requis sont :
 * L'interface en ligne de commande de React Native (React Native CLI - Command Line Interface)
 * Un IDE de votre choix
 
-## Programmation pour iOS
+## Programmation pour iOS { #ios }
 
 Les morceaux requis sont :
 
@@ -74,7 +74,7 @@ Les morceaux requis sont :
 * L'interface en ligne de commande de React Native (React Native CLI - Command Line Interface)
 * Un IDE de votre choix
 
-## Installation
+## Installation { #installation }
 
 Voici quelques précisions sur l'installation. Je n'ai traité que l'installation sous Windows. Je vous conseille d'en faire une lecture mais de ne rien faire à l'ordinateur pour l'instant puisque les étapes d'installation officielles pourraient différer.
 
@@ -123,7 +123,7 @@ Notez qu'il est également possible d'[apical\_lien\_interne][react\_native\_et\
 * Pour éditer vos applications, si vous désirez utiliser VSCode, il est conseillé d'installer l'extension React Native Tools.
 * Maintenant que vous avez pris connaissance de ces précisions, suivez les instructions d'installation pour votre système d'exploitation : <https://reactnative.dev/docs/set-up-your-environment>.
 
-## Vérification
+## Vérification { #verification }
 
 Avant de poursuivre, effectuez les vérifications suivantes pour vous assurer que tout est correctement en place.
 
@@ -148,7 +148,7 @@ Avant de poursuivre, effectuez les vérifications suivantes pour vous assurer qu
 
   Vous devez avoir la version 17 ou moins.
 
-## Création d'un projet React Native
+## Création d'un projet React Native { #projet }
 
 Vous êtes maintenant prêts à [apical\_lien\_interne][creer\_un\_nouveau\_projet\_react\_native,créer votre premier projet React Native][/apical\_lien\_interne].
 

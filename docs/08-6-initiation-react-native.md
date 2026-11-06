@@ -149,10 +149,10 @@ Pour les utiliser, vous devez ajouter l'instruction import { View, Text } from '
 
 Dans la littérature, on retrouve deux appellations :
 
-* [Composants de base (basic components)](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#basic)
-* [Composants du noyau (core components)](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#core)
+* [Composants de base (basic components)](#basic)
+* [Composants du noyau (core components)](#core)
 
-## Composants de base (basic components)
+## Composants de base (basic components) { #basic }
 
 La documentation officielle de React Native mentionne qu'il y a des basic components[1](https://reactnative.dev/docs/components-and-apis#basic-components).
 
@@ -179,7 +179,7 @@ React Native
   <Text>Bonjour!</Text>  
  </View>
 
-## Composants du noyau (core components)
+## Composants du noyau (core components) { #core }
 
 Les composants du noyau regroupent l'ensemble des composants fournis par React Native. Ils incluent les composants de base.
 

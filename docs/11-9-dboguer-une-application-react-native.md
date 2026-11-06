@@ -65,10 +65,10 @@ Les points d'arrêt sont un outil indispensable lorsqu'on débogue une applicati
 
 Je vous montre ici comment ajouter un point d'arrêt pour déboguer du code React et du code React Native à l'aide de différentes techniques :
 
-* [Dans les outils de développement](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#outilsdeveloppement)
-* [Par programmation (commande debugger)](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#debugger)
+* [Dans les outils de développement](#outilsdeveloppement)
+* [Par programmation (commande debugger)](#debugger)
 
-## Dans les outils de développement
+## Dans les outils de développement { #outilsdeveloppement }
 
 Pour placer un point d'arrêt à partir des outils de développement :
 
@@ -89,7 +89,7 @@ Notez que dans la fenêtre Metro, il est possible d'appuyer sur la touche r pour
 
 Ceci est souvent utile pour exécuter à nouveau du code rencontré seulement lors du lancement de l'application.
 
-## Par programmation (commande debugger)
+## Par programmation (commande debugger) { #debugger }
 
 Il est également possible d'ajouter un point d'arrêt par programmation en ajoutant la commande [debugger](https://dev.to/colocodes/how-to-debug-a-react-app-51l4#using-the-raw-debugger-endraw-statement) dans le code à l'endroit où l'on veut que le débogueur s'arrête.
 

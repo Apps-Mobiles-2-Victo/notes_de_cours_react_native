@@ -6,12 +6,12 @@ Un projet React Native est créé à l'aide d'une commande dans une fenêtre Ter
 
 Dans cette fiche :
 
-* [Création des fichiers de base](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#base)
-  + [Créer un projet dans une ancienne version de React Native](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#ancienneversion)
-* [Lancer l'application avec Metro](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#metro)
-* [Quelques solutions aux problèmes rencontrés](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#probleme)
+* [Création des fichiers de base](#base)
+  + [Créer un projet dans une ancienne version de React Native](#ancienneversion)
+* [Lancer l'application avec Metro](#metro)
+* [Quelques solutions aux problèmes rencontrés](#probleme)
 
-## Création des fichiers de base
+## Création des fichiers de base { #base }
 
 D'abord, placez-vous dans le dossier qui contiendra vos projets.
 
@@ -39,7 +39,7 @@ Terminal
 
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
-### Créer un projet dans une ancienne version de React Native
+### Créer un projet dans une ancienne version de React Native { #ancienneversion }
 
 Si vous désirez plutôt créer un projet dans une ancienne version de React Native, par exemple dans la version 0.75.3 :
 
@@ -54,7 +54,7 @@ Terminal
 cd MonProjet/android  
 ./gradlew clean
 
-## Lancer l'application avec Metro
+## Lancer l'application avec Metro { #metro }
 
 Pour lancer une application React Native, il n'est pas nécessaire qu'Android Studio soit en cours d'exécution. Son utilité se résumait à installer les outils SDK et à créer des émulateurs.
 
@@ -116,7 +116,7 @@ Parmi les fonctionnalités disponibles à partir de la fenêtre Metro, notons qu
 
 ![Fenêtres Metro et lancement](assets/05-3-cration-et-lancement-dun-projet-react-native-33.png)
 
-## Quelques solutions aux problèmes rencontrés
+## Quelques solutions aux problèmes rencontrés { #probleme }
 
 En cas de problème, cette commande pourrait vous mettre sur la bonne piste :
 

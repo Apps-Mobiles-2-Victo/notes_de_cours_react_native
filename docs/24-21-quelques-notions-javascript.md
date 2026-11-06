@@ -240,17 +240,17 @@ Je vous fait une démonstration ici en JavaScript mais les concepts peuvent êtr
 
 Dans cette fiche :
 
-* [Syntaxe de base](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#syntaxe)
-* [Quelques raccourcis](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#raccourcis)
-* [Instruction return](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#return)
-* [Utilisation](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#utilisation)
-  + [Exemple avec boucle](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#boucle)
-  + [Exemple avec fetch](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#fetch)
-* [Quelques différences](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#differences)
-  + [Déclaration avant utilisation](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#declaration)
-  + [this](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#this)
+* [Syntaxe de base](#syntaxe)
+* [Quelques raccourcis](#raccourcis)
+* [Instruction return](#return)
+* [Utilisation](#utilisation)
+  + [Exemple avec boucle](#boucle)
+  + [Exemple avec fetch](#fetch)
+* [Quelques différences](#differences)
+  + [Déclaration avant utilisation](#declaration)
+  + [this](#this)
 
-## Syntaxe de base
+## Syntaxe de base { #syntaxe }
 
 Une fonction fléchée, c'est une façon différente, plus concise de déclarer une fonction.
 
@@ -304,7 +304,7 @@ const faireQuelqueChose = function(unParametre) {
   console.log(`Paramètre: ${unParametre}!`);  
 }
 
-## Quelques raccourcis
+## Quelques raccourcis { #raccourcis }
 
 Avec une fonction fléchée, il est possible d'omettre les parenthèses alentour du paramètre lorsqu'il n'y en a qu'un seul.
 
@@ -322,7 +322,7 @@ const faireQuelqueChose = unParametre => console.log(`Paramètre: ${unParametre
 
 Remarquez que plusieurs développeurs préfèrent toujours utiliser les accolades et les parenthèses puisqu'elles contribuent à clarifier le code.
 
-## Instruction return
+## Instruction return { #return }
 
 Lorsque la fonction doit faire un return et qu'elle ne comprend qu'une seule instruction, il n'est pas requis d'écrire le return. Il est implicite.
 
@@ -352,7 +352,7 @@ JavaScript
 const doubler = nombre => { nombre \* 2 }  
 console.log(doubler(3)); // undefined car il y a des accolades sans return
 
-## Utilisation
+## Utilisation { #utilisation }
 
 Que la fonction ait été définie de façon régulière ou en tant que fonction fléchée, elle sera appelée de la même façon.
 
@@ -361,7 +361,7 @@ JavaScript
 faireQuelqueChose('Allô!');  
 const resultat = doubler(3);
 
-### Exemple avec boucle
+### Exemple avec boucle { #boucle }
 
 On pourrait définir et appeler la fonction fléchée directement comme fonction de rappel (callback function) dans une boucle.
 
@@ -385,7 +385,7 @@ valeurs.map(function(unParametre) {
   console.log(`Paramètre: ${unParametre}!`);  
 })
 
-### Exemple avec fetch
+### Exemple avec fetch { #fetch }
 
 Lorsqu'on réalise un appel AJAX avec fetch, les fonctions fléchées sont particulièrement intéressantes.
 
@@ -439,11 +439,11 @@ fetch('https://...', {
   // ...  
  });
 
-## Quelques différences
+## Quelques différences { #differences }
 
 Voyons maintenant quelques différences entre les fonctions régulières et les fonctions fléchées.
 
-### Déclaration avant utilisation
+### Déclaration avant utilisation { #declaration }
 
 Une fonction régulière peut être appelée dans le haut d'un fichier puis déclarée plus bas.
 
@@ -479,7 +479,7 @@ const faireQuelqueChose = unParametre => {
   console.log(`Paramètre: ${unParametre}!`);  
 }
 
-### this
+### this { #this }
 
 Dans une fonction régulière, le mot-clé this fait référence au contexte d'exécution.
 

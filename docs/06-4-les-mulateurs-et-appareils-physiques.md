@@ -16,15 +16,15 @@ Mais si vous désirez conserver plus d'un émulateur, le fait de connaître les 
 
 Dans cette fiche :
 
-* [Liste des émulateurs](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#liste)
-* [Activer un émulateur](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#activer)
-* [Lister les émulateurs actifs](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#actif)
-* [Retrouver le nom d'un émulateur à partir de son identifiant](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#nom)
-* [Lancer l'application dans un émulateur](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#lancer)
-* [Refermer un émulateur](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#refermer)
-* [Émulateur hors de l'écran](https://apical.xyz/formations/pageunique/applications_mobiles_avec_react_native20251210101311#ecran)
+* [Liste des émulateurs](#liste)
+* [Activer un émulateur](#activer)
+* [Lister les émulateurs actifs](#actif)
+* [Retrouver le nom d'un émulateur à partir de son identifiant](#nom)
+* [Lancer l'application dans un émulateur](#lancer)
+* [Refermer un émulateur](#refermer)
+* [Émulateur hors de l'écran](#ecran)
 
-## Liste des émulateurs
+## Liste des émulateurs { #liste }
 
 Pour connaître les émulateurs créés avec Android Studio (actifs ou non) :
 
@@ -42,7 +42,7 @@ Pixel\_9a
 
 Autre technique : chaque émulateur aura un dossier à son nom sous C:\Users\MonNom\.android\avd.
 
-## Activer un émulateur
+## Activer un émulateur { #activer }
 
 Pour activer un émulateur en particulier :
 
@@ -52,7 +52,7 @@ C:\Users\MonNom\AppData\Local\Android\Sdk\emulator\emulator -avd Pixel\_9a
 
 L'émulateur apparaîtra à l'écran.
 
-## Lister les émulateurs actifs
+## Lister les émulateurs actifs { #actif }
 
 Cette commande liste les émulateurs actifs en fournissant leur identifiant :
 
@@ -70,7 +70,7 @@ List of devices attached
 emulator-5554    device  
 emulator-5556    device
 
-## Retrouver le nom d'un émulateur à partir de son identifiant
+## Retrouver le nom d'un émulateur à partir de son identifiant { #nom }
 
 Pour vérifier le nom de l'émulateur qui correspond à un identifiant :
 
@@ -87,7 +87,7 @@ Pixel\_9a
 
 OK
 
-## Lancer l'application dans un émulateur
+## Lancer l'application dans un émulateur { #lancer }
 
 Lorsque vous avez activé l'émulateur désiré, vous pouvez lancer l'application dans cet émulateur à l'aide de la commande habituelle à condition qu'il n'y ait qu'un seul émulateur actif.
 
@@ -103,7 +103,7 @@ Terminal
 cd /chemin/MonProjet  
 npx react-native run-android --device=emulator-5554
 
-## Refermer un émulateur
+## Refermer un émulateur { #refermer }
 
 Il est possible de refermer un émulateur de différentes façons :
 
@@ -115,7 +115,7 @@ Il est possible de refermer un émulateur de différentes façons :
 
   adb -s emulator-5554 emu kill
 
-## Émulateur hors de l'écran
+## Émulateur hors de l'écran { #ecran }
 
 Si l'émulateur apparaît partiellement hors de l'écran ou, pire encore, complètement en dehors de l'écran, il est possible de modifier ce comportement à l'aide d'un fichier de configuration.
 
