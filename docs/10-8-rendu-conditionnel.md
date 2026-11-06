@@ -1,6 +1,6 @@
-# 8. Rendu conditionnel
+# 7. Rendu conditionnel
 
-## 8.1 Afficher un élément React Native seulement si une condition est remplie (&&)
+## 7.1 Afficher un élément React Native seulement si une condition est remplie (&&)
 
 L'opérateur && (ET logique) peut être utilisé pour effectuer un affichage seulement si une condition est vraie.
 
@@ -14,7 +14,7 @@ React Native
   <Text>Ceci est affiché seulement si uneVariable est à true.</Text>  
 }
 
-## 8.2 Afficher une chose ou une autre selon une condition
+## 7.2 Afficher une chose ou une autre selon une condition
 
 L'opérateur ternaire peut être utilisé pour afficher une chose ou une autre selon une condition.
 

@@ -1,6 +1,6 @@
-# 6. Initiation à React Native
+# 5. Initiation à React Native
 
-## 6.1 Structure du projet
+## 5.1 Structure du projet
 
 Dans le cadre de ce cours, tous les fichiers que vous créerez seront placés dans le dossier src, que vous devez créer à la racine du projet.
 
@@ -10,7 +10,7 @@ Voici un aperçu de la structure attendue pour le projet. Notez que les fichiers
 
 ![Structure projet React Native](assets/08-6-initiation-react-native-38.png)
 
-## 6.2 Fichiers initiaux du projet
+## 5.2 Fichiers initiaux du projet
 
 Une fois que vous avez créé votre projet React Native à l'aide de la commande npx @react-native-community/cli init MonProjet, voici les fichiers initiaux générés.
 
@@ -26,7 +26,7 @@ Tous les autres fichiers que vous coderez seront placés dans un dossier src que
 
 ![Fichiers de base React Native](assets/08-6-initiation-react-native-39.png)
 
-## 6.3 Fichier de base de l'application (App.tsx)
+## 5.3 Fichier de base de l'application (App.tsx)
 
 Le fichier App.tsx est le fichier de base d'une application React Native.
 
@@ -139,7 +139,7 @@ function App(): JSX.Element {
 
 export default App;
 
-## 6.4  Les composants de React Native
+## 5.4  Les composants de React Native
 
 Plusieurs composants sont fournis directement par React Native sans nécessiter d'installation supplémentaire.
 
@@ -202,7 +202,7 @@ Pour une liste plus complète : <https://reactnative.dev/docs/components-and-api
 
 « React Native cheatsheet for beginners ». Medium. <https://medium.com/coinmonks/react-native-cheatsheet-for-beginners-ce0559365d68>
 
-## 6.5 Développer nos propres composants
+## 5.5 Développer nos propres composants
 
 Le composant est l'unité de base d'une vue React Native.
 
@@ -332,7 +332,7 @@ export default App;
 
 « Is There Any Reason to Still Use React Class Components? ». Medium. <https://medium.com/geekculture/is-there-any-reason-to-still-use-react-class-components-9b6a1e6aa9ef>
 
-## 6.6 Simples accolades ou doubles accolades?
+## 5.6 Simples accolades ou doubles accolades?
 
 Parfois, le code React Native comprend des accolades. Ceci signifie qu'il faut évaluer du code JavaScript.
 
@@ -349,7 +349,7 @@ React Native
 
 <Image source={{ uri: 'https://apical.xyz/medias/fr/LogoApical.png' }} ... />
 
-## 6.7 Les fragments (<>...</> ou <React.Fragment>...</React.Fragment>)
+## 5.7 Les fragments (<>...</> ou <React.Fragment>...</React.Fragment>)
 
 Dans certains blocs React Native, il n'est pas possible d'avoir plus d'un composant.
 
@@ -410,7 +410,7 @@ React Native
   </React.Fragment>  
 ))}
 
-## 6.8 Ajouter des styles
+## 5.8 Ajouter des styles
 
 Les styles dans React Native ressemblent beaucoup aux règles CSS en Web.
 
@@ -479,7 +479,7 @@ React Native
 
 « React Native Styling: Structure for Style Organization  ». Thoughtbot. <https://thoughtbot.com/blog/structure-for-styling-in-react-native>
 
-## 6.9 Propriétés
+## 5.9 Propriétés
 
 Les propriétés, appelées props, sont des valeurs de base que l'on peut passer à un composant. Elles sont immuables, c'est-à-dire que leur valeur ne peut pas être modifiée.
 
@@ -559,7 +559,7 @@ MonComposant.defaultProps = defaultProps;
 
 « Mastering TypeScript: A Guide to Choosing Between ‘type’ and ‘interface’ ». Medium. <https://levelup.gitconnected.com/mastering-typescript-a-guide-to-choosing-between-type-and-interface-c31d3527693b>
 
-## 6.10 Variables d'état (useState)
+## 5.10 Variables d'état (useState)
 
 Les variables d'état React Native, appelées states, permettent de rafraîchir l'écran dès que leur valeur change.
 

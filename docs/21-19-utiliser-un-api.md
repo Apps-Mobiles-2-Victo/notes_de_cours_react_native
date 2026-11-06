@@ -1,6 +1,6 @@
-# 19. Utiliser un API
+# 18. Utiliser un API
 
-## 19.1 Utiliser fetch avec React Native
+## 18.1 Utiliser fetch avec React Native
 
 L'utilisation de [fetch avec React Native](https://reactnative.dev/docs/network) est très semblable à l'utilisation que l'on en fait en React ou même en JavaScript pur.
 
@@ -130,7 +130,7 @@ Si, sur l'émulateur, vous obtenez l'erreur « TypeError: Network request faile
 
 Une solution consiste à refermer l'émulateur, refermer la fenêtre Metro avec Ctrl + C puis à relancer l'application.
 
-## 19.2 API qui génère des images
+## 18.2 API qui génère des images
 
 Le type d'information retournée par les API qui génèrent des images dépend de la façon dont chaque API est programmée.
 
@@ -169,7 +169,7 @@ const appelerApi = () => {
   });   
  };
 
-## 19.3 fetch vs Axios
+## 18.3 fetch vs Axios
 
 Avant l'arrivée de fetch, aux alentours de 2015, le code JavaScript devait effectuer les requêtes à un API avec [XmlHttpRequests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). C'était un processus plutôt complexe.
 

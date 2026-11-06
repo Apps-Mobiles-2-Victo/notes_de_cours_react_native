@@ -1,6 +1,6 @@
-# 20. Dépannage React Native (troubleshooting)
+# 19. Dépannage React Native (troubleshooting)
 
-## 20.1 Erreur « Could not read package.json »
+## 19.1 Erreur « Could not read package.json »
 
 ### Problème :
 
@@ -18,7 +18,7 @@ Vous n'avez pas lancé la commande npm start à partir du bon dossier.
 
 Placez votre terminal dans le dossier du projet puis lancez la commande à nouveau.
 
-## 20.2 Erreur « Failed to launch emulator » ou « Failed to install the app »
+## 19.2 Erreur « Failed to launch emulator » ou « Failed to install the app »
 
 ### Problème :
 
@@ -76,7 +76,7 @@ error Failed to install the app. Command failed with exit code 1: gradlew.bat ap
 
 Recréez l'application dans un dossier plus près de la racine du disque dur.
 
-## 20.3 Erreur « ENOENT: no such file or directory, lstat 'C:\Users\...\AppData\Roaming\npm' »
+## 19.3 Erreur « ENOENT: no such file or directory, lstat 'C:\Users\...\AppData\Roaming\npm' »
 
 ### Problème :
 
@@ -96,7 +96,7 @@ Le dossier C:\Users\...\AppData\Roaming\npm n'existe pas et il est requis pour 
 
 Créez le dossier npm à la main sous C:\Users\...\AppData\Roaming.
 
-## 20.4 Erreur « Text strings must be rendered within a <Text> component. »
+## 19.4 Erreur « Text strings must be rendered within a <Text> component. »
 
 ### Problème :
 
@@ -140,7 +140,7 @@ React Native
 
 <Text>Bonjour</Text>
 
-## 20.5 Erreur « Your Ruby version is 2.6.8, but your Gemfile specified >= 2.6.10 »
+## 19.5 Erreur « Your Ruby version is 2.6.8, but your Gemfile specified >= 2.6.10 »
 
 ### Problème :
 
@@ -179,7 +179,7 @@ echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 
 Pour que les nouvelles configurations soient prises en compte, refermez votre fenêtre Terminal puis ouvrez-en une nouvelle. Vous pouvez également conserver la même fenêtre et lancer la commande source ~/.zshrc.
 
-## 20.6 Erreur « Possible Unhandled Promise Rejection »
+## 19.6 Erreur « Possible Unhandled Promise Rejection »
 
 ### Problème :
 
@@ -212,7 +212,7 @@ try {
   console.error(error);  
  }
 
-## 20.7 Erreur « Can't open offline database »
+## 19.7 Erreur « Can't open offline database »
 
 ### Problème :
 
@@ -237,7 +237,7 @@ Attention : la plupart des sites de conversion en ligne créent une base de donn
 
 À vous de l'adapter pour SQLite.
 
-## 20.8 Erreur « Error: EMFILE: too many open files »
+## 19.8 Erreur « Error: EMFILE: too many open files »
 
 ### Problème :
 
@@ -255,7 +255,7 @@ Il y a un problème quelconque avec le dossier node\_modules.
 
 Supprimez le dossier node\_modules et réinstallez-le à l'aide de la commande npm install.
 
-## 20.9 Erreur « Could not determine the dependencies of task ':app:compileDebugJavaWithJavac'. »
+## 19.9 Erreur « Could not determine the dependencies of task ':app:compileDebugJavaWithJavac'. »
 
 ### Problème :
 

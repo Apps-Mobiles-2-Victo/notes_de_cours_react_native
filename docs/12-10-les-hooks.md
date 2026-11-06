@@ -1,6 +1,6 @@
-# 10. Les hooks
+# 9. Les hooks
 
-## 10.1 Qu'est-ce qu'un hook React Native?
+## 9.1 Qu'est-ce qu'un hook React Native?
 
 Dans React et React Native, les hooks sont un mécanisme qui permet de suivre l'état d'un composant de type fonction (functional component).
 
@@ -20,7 +20,7 @@ Parmi les hooks les plus utilisés, notons :
 
 « React Hooks cheat sheet: Best practices with examples ». LogRocket. <https://blog.logrocket.com/react-hooks-cheat-sheet-solutions-common-problems/>
 
-## 10.2 Effectuer un traitement lors du chargement du composant (useEffect sans dépendances)
+## 9.2 Effectuer un traitement lors du chargement du composant (useEffect sans dépendances)
 
 Le hook [useEffect](https://react.dev/reference/react/useEffect) permet d'effectuer un traitement lorsqu'une variable change de valeur.
 
@@ -40,7 +40,7 @@ const MonComposant = () => {
   );  
 };
 
-## 10.3 Réagir seulement lorsqu'une variable d'état a changé de valeur (useEffect)
+## 9.3 Réagir seulement lorsqu'une variable d'état a changé de valeur (useEffect)
 
 Le hook [useEffect](https://react.dev/reference/react/useEffect) permet d'effectuer un traitement seulement lorsqu'une variable change de valeur.
 
@@ -60,7 +60,7 @@ useEffect(() => {
   ...   // Ici, on sait que le changement de valeur a eu lieu.  
 }, [maVariable]);
 
-## 10.4 Appeler une fonction asynchrone dans un useEffect
+## 9.4 Appeler une fonction asynchrone dans un useEffect
 
 Si vous utilisez le hook useEffect pour appeler une fonction asynchrone lorsqu'une variable change de valeur, vous obtiendrez l'erreur « Les expressions 'await' sont autorisées uniquement dans les fonctions asynchrones et aux niveaux supérieurs des modules. ».
 
@@ -108,7 +108,7 @@ useEffect(() => {
   })();   // ces parenthèses sont ce qui fait que la fonction est immédiatement invoquée  
  }, [id]);
 
-## 10.5 Rendre une variable d'état disponible à tous les enfants (useContext)
+## 9.5 Rendre une variable d'état disponible à tous les enfants (useContext)
 
 Le hook [useContext](https://react.dev/reference/react/useContext) permet de définir une variable qui sera disponible pour tous les enfants.
 
@@ -166,7 +166,7 @@ const ComposantEnfant = () => {
 
 « How to use React Context with TypeScript ». LogRocket. <https://blog.logrocket.com/how-to-use-react-context-typescript/>
 
-## 10.6 Mémoriser des informations longues à calculer (useMemo)
+## 9.6 Mémoriser des informations longues à calculer (useMemo)
 
 Le hook [useMemo](https://react.dev/reference/react/useMemo) permet de mettre en cache le résultat de calculs entre deux rendus.
 
@@ -178,7 +178,7 @@ Le hook [useMemo](https://react.dev/reference/react/useMemo) permet de mettre en
 
 « You Might Not Need an Effect ». React.dev. <https://react.dev/learn/you-might-not-need-an-effect>
 
-## 10.7 Mettre une fonction en cache entre deux rendus (useCallback)
+## 9.7 Mettre une fonction en cache entre deux rendus (useCallback)
 
 Le hook [useCallback](https://react.dev/reference/react/useCallback) permet de mettre une fonction en cache afin d'optimiser les performances de l'application.
 
@@ -190,7 +190,7 @@ Il est souvent utilisé en combinaison avec d'autres hooks, par exemple [apical
 
 « Optimizing React Native Performance with useCallback ». Medium. <https://viniciuspetrachin.medium.com/optimizing-react-native-performance-with-usecallback-bdb6d801c9cf>
 
-## 10.8 Effectuer une action quand un composant gagne le focus (useFocusEffect)
+## 9.8 Effectuer une action quand un composant gagne le focus (useFocusEffect)
 
 Dans une application qui utilise React Navigation, le hook [useFocusEffect](https://reactnavigation.org/docs/use-focus-effect/) permet d'effectuer une action seulement si le composant a le focus.
 

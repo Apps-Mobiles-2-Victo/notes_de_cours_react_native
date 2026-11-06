@@ -1,6 +1,6 @@
-# 23. Recréer certains dossiers du projet
+# 22. Recréer certains dossiers du projet
 
-## 23.1 Recréer le dossier node\_modules
+## 22.1 Recréer le dossier node\_modules
 
 Le dossier node\_modules d'une application React Native est généralement volumineux et il contient un nombre impressionnant de petits fichiers. Par exemple, dans une petite application toute simple que j'ai codée, il pesait 381 Mo et contenait 29 715 fichiers.
 
@@ -37,7 +37,7 @@ La procédure qui suit permet donc d'installer un projet React Native sur un aut
   cd /chemin/projet  
   npm run android --verbose
 
-## 23.2 Recréer le dossier android
+## 22.2 Recréer le dossier android
 
 Dans un projet React Native, le dossier Android situé à la base du projet peut être passablement volumineux.
 

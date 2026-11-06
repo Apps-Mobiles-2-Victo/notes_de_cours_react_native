@@ -1,6 +1,6 @@
-# 18. Les capteurs
+# 17. Les capteurs
 
-## 18.1 L'orientation du téléphone (attitude)
+## 17.1 L'orientation du téléphone (attitude)
 
 Avant de se lancer dans le développement d'une application mobile qui réagit aux capteurs, prenons le temps de comprendre comment déterminer l'orientation du téléphone.
 
@@ -48,7 +48,7 @@ Attention cependant : le sens du lacet (yaw) pourrait être différent de celui
 
 « Axes de rotation d'un aéronef ». Wikipédia. <https://fr.wikipedia.org/wiki/Axes_de_rotation_d%27un_a%C3%A9ronef>
 
-## 18.2 Lire les données d'un capteur dans une application React Native
+## 17.2 Lire les données d'un capteur dans une application React Native
 
 L'équipe de React Native a commencé à travailler sur une [nouvelle architecture](https://reactnative.dev/architecture/landing-page) en 2018. Cette architecture a été graduellement introduite dans différentes versions tout en permettant de continuer avec l'architecture originale.
 
@@ -60,7 +60,7 @@ Au moment d'écrire ces lignes (décembre 2025), il n'y avait pas de paquet disp
 
 La solution consiste alors à créer un projet [apical\_lien\_interne][creer\_une\_application\_react\_native\_et\_la\_lancer\_dans\_l\_emulateur,avec une ancienne version de React Native,ancienneversion][/apical\_lien\_interne], par exemple avec la version 0.75.3 que j'utilisais en 2024. Vous pourrez alors [apical\_lien\_interne][paquet\_react\_native\_sensors,travailler avec le paquet react-native-sensors][/apical\_lien\_interne].
 
-## 18.3 Paquet react-native-sensors
+## 17.3 Paquet react-native-sensors
 
 Note : ce paquet n'est plus maintenu depuis 2022 et présente des problèmes de compatibilité avec les versions récentes de React Native basées sur la nouvelle architecture (dernier tests effectués avec React Native 0.82.1 en décembre 2025).  
   
@@ -155,7 +155,7 @@ Pour un exemple qui fonctionne avec la version 7.3.6 (la version installée dans
 
 « react-native-sensors/docs/API.md ». GitHub. <https://github.com/react-native-sensors/react-native-sensors/blob/master/docs/API.md>
 
-## 18.4 Déclarer l'utilisation des capteurs et demander les permissions requises
+## 17.4 Déclarer l'utilisation des capteurs et demander les permissions requises
 
 Tout comme pour une application native Android ou iOS, une application React Native qui utilise des capteurs doit en faire la déclaration et demander les permissions requises.
 

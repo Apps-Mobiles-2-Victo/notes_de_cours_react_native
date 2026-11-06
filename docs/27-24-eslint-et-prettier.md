@@ -1,6 +1,6 @@
-# 24. ESLint et Prettier
+# 23. ESLint et Prettier
 
-## 24.1 Changer le niveau de sévérité des règles ESLint
+## 23.1 Changer le niveau de sévérité des règles ESLint
 
 Lorsqu'une règle ESLint est définie avec le niveau 2 ou 'error', le code qui enfreint cette règle apparaît avec un souligage ondulé rouge.
 
@@ -32,7 +32,7 @@ rules: {
   'prettier/prettier': 'warn',  
  },
 
-## 24.2 Désactiver ESLint
+## 23.2 Désactiver ESLint
 
 ## Désactiver une seule règle pour un fichier
 

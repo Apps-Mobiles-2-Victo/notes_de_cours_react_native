@@ -1,6 +1,6 @@
-# 9. Déboguer une application React Native
+# 8. Déboguer une application React Native
 
-## 9.1 Menu Dev de l'émulateur
+## 8.1 Menu Dev de l'émulateur
 
 Pour ouvrir le menu Dev de l'émulateur :
 
@@ -15,7 +15,7 @@ Un menu apparaîtra directement dans l'émulateur et vous offrira différentes o
 
 ![DevMenu](assets/11-9-déboguer-une-application-react-native-43.png)
 
-## 9.2 Les outils de développement (DevTools)
+## 8.2 Les outils de développement (DevTools)
 
 Pour ouvrir les outils de développement de React Native :
 
@@ -43,7 +43,7 @@ Vous pouvez :
 
 « React Native DevTools ». React Native. <https://reactnative.dev/docs/react-native-devtools>
 
-## 9.3 console.log()
+## 8.3 console.log()
 
 Dans une application React Native, il est possible d'utiliser console.log() pour afficher un message et ainsi faciliter le débogage.
 
@@ -59,7 +59,7 @@ Le résultat apparaîtra dans [apical\_lien\_interne][les\_outils\_de\_developp
 
 Notez qu'auparavant, ils apparaissaient dans le Terminal de Metro mais ce comportement a changé depuis l'arrivée de [React Native 0.77](https://reactnative.dev/blog/2025/01/21/version-0.77) en janvier 2025.
 
-## 9.4 Ajouter un point d'arrêt dans React ou React Native
+## 8.4 Ajouter un point d'arrêt dans React ou React Native
 
 Les points d'arrêt sont un outil indispensable lorsqu'on débogue une application.
 

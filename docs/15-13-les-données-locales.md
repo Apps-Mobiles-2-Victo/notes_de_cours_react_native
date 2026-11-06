@@ -1,6 +1,6 @@
-# 13. Les données locales
+# 12. Les données locales
 
-## 13.1 Modèle pour définir la structure des données
+## 12.1 Modèle pour définir la structure des données
 
 Quand une application React Native a besoin d'une base de données SQLite, elle doit définir un modèle qui indique la structure de chacune des tables.
 
@@ -15,7 +15,7 @@ export interface Categorie {
 
 L'interface d'un modèle sera utilisée avec [apical\_lien\_interne][rendre\_une\_variable\_d\_etat\_disponible\_a\_tous\_les\_enfants,le hook useContext][/apical\_lien\_interne] afin qu'une variable d'état qui l'implémente puisse être déclarée dans le plus proche parent et être disponible dans tous les enfants.
 
-## 13.2 Interagir avec SQLite dans une application React Native
+## 12.2 Interagir avec SQLite dans une application React Native
 
 ## Installation
 
@@ -212,7 +212,7 @@ const MonComposant = ({navigation}: Props) => {
 
 « Using SQLite with React Native  ». Log Rocket. <https://blog.logrocket.com/using-sqlite-with-react-native/>
 
-## 13.3 Quand plusieurs composants doivent travailler avec la même base de données
+## 12.3 Quand plusieurs composants doivent travailler avec la même base de données
 
 Quelques idées :
 

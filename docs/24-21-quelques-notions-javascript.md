@@ -1,6 +1,6 @@
-# 21. Quelques notions JavaScript
+# 20. Quelques notions JavaScript
 
-## 21.1 Les tableaux avec React Native
+## 20.1 Les tableaux avec React Native
 
 Prenon l'exemple d'une application React Native qui doit afficher les valeurs d'un tableau dont voici la structure.
 
@@ -90,7 +90,7 @@ setDonnees((donnees) =>
   ],  
 );
 
-## 21.2 Les littéraux de gabarits
+## 20.2 Les littéraux de gabarits
 
 En JavaScript, un littéral de gabarit (en anglais : template literal) et une chaîne de caractère dans laquelle une expression peut être introduite et correctement interprétée.
 
@@ -115,7 +115,7 @@ const libellé = `J'ai ${getAge("1993/06/04")} ans.`;
 
 « Littéraux de gabarits ». MDN. <https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Litt%C3%A9raux_gabarits>
 
-## 21.3 La copie de tableaux JavaScript - par référence, superficielle, profonde
+## 20.3 La copie de tableaux JavaScript - par référence, superficielle, profonde
 
 ## Copie par référence
 
@@ -228,7 +228,7 @@ tableauOriginal[1].categorie = {code: 'd', description: 'Catégorie D'};
 console.log(copieProfonde[1]);   // l'élément objet de la copie demeure inchangé :   
                                  // {id: 2, description: 'Chaise', categorie": {code: 'b', description: "Catégorie B'}}
 
-## 21.4 Comment fonctionnent les fonctions fléchées
+## 20.4 Comment fonctionnent les fonctions fléchées
 
 Les fonctions fléchées (arrow functions), vous connaissez?
 

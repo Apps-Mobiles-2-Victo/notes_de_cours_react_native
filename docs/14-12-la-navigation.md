@@ -1,6 +1,6 @@
-# 12. La navigation
+# 11. La navigation
 
-## 12.1 Bibliothèque React Navigation
+## 11.1 Bibliothèque React Navigation
 
 Lorsqu'une application React Native comporte plusieurs pages, il faut implanter un système de navigation à l'aide d'une bibliothèque externe.
 
@@ -132,7 +132,7 @@ Voir « [apical\_lien\_interne]passer\_des\_parametres\_a\_une\_route[/apical\_
 
 « Getting Started with React Navigation v6 and TypeScript in React Native ». jscrambler. <https://jscrambler.com/blog/getting-started-with-react-navigation-v6-and-typescript-in-react-native>
 
-## 12.2 Passer des paramètres à une route
+## 11.2 Passer des paramètres à une route
 
 Quand une route a besoin de savoir sur quel objet elle doit travailler, il est préférable de passer en paramètre à la route seulement l'identifiant de l'objet plutôt que l'objet en tant que tel.
 
@@ -155,7 +155,7 @@ React Native
 
 1. « Passing parameters to routes ». React Navigation. [https://reactnavigation.org/docs/params](https://reactnavigation.org/docs/params/#:~:text=What%20should%20be%20in%20params)
 
-## 12.3 Retourner à la page précédente
+## 11.3 Retourner à la page précédente
 
 Lorsqu'on travaille avec navigation.navigate(), on empile les pages.
 
@@ -169,7 +169,7 @@ JavaScript
 
 navigation.goBack();
 
-## 12.4 Paramètres d'un composant utilisé par deux routes différentes
+## 11.4 Paramètres d'un composant utilisé par deux routes différentes
 
 Prenons le cas où un même composant permet d'afficher un formulaire d'ajout ou de modification.
 
@@ -206,7 +206,7 @@ const Formulaire = ({route, navigation}: Props) => {
   
 export default Formulaire;
 
-## 12.5 Route avec paramètre optionnel
+## 11.5 Route avec paramètre optionnel
 
 Une route peut avoir un paramètre optionnel.
 
@@ -219,7 +219,7 @@ export type RootStackParamList = {
   MonComposant: {maProp: string} | undefined;  
 };
 
-## 12.6 Accéder à la navigation de partout
+## 11.6 Accéder à la navigation de partout
 
 L'objet navigation est celui qui permet d'accéder à une route.
 
@@ -352,7 +352,7 @@ const BarreNavigation = (props: BarreNavigationProps) => {
 
 « Type checking with TypeScript ». React Navigation. <https://reactnavigation.org/docs/typescript/>
 
-## 12.7 Placer un élément JSX dans le bas complètement de l'écran
+## 11.7 Placer un élément JSX dans le bas complètement de l'écran
 
 Puisque les composants React Native utilisent le positionnement CSS flex par défaut, il est facile de placer un élément dans le bas complètement de l'écran, par exemple un bouton ou même une barre de navigation.
 

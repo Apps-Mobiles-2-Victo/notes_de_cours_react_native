@@ -1,6 +1,6 @@
-# 15. Formulaire React Native
+# 14. Formulaire React Native
 
-## 15.1 La validation
+## 14.1 La validation
 
 Dans sa plus simple expression, la validation d'un formulaire React Native consiste à vérifier la valeur d'une variable d'état à l'un de ces moments :
 
@@ -48,7 +48,7 @@ return (
   ...  
 );
 
-## 15.2 Configurer le bon clavier virtuel
+## 14.2 Configurer le bon clavier virtuel
 
 Le choix du clavier qui apparaît quand on clique sur un élément de formulaire est important pour améliorer l'expérience utilisateur.
 
@@ -67,7 +67,7 @@ Les différents types de claviers sont listés ici : <https://reactnative.dev/
 
 Pour avoir un aperçu de chacun, consultez ce site : <https://www.lefkowitz.me/visual-guide-to-react-native-textinput-keyboardtype-options/>
 
-## 15.3 Cacher le clavier
+## 14.3 Cacher le clavier
 
 Dans un formulaire React Native, lorsque l'usager clique sur le bouton de soumission, il est intéressant de cacher le clavier virtuel afin de rendre tout l'espace disponible.
 

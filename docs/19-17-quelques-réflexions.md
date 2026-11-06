@@ -1,6 +1,6 @@
-# 17. Quelques réflexions
+# 16. Quelques réflexions
 
-## 17.1 Ce qui manque pour compléter le CRUD
+## 16.1 Ce qui manque pour compléter le CRUD
 
 Discussion en classe
 
