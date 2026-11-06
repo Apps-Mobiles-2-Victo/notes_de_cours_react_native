@@ -185,7 +185,7 @@ Pour que les nouvelles configurations soient prises en compte, refermez votre fe
 
 Lorsque vous exécutez votre application React Native, vous obtenez le message « Possible Unhandled Promise Rejection ».
 
-![Possible Unhandled Promise Rejection](assets/23-20-dpannage-react-native-troubleshooting-56.png)
+![Possible Unhandled Promise Rejection](assets/23-20-dépannage-react-native-troubleshooting-56.png)
 
 ### Contexte :
 

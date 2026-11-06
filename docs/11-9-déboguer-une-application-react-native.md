@@ -6,14 +6,14 @@ Pour ouvrir le menu Dev de l'émulateur :
 
 * Dans la fenêtre Metro, appuyez sur d
 
-  ![Fenêtre Metro](assets/11-9-dboguer-une-application-react-native-42.png)
+  ![Fenêtre Metro](assets/11-9-déboguer-une-application-react-native-42.png)
 
   ou
 * Dans la fenêtre de l'émulateur, appuyez sur Ctrl + M sous Windows ou Cmd ⌘ + M sous macOS.
 
 Un menu apparaîtra directement dans l'émulateur et vous offrira différentes options utiles.
 
-![DevMenu](assets/11-9-dboguer-une-application-react-native-43.png)
+![DevMenu](assets/11-9-déboguer-une-application-react-native-43.png)
 
 ## 9.2 Les outils de développement (DevTools)
 
@@ -21,7 +21,7 @@ Pour ouvrir les outils de développement de React Native :
 
 * Dans la fenêtre Metro, appuyez sur j
 
-  ![Fenêtre Metro](assets/11-9-dboguer-une-application-react-native-42.png)
+  ![Fenêtre Metro](assets/11-9-déboguer-une-application-react-native-42.png)
 
   ou
 * Dans la fenêtre de l'émulateur, appuyez sur Ctrl + M sous Windows ou Cmd ⌘ + M sous macOS puis sélectionnez Open DevTools.
@@ -35,7 +35,7 @@ Vous pouvez :
 * Cliquer sur l'onglet Components pour questionner l'état d'un composant
 * etc.
 
-![DevTools](assets/11-9-dboguer-une-application-react-native-45.png)
+![DevTools](assets/11-9-déboguer-une-application-react-native-45.png)
 
 ## Pour plus d'information
 
@@ -55,7 +55,7 @@ console.log(`maVariable: ${maVariable}`);
 
 Le résultat apparaîtra dans [apical\_lien\_interne][les\_outils\_de\_developpement\_devtools,la fenêtre DevTools][/apical\_lien\_interne], onglet Console.
 
-![console.log](assets/11-9-dboguer-une-application-react-native-46.png)
+![console.log](assets/11-9-déboguer-une-application-react-native-46.png)
 
 Notez qu'auparavant, ils apparaissaient dans le Terminal de Metro mais ce comportement a changé depuis l'arrivée de [React Native 0.77](https://reactnative.dev/blog/2025/01/21/version-0.77) en janvier 2025.
 
@@ -79,11 +79,11 @@ Dans les deux cas, l'onglet Sources donne accès au code source en cours d'exéc
 
 Voici un exemple en React.
 
-![Point d'arrêt dans React](assets/11-9-dboguer-une-application-react-native-47.png)
+![Point d'arrêt dans React](assets/11-9-déboguer-une-application-react-native-47.png)
 
 Et voici un exemple en React Native.
 
-![Point d'arrêt dans React Native](assets/11-9-dboguer-une-application-react-native-48.png)
+![Point d'arrêt dans React Native](assets/11-9-déboguer-une-application-react-native-48.png)
 
 Notez que dans la fenêtre Metro, il est possible d'appuyer sur la touche r pour lancer l'application à nouveau.
 
@@ -93,6 +93,6 @@ Ceci est souvent utile pour exécuter à nouveau du code rencontré seulement lo
 
 Il est également possible d'ajouter un point d'arrêt par programmation en ajoutant la commande [debugger](https://dev.to/colocodes/how-to-debug-a-react-app-51l4#using-the-raw-debugger-endraw-statement) dans le code à l'endroit où l'on veut que le débogueur s'arrête.
 
-![debugger;](assets/11-9-dboguer-une-application-react-native-49.png)
+![debugger;](assets/11-9-déboguer-une-application-react-native-49.png)
 
 En React comme en React Native, le point d'arrêt ne sera pris en compte que s'il est rencontré alors que les outils de développement sont ouverts.

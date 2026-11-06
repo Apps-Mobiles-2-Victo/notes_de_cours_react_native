@@ -104,7 +104,7 @@ Starting: intent { act=android.intent.action. MAIN ... ./MainActivity }
 
 Et l'émulateur affichera l'application de base :
 
-![Application React Native dans l'émulateur](assets/05-3-cration-et-lancement-dun-projet-react-native-32.png)
+![Application React Native dans l'émulateur](assets/05-3-création-et-lancement-dun-projet-react-native-32.png)
 
 Si vous obtenez un écran noir, vous devez cliquer sur l'icône Power à droite de l'émulateur afin de mettre l'émulateur en marche.
 
@@ -114,7 +114,7 @@ Au besoin, il est possible de cliquer sur la fenêtre Metro pour accéder à dif
 
 Parmi les fonctionnalités disponibles à partir de la fenêtre Metro, notons qu'il est possible de recharger l'application en appuyant sur la touche r ou encore accéder aux outils de développement en appuyant sur la touche j.
 
-![Fenêtres Metro et lancement](assets/05-3-cration-et-lancement-dun-projet-react-native-33.png)
+![Fenêtres Metro et lancement](assets/05-3-création-et-lancement-dun-projet-react-native-33.png)
 
 ## Quelques solutions aux problèmes rencontrés { #probleme }
 
