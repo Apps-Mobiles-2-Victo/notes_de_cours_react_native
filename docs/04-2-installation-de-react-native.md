@@ -20,129 +20,81 @@ Avec React Native, votre code vous permettra de créer une application pour Andr
 * « Créer une application React Native ». Grafikart. <https://grafikart.fr/tutoriels/react-native-pokedex-2245> 
 * « Formation React ». Dyma. <https://dyma.fr/formations/react>
 
-## 2.2 Installation de React Native
+## 2.2 Installation de React Native via Docker Desktop
+
+Nous allons utiliser Docker Desktop pour créer un environnement de développement qui permettra de bâtir des projets React Native. Le dépôt avec les scripts est : <https://github.com/Apps-Mobiles-2-Victo/react-native-docker-android>.
 
 Vous pouvez utiliser l'éditeur de votre choix pour développer votre application mais vous aurez besoin d'Android Studio pour gérer les *émulateurs*.
 
-Nous n'utiliserons pas [Expo](https://expo.dev/), un écosystème d'outils pour React Native. Pour comprendre ce que l'utilisation d'Expo implique, lisez ceci : <https://upstackhq.com/blog/software-development/should-i-use-expo-for-react-native>.
+Nous n'utiliserons pas [Expo](https://expo.dev/), un écosystème d'outils pour React Native. Pour comprendre ce que l'utilisation d'Expo implique, lisez ceci : <https://upstackhq.com/blog/software-development/should-i-use-expo-for-react-native>.
 
-Dans cette fiche :
+## Cloner le dépôt { #clone }
 
-* [Programmation pour Android](#android)
-* [Programmation pour iOS](#ios)
-* [Installation](#installation)
-* [Vérification](#verification)
-* [Création d'un projet React Native](#projet)
+Sous WSL, cloner le dépôt puis se placer à sa racine. Tous les scripts ci-dessous s'exécutent depuis cette racine :
 
-## Programmation pour Android { #android }
+```sh
+git clone https://github.com/Apps-Mobiles-2-Victo/react-native-docker-android.git
+cd react-native-docker-android
+```
 
-Les morceaux requis sont :
+## Construire l'image Docker { #image }
 
-* Un ordinateur Windows ou macOS
-* Android Studio ou IntellilJ (requis pour construire l'application et pour fournir un émulateur)
-* Node LTS
-* Java SE Development Kit (JDK) - inclus avec Android Studio
-* L'interface en ligne de commande de React Native (React Native CLI - Command Line Interface)
-* Un IDE de votre choix
+Depuis la racine du dépôt, construire l'image Docker avec le tag `react-native-android` (à faire une seule fois) :
 
-## Programmation pour iOS { #ios }
+```sh
+./scripts/build-docker-image-wsl.sh
+```
 
-Les morceaux requis sont :
+!!! warning
+    L'image Docker finale utilise près de 7 Go d'espace disque. Assurez-vous d'avoir suffisamment d'espace libre avant de lancer la construction.
 
-* Un ordinateur macOS
-* Xcode (requis pour construire l'application et pour fournir un émulateur)
-* Xcode command Line Tools
-* CocoaPods
-* Node
-* Watchman
-* Java SE Development Kit (JDK)
-* L'interface en ligne de commande de React Native (React Native CLI - Command Line Interface)
-* Un IDE de votre choix
+## Projet de test Hello World Android { #hello-world }
 
-## Installation { #installation }
+Un petit projet React Native utilisant Gradle se trouve dans `examples/android-hello-world` du dépôt. Il affiche « Bonjour Android ! » et inclut les bibliothèques natives pour les architectures `x86_64` (pour les émulateurs sur PC).
 
-Voici quelques précisions sur l'installation sous Windows.  Après en avoir pris connaissance, suivez les instructions d'installation pour votre système d'exploitation : <https://reactnative.dev/docs/set-up-your-environment>.
+Depuis la racine du dépôt, construire l'APK autonome (la variante `release` embarque le bundle JavaScript, sans serveur Metro) dans l'image Docker :
 
-Notez qu'il est également possible d'[installer React Native dans un conteneur Docker](#docker).
+```sh
+./scripts/build-android-app-wsl.sh
+```
 
-* Ouvrez la fenêtre Terminal en mode administrateur.
-* Effectuez cette configuration qui vous permettra de lancer des commandes dans une fenêtre Terminal :
+Le script conserve le cache Gradle dans le volume Docker `gradle-home-cache` afin de le réutiliser entre les exécutions.
 
-  Terminal
+Le fichier produit est `examples/android-hello-world/android/app/build/outputs/apk/release/app-release.apk`.
 
-  Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
+## Installer et démarrer l'APK sur l'émulateur { #adb }
 
-* Installez chocolatey (<https://chocolatey.org/install>) :
+Pour installer et démarrer l'APK sur l'AVD d'Android Studio depuis WSL, vous devez exposer le serveur ADB Windows sur le réseau commun entre WSL et Windows.
 
-  Terminal
+Android Studio démarre son propre serveur ADB, qui ne peut pas être utilisé depuis WSL. Pour contourner ce problème, il faut démarrer le serveur ADB nous-mêmes avant qu'Android Studio ne le fasse.
 
-  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-* Installez JDK :
+À faire une fois par démarrage de l'ordinateur :
 
-  Terminal
+* Si Android Studio est ouvert :
+    * Le fermer.
+    * Vérifier dans le gestionnaire de tâches qu'aucun processus `adb.exe` n'est en cours d'exécution. Si c'est le cas, le tuer.
+* Dans un terminal Windows (ou une commande directement via `Win + R`), démarrer ADB en l'exposant sur toutes les interfaces réseau (`-a`) :
 
-  choco install -y nodejs-lts microsoft-openjdk17
-* 
-Installez Git (sinon, quand on crée un projet, on obtient le message « Git is not installed on your system. This might cause some features to work incorrectly ») :
+```powershell
+adb -a start-server
+```
 
-  Terminal
+![Windows: lancer adb server en écoute sur toutes les interfaces](assets/AppsMobiles2_ReactNative_adb_server_listen_all.png)
 
-  choco install git.install
+Relancer ensuite Android Studio et l'AVD (émulateur), puis exécuter depuis WSL :
 
-* Les instructions officielles demandent d'installer Android Studio en cochant Android SDK, Android SDK Platform et Android Virtual Device. Puisque vous avez déjà installé Android Studio, pas de problème. Les étapes suivantes assureront que tout est conforme en plus de compléter l'installation requise.
-* Démarrez Android Studio.
-* Cliquez sur les trois points verticaux sur l'écran d'accueil puis choisissez SDK Manager (ou, si un projet est déjà ouvert, File / Settings / Languages & Frameworks / Android SDK).
-* Dans l'onglet SDK Platforms, cochez Show Package Details.
-* Plusieurs versions du SDK peuvent coexister. Au moment d'écrire ces lignes, React Native nécessitait Android 15.   
-  Cliquez sur la flèche pour développer Android 15 (VanillaIceCream). Vous devez cocher Android SDK Platform 35 puis l'un des suivants : *Intel x86_64 Atom System Image* ou, si vous désirez coder des applications qui nécessitent les API Google (Google Play Services), *Google APIs Intel x86_64 Atom System Image*.
-* Cliquez sur l'onglet SDK Tools.
-* Cochez Show Package Details.
-* Cliquez sur la flèche pour développer Android SDK Build-Tools puis cochez 36.0.0.
-* Cliquez sur la flèche pour développer Android SDK Command-line Tools (latest) puis cochez Android SDK Command-line Tools (latest).
-* Plus bas, cochez Android Emulator et Android SDK Platform-Tools.
-* Cliquez sur Apply pour lancer l'installation.
-* Notez le chemin du SDK Android qui est affiché dans le haut de l'écran. Ex : C:\Users\MonNom\AppData\Local\Android\Sdk. Ce chemin peut être retrouvé dans Android Studio à partir du menu Tools / SDK Manager / Languages & Frameworks / Android SDK, dans la zone Android SDK Location.
-* Faites pointer la variable d'environnement ANDROID\_HOME vers le dossier du SDK Android (vous pouvez utiliser %USERPROFILE% au lieu de C:\Users\MonNom).
-* Modifiez la variable d'environnement PATH pour lui ajouter le dossier %LOCALAPPDATA%\Android\Sdk\platform-tools.
-* Pour configurer l'émulateur qui sera utilisé pour tester vos applications, ouvrez un projet bidon dans Android Studio.
-* [Créer un nouveau périphérique virtuel](06-4-les-émulateurs-et-appareils-physiques.md#liste) qui utilise l'image système VanillaIceCream (API 35).
-* Pour éditer vos applications, si vous désirez utiliser VSCode, il est conseillé d'installer l'extension React Native Tools.
-* Maintenant que vous avez pris connaissance de ces précisions, suivez les instructions d'installation pour votre système d'exploitation : <https://reactnative.dev/docs/set-up-your-environment>.
-
-## Vérification { #verification }
-
-Avant de poursuivre, effectuez les vérifications suivantes pour vous assurer que tout est correctement en place.
-
-* Vérifiez que les variables d'environnement sont bien mises à jour en entrant ces commandes dans une nouvelle fenêtre Terminal (les changements ne sont pas effectifs dans les fenêtres qui étaient ouvertes avant les modifications) :
-
-  Terminal
-
-  $ENV:ANDROID\_HOME  
-  $ENV:PATH
-* Vérifiez version de Node :
-
-  Terminal
-
-  node -v
-
-  Vous devez avoir la version 18 ou plus récent.
-* Vérifiez la version de Java :
-
-  Terminal
-
-  java --version
-
-  Vous devez avoir la version 17 ou moins.
+```sh
+./scripts/run-android-app-wsl.sh
+```
 
 ## Création d'un projet React Native { #projet }
 
-Vous êtes maintenant prêts à [créer votre premier projet React Native](05-3-création-et-lancement-dun-projet-react-native.md#base).
+Vous êtes maintenant prêts à [créer votre premier projet React Native](05-3-création-et-lancement-dun-projet-react-native.md#base).
 
-## 2.3 React Native et Docker { #docker }
+!!! note
+    Les anciennes instructions d'installation (sans Docker) sont conservées pour référence dans [Installation classique de React Native](installation-classique-reference.md).
 
-Si vous préférez effectuer votre installation React Native dans Docker, et ainsi avoir un environnement propre sans risquer de modifier vos configurations actuelles, suivez les instructions de ce tutoriel : <https://bspalamutcu.medium.com/dockerize-your-react-native-app-5b8020849c92>.
+# Exercice
 
----
-
-À lancer avant Android Studio :
-![Windows: lancer adb server en écoute sur toutes les interfaces](assets/AppsMobiles2_ReactNative_adb_server_listen_all.png)
+* Procéder à l'installation de React Native via Docker Desktop et builder l'APK de test. Assurez-vous que l'APK fonctionne correctement sur l'émulateur Android.
+* Faites une modification dans le code source de l'application de test pour afficher un autre message que « Bonjour Android ! » et rebuild l'APK. Vérifiez que le nouveau message s'affiche correctement sur l'émulateur Android.

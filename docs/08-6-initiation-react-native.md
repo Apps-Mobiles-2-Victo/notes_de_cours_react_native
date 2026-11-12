@@ -16,7 +16,7 @@ Une fois que vous avez créé votre projet React Native à l'aide de la commande
 
 Vous remarquerez que la structure du dossier android ressemble à celle d'un projet Android natif.
 
-De même, celle du dossier ios ressemble à celle d'un projet iOS natif avec UIKit (on le reconnait au fichier .storyboard). Même si nous connaissons plutôt SwiftUI, nous voyons que iOS saura reconnaître les fichiers de ce projet.
+De même, celle du dossier ios ressemble à celle d'un projet iOS natif avec UIKit (on le reconnaît au fichier .storyboard). Même si nous connaissons plutôt SwiftUI, nous voyons que iOS saura reconnaître les fichiers de ce projet.
 
 Rassurez-vous, le contenu de ces dossiers n'aura pas à être modifié.
 

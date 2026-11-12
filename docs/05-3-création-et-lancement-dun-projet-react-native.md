@@ -178,7 +178,7 @@ Cet environnement convient pour la grande majorité des applications React Nativ
 
 Notez qu'il ne s'agit pas d'un simple environnement de développement. Les applications créées avec Expo auront une structure différentes de celles créées directement avec React Native CLI.
 
-Il faut savoir que certains modules pourraient ne pas être disponibles dans Expo. Aussi, les applications seront plus lourdes que celles déveloopées avec React Native CLI.
+Il faut savoir que certains modules pourraient ne pas être disponibles dans Expo. Aussi, les applications seront plus lourdes que celles développées avec React Native CLI.
 
 ## Pour plus d'information
 
