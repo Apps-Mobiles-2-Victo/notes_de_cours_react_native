@@ -141,3 +141,8 @@ Vous êtes maintenant prêts à [créer votre premier projet React Native](05-3
 ## 2.3 React Native et Docker { #docker }
 
 Si vous préférez effectuer votre installation React Native dans Docker, et ainsi avoir un environnement propre sans risquer de modifier vos configurations actuelles, suivez les instructions de ce tutoriel : <https://bspalamutcu.medium.com/dockerize-your-react-native-app-5b8020849c92>.
+
+---
+
+À lancer avant Android Studio :
+![Windows: lancer adb server en écoute sur toutes les interfaces](assets/AppsMobiles2_ReactNative_adb_server_listen_all.png)
