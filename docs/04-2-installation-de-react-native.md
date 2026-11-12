@@ -79,8 +79,6 @@ Android Studio démarre son propre serveur ADB, qui ne peut pas être utilisé d
 adb -a start-server
 ```
 
-![Windows: lancer adb server en écoute sur toutes les interfaces](assets/AppsMobiles2_ReactNative_adb_server_listen_all.png)
-
 Relancer ensuite Android Studio et l'AVD (émulateur), puis exécuter depuis WSL :
 
 ```sh

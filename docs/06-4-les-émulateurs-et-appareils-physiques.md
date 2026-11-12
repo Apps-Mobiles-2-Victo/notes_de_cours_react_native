@@ -28,17 +28,18 @@ Dans cette fiche :
 
 Pour connaître les émulateurs créés avec Android Studio (actifs ou non) :
 
-Terminal
-
-C:\Users\MonNom\AppData\Local\Android\Sdk\emulator\emulator -list-avds
+```Terminal
+%LOCALAPPDATA%\Android\Sdk\emulator\emulator -list-avds
+```
 
 On voit le nom des émulateurs.
 
-Résultat à l'écran
 
-PS C:\Users\MonNom> C:\Users\MonNom\AppData\Local\Android\Sdk\emulator\emulator -list-avds  
+```Terminal
+PS C:\> %LOCALAPPDATA%\Android\Sdk\emulator\emulator -list-avds  
 Medium\_Phone\_API\_36.0  
 Pixel\_9a
+```
 
 Autre technique : chaque émulateur aura un dossier à son nom sous C:\Users\MonNom\.android\avd.
 
@@ -46,9 +47,10 @@ Autre technique : chaque émulateur aura un dossier à son nom sous C:\Users\M
 
 Pour activer un émulateur en particulier :
 
-Terminal
+```Terminal
 
-C:\Users\MonNom\AppData\Local\Android\Sdk\emulator\emulator -avd Pixel\_9a
+%LOCALAPPDATA%\Android\Sdk\emulator\emulator -avd Pixel\_9a
+```
 
 L'émulateur apparaîtra à l'écran.
 
@@ -56,36 +58,32 @@ L'émulateur apparaîtra à l'écran.
 
 Cette commande liste les émulateurs actifs en fournissant leur identifiant :
 
-Terminal
+```Terminal
 
 adb devices
+```
 
 Dans cet écran, on voit qu'il y a un téléphone physique branché à l'ordinateur (35051jegro08333) de même que deux émulateurs actifs (emulator-5554 et emulator-5556).
 
-Résultat à l'écran
+```Terminal
 
-PS C:\Users\MonNom> adb devices  
+PS C:\> adb devices  
 List of devices attached  
 35051jegro08333  device  
 emulator-5554    device  
 emulator-5556    device
+```
 
 ## Retrouver le nom d'un émulateur à partir de son identifiant { #nom }
 
 Pour vérifier le nom de l'émulateur qui correspond à un identifiant :
 
-Terminal
+```Terminal
 
-adb -s emulator-5554 emu avd name
-
-Résultat à l'écran
-
-PS C:\Users\MonNom> adb -s emulator-5554 emu avd name  
+PS C:\> adb -s emulator-5554 emu avd name
 Pixel\_9a
-
- 
-
 OK
+```
 
 ## Lancer l'application dans un émulateur { #lancer }
 
@@ -143,9 +141,11 @@ Il est possible de tester une application React Native sur un téléphone Androi
 * Brancher le téléphone à l'ordinateur via USB.
 * Vérifiez que le téléphone est reconnu en lançant cette commande dans une fenêtre Terminal à partir du dossier de l'application :
 
-  Terminal
+  ```Terminal
 
   adb devices
+  
+
 * Un seul périphérique doit être actif dans cette commande. Si un émulateur est listé sans la mention offline, il faut absolument le refermer avant de poursuivre.
 * Lancez votre application normalement, elle apparaîtra sur le téléphone.
 
