@@ -138,4 +138,4 @@ Avant de poursuivre, effectuez les vérifications suivantes pour vous assurer qu
 
 ## Création d'un projet React Native { #projet }
 
-Vous êtes maintenant prêts à [créer votre premier projet React Native](05-3-création-et-lancement-dun-projet-react-native.md#base).
+Vous êtes maintenant prêts à [créer votre premier projet React Native](05-3-création-et-lancement-dun-projet-react-native-reference.md#base).

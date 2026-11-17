@@ -12,7 +12,7 @@ Voici un aperçu de la structure attendue pour le projet. Notez que les fichiers
 
 ## 5.2 Fichiers initiaux du projet
 
-Une fois que vous avez créé votre projet React Native à l'aide de la commande npx @react-native-community/cli init MonProjet, voici les fichiers initiaux générés.
+Une fois que vous avez créé votre projet React Native, voici les fichiers initiaux générés.
 
 Vous remarquerez que la structure du dossier android ressemble à celle d'un projet Android natif.
 
@@ -32,7 +32,7 @@ Le fichier App.tsx est le fichier de base d'une application React Native.
 
 Au départ, on y retrouve ce code.
 
-Fichier App.tsx (React Native)
+``` Fichier App.tsx (React Native)
 
 /\*\*  
  \* Sample React Native App  
@@ -90,9 +90,9 @@ const styles = StyleSheet.create({
   },  
 });
 
- 
 
 export default App;
+```
 
 La moindre modification à ce code sera immédiatement reflétée dans l'émulateur une fois l'application lancée.
 
@@ -102,11 +102,9 @@ On y codera plutôt une fonction App() déclarée à l'aide de la [syntaxe des 
 
 Dans le return de cette fonction, on ajoutera des composants à l'aide de code [JSX](https://react.dev/learn/writing-markup-with-jsx) afin de préciser ce qui sera affiché.
 
-Fichier App.tsx (React Native)
+``` Fichier App.tsx (React Native)
 
 import React from 'react';
-
- 
 
 const App = () => {  
   return (  
@@ -114,20 +112,17 @@ const App = () => {
   );  
 };
 
- 
 
 export default App;
 
 Si vous préférez, il est possible déclarer un composant fonctionnel.
 
-Remarquez qu'ici, j'ai précisé que le type de retour est JSX.Element, c'est-à-dire un composant React Native.
+Remarquez qu'ici, j'ai précisé que le type de retour est *JSX.Element*, c'est-à-dire un composant React Native.
 
-Fichier App.tsx (React Native)
+```Fichier App.tsx (React Native)
 
 import React from 'react';  
 import type {JSX} from 'react';
-
- 
 
 function App(): JSX.Element {  
   return (  
@@ -135,9 +130,9 @@ function App(): JSX.Element {
   );  
 };
 
- 
 
 export default App;
+```
 
 ## 5.4  Les composants de React Native
 
@@ -145,7 +140,13 @@ Plusieurs composants sont fournis directement par React Native sans nécessiter 
 
 Ces composants React Native jouent un rôle qui ressemble à celui des balises HTML en React : ils constituent les blocs de base à partir desquels d'autres composants seront développés pour former l'interface de l'application.
 
-Pour les utiliser, vous devez ajouter l'instruction import { View, Text } from 'react-native'; en prenant soin de lister les composant utilisés.
+Pour les utiliser, vous devez ajouter l'instruction 
+
+```
+import { View, Text } from 'react-native'; 
+```
+
+en prenant soin de lister les composant utilisés.
 
 Dans la littérature, on retrouve deux appellations :
 
@@ -167,7 +168,7 @@ Les composants de base sont les composants de plus bas niveau, par exemple :
 
 Voici un exemple d'utilisation de composants de base.
 
-React Native
+``` React Native
 
 <View>  
   <Image  
@@ -178,6 +179,8 @@ React Native
   />  
   <Text>Bonjour!</Text>  
  </View>
+
+```
 
 ## Composants du noyau (core components) { #core }
 

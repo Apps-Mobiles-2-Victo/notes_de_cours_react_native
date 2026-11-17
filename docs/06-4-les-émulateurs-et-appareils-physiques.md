@@ -1,5 +1,7 @@
 # 4. Les émulateurs et appareils physiques
 
+!!! RÉFÉRENCE SEULEMENT
+   
 ## 4.1 Travailler avec les émulateurs
 
 Puisque React Native permet de tester une application à l'aide d'un émulateur installé par Android Studio, il est intéressant de mieux comprendre la mécanique derrière cette fonctionnalité.
@@ -89,10 +91,12 @@ OK
 
 Lorsque vous avez activé l'émulateur désiré, vous pouvez lancer l'application dans cet émulateur à l'aide de la commande habituelle à condition qu'il n'y ait qu'un seul émulateur actif.
 
-Terminal
+``` Terminal
 
 cd /chemin/MonProjet  
 npx react-native run-android
+
+```
 
 Dans le cas où il y a plusieurs émulateurs actifs (et que votre environnement est capable de travailler dans ces conditions – ce qui n'est pas toujours le cas), il est possible de forcer l'utilisation d'un émulateur en particulier :
 
@@ -109,9 +113,10 @@ Il est possible de refermer un émulateur de différentes façons :
 * en appuyant sur Ctrl + C dans la fenêtre Terminal qui a lancé l'émulateur;
 * à l'aide de la commande suivante, en changeant emulator-5554 pour l'identifiant de l'émulateur :
 
-  Terminal
+``` Terminal
 
   adb -s emulator-5554 emu kill
+```
 
 ## Émulateur hors de l'écran { #ecran }
 
@@ -122,11 +127,11 @@ Si l'émulateur apparaît partiellement hors de l'écran ou, pire encore, compl�
 * À l'aide d'un éditeur de texte brut, par exemple Geany, éditez le fichier emulator-user.ini.
 * Modifiez les coordonnées pour afficher l'émulateur à l'intérieur de la fenêtre. Dans cet exemple, je le place dans le coin supérieur gauche de l'écran.
 
-  Fichier emulator-user.ini
+```Fichier emulator-user.ini
 
   window.x = 0  
   window.y = 0  
-  ...
+```
 
 ## 4.2 Exécuter une application React Native sur un téléphone Android { #appareil-android }
 
@@ -136,15 +141,15 @@ Il est possible de tester une application React Native sur un téléphone Androi
 
   ou
 
-  Paramètres (Settings) / Dans la zone de recherche, entrer Options pour les développeurs (Developer options) / Taper sur l'option pour l'activer.
+* Paramètres (Settings) / Dans la zone de recherche, entrer Options pour les développeurs (Developer options) / Taper sur l'option pour l'activer.
 * Activez le débogage USB : Paramètres (Settings) / Dans la zone de recherche, entrer Options pour les développeurs (Developer options) / Activer Débogage USB (USB debugging).
 * Brancher le téléphone à l'ordinateur via USB.
 * Vérifiez que le téléphone est reconnu en lançant cette commande dans une fenêtre Terminal à partir du dossier de l'application :
 
-  ```Terminal
+``` Terminal
 
   adb devices
-  
+```
 
 * Un seul périphérique doit être actif dans cette commande. Si un émulateur est listé sans la mention offline, il faut absolument le refermer avant de poursuivre.
 * Lancez votre application normalement, elle apparaîtra sur le téléphone.

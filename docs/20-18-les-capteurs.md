@@ -58,13 +58,13 @@ C'est pour cette raison que plusieurs paquets ont des problèmes de compatibilit
 
 Au moment d'écrire ces lignes (décembre 2025), il n'y avait pas de paquet disponible pour travailler avec des capteurs dans un projet React Native 0.82 ou plus récent.
 
-La solution consiste alors à créer un projet [avec une ancienne version de React Native](05-3-création-et-lancement-dun-projet-react-native.md#ancienneversion), par exemple avec la version 0.75.3 que j'utilisais en 2024. Vous pourrez alors [travailler avec le paquet react-native-sensors](#react-native-sensors).
+La solution consiste alors à créer un projet [avec une ancienne version de React Native](05-3-création-et-lancement-dun-projet-react-native-reference.md#ancienneversion), par exemple avec la version 0.75.3 que j'utilisais en 2024. Vous pourrez alors [travailler avec le paquet react-native-sensors](#react-native-sensors).
 
 ## 17.3 Paquet react-native-sensors { #react-native-sensors }
 
 Note : ce paquet n'est plus maintenu depuis 2022 et présente des problèmes de compatibilité avec les versions récentes de React Native basées sur la nouvelle architecture (dernier tests effectués avec React Native 0.82.1 en décembre 2025).  
   
-Si vous désirez tout de même l'utiliser, vous devez créer un projet [avec une ancienne version de React Native](05-3-création-et-lancement-dun-projet-react-native.md#ancienneversion), par exemple avec la version 0.75.3 que j'utilisais en 2024.
+Si vous désirez tout de même l'utiliser, vous devez créer un projet [avec une ancienne version de React Native](05-3-création-et-lancement-dun-projet-react-native-reference.md#ancienneversion), par exemple avec la version 0.75.3 que j'utilisais en 2024.
 
 Le paquet [react-native-sensors](https://react-native-sensors.github.io/) permet à une application React Native de réagir face aux données envoyées par un des capteurs du téléphone.
 

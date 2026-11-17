@@ -79,15 +79,16 @@ Android Studio démarre son propre serveur ADB, qui ne peut pas être utilisé d
 adb -a start-server
 ```
 
-Relancer ensuite Android Studio et l'AVD (émulateur), puis exécuter depuis WSL :
+
+Relancer ensuite Android Studio et l'AVD (émulateur), puis tester la présence de l'AVD avec la commande suivante dans WSL :
 
 ```sh
-./scripts/run-android-app-wsl.sh
+./scripts/list-android-devices-wsl.sh
 ```
 
 ## Création d'un projet React Native { #projet }
 
-Vous êtes maintenant prêts à [créer votre premier projet React Native](05-3-création-et-lancement-dun-projet-react-native.md#base).
+Vous êtes maintenant prêts à [créer votre premier projet React Native](05-3-création-et-lancement-dun-projet-react-native-reference.md#base).
 
 !!! note
     Les anciennes instructions d'installation (sans Docker) sont conservées pour référence dans [Installation classique de React Native](installation-classique-reference.md).

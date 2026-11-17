@@ -1,168 +1,63 @@
 # 3. Création et lancement d'un projet React Native
 
-## 3.1 Créer une application React Native et la lancer dans l'émulateur
+## 3.1 Créer et lancer un projet React Native avec l'image Docker
 
-Un projet React Native est créé à l'aide d'une commande dans une fenêtre Terminal.
+Pour créer un nouveau projet React Native dans `examples/` avec cette image,
+fournir son nom en argument ou le saisir lorsque le script le demande :
 
-Dans cette fiche :
+```sh
+./scripts/create-react-native-project-wsl.sh MonProjet
+# ou
+./scripts/create-react-native-project-wsl.sh
+```
 
-* [Création des fichiers de base](#base)
-  + [Créer un projet dans une ancienne version de React Native](#ancienneversion)
-* [Lancer l'application avec Metro](#metro)
-* [Quelques solutions aux problèmes rencontrés](#probleme)
+Le cache npm est conservé dans le volume Docker `npm-cache`.
 
-## Création des fichiers de base { #base }
+## Projet de test Hello World Android
 
-D'abord, placez-vous dans le dossier qui contiendra vos projets.
+Un petit projet React Native utilisant Gradle se trouve dans
+[examples/android-hello-world](../examples/android-hello-world). Il affiche
+« Bonjour Android ! » et inclut les bibliothèques natives pour les architectures
+`x86_64`.
 
-Attention : ne placez pas les projets dans un dossier dont le chemin est trop long sinon, vous risquez d'obtenir un message d'erreur qui indique que la limite de 260 caractères est dépassée (Filename longer than 260 characters).
+Depuis la racine du dépôt, construire l’APK autonome (la variante `release`
+embarque le bundle JavaScript, sans serveur Metro) dans l’image Docker :
 
-Terminal
+```sh
+./scripts/build-android-app-wsl.sh android-hello-world
+# ou, sans argument, le script demande le nom du projet
+```
 
-cd /dossier/sousdossier
+Le script conserve les caches Gradle et Android dans les volumes Docker
+`gradle-home-cache` et `android-sdk-cache`. Les versions du NDK et des Build-Tools téléchargées pendant le build sont ainsi réutilisées aux exécutions suivantes.
 
-Lancez ensuite cette commande pour créer les fichiers de base du projet :
+Le premiers builds peuvent être longs, mais les suivants seront beaucoup plus rapides.
 
-Terminal
+Le fichier produit est
+`examples/<Nom Projet>/android/app/build/outputs/apk/release/app-release.apk`.
 
-npx @react-native-community/cli init MonProjet
+Assurez-vous que l’AVD d’Android Studio est démarré et joinable depuis WSL avant de lancer l’APK. Pour tester, exécuter dans WSL :
 
-Notez que la commande précédente, qui crée les fichiers de base, remplace la suivante, qui a été retirée en 2024 :
+```sh
+./scripts/list-android-devices-wsl.sh
+```
 
-Terminal
+Ensuite lancer l’APK sur l’AVD d’Android Studio depuis WSL :
 
-npx react-native@latest init MonProjet
+```sh
+./scripts/run-android-app-wsl.sh android-hello-world
+# ou, sans argument, le script demande le nom du projet
+```
 
-Attention : si vous obtenez l'erreur « npx : Impossible de charger le fichier C:\Program Files\nodejs\npx.ps1, car l'exécution de scripts est désactivée sur ce système. », c'est que vous devez d'abord lancer cette commande :
+Le script utilise le serveur ADB Windows à l’adresse de passerelle WSL et au
+port `5037`. Pour plusieurs AVD, choisir celui à utiliser avec
+`ANDROID_SERIAL=emulator-5554 ./scripts/run-android-app-wsl.sh android-hello-world`.
 
-Terminal
+L’APK de test est signé avec la clé de débogage du modèle React Native ; ne pas
+l’utiliser pour une publication.
 
-Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
-
-### Créer un projet dans une ancienne version de React Native { #ancienneversion }
-
-Si vous désirez plutôt créer un projet dans une ancienne version de React Native, par exemple dans la version 0.75.3 :
-
-Terminal
-
-npx @react-native-community/cli init MonProjet --version 0.75.3
-
-Suivi de :
-
-Terminal
-
-cd MonProjet/android  
-./gradlew clean
-
-## Lancer l'application avec Metro { #metro }
-
-Pour lancer une application React Native, il n'est pas nécessaire qu'Android Studio soit en cours d'exécution. Son utilité se résumait à installer les outils SDK et à créer des émulateurs.
-
-Pour convertir le code JavaScript en application Android ou iOS, React Native utilise [Metro](https://metrobundler.dev/).
-
-Après la conversion, cet environnement permet de lancer l'application dans l'émulateur ou [sur un appareil mobile](06-4-les-émulateurs-et-appareils-physiques.md#appareil-android).
-
-Dans certains sens, on peut comparer Metro pour React-Native à un serveur Web pour PHP.
-
-Une fois les fichiers de base créés, même si vous n'avez encore rien codé, vous pouvez lancer l'application à l'aide de Metro grâce à cette commande :
-
-Terminal
-
-cd /chemin/MonProjet
-
- 
-
-npx react-native run-android
-
-La commande suivante permet de faire la même chose mais elle dépend d'une configuration du fichier package.json situé à la racine du projet :
-
-Terminal
-
-cd /chemin/MonProjet  
-npm run android
-
-Avant la version 0.77 de Metro, il était possible de lancer l'application à partir de cette commande :
-
-Terminal
-
-cd /chemin/MonProjet  
-npx react-native start
-
-On pouvait appuyer sur la lettre a pour lancer dans Android ou sur i pour lancer dans iOS. Ceci n'est désormais plus possible.
-
-La première fois que vous lancez un projet, vous devez être patients (j'ai déjà vu une attente de 5 à 10 minutes). Les lancements suivants seront plus rapides.
-
-Une fois l'application lancée dans l'émulateur, la console vous affichera ceci :
-
-Résultat à l'écran
-
-info Starting the app on "emulateor-9999" ...
-
- 
-
-Starting: intent { act=android.intent.action. MAIN ... ./MainActivity }
-
-Et l'émulateur affichera l'application de base :
-
-![Application React Native dans l'émulateur](assets/05-3-création-et-lancement-dun-projet-react-native-32.png)
-
-Si vous obtenez un écran noir, vous devez cliquer sur l'icône Power à droite de l'émulateur afin de mettre l'émulateur en marche.
-
-Pendant le lancement, remarquez que la fenêtre Metro est ouverte puis couverte par d'autres fenêtres.
-
-Au besoin, il est possible de cliquer sur la fenêtre Metro pour accéder à différents outils.
-
-Parmi les fonctionnalités disponibles à partir de la fenêtre Metro, notons qu'il est possible de recharger l'application en appuyant sur la touche r ou encore accéder aux outils de développement en appuyant sur la touche j.
-
-![Fenêtres Metro et lancement](assets/05-3-création-et-lancement-dun-projet-react-native-33.png)
-
-## Quelques solutions aux problèmes rencontrés { #probleme }
-
-En cas de problème, cette commande pourrait vous mettre sur la bonne piste :
-
-Terminal
-
-npx react-native doctor
-
-Parfois, vider le cache de Metro permet de régler des problèmes.
-
-Terminal
-
-npx react-native start --reset-cache
-
-Vous pouvez aussi tenter cette commande :
-
-Terminal
-
-cd MonProjet/android  
-./gradlew clean
-
-Pour en savoir plus sur le système et les bibliothèques utilisées par React Native :
-
-Terminal
-
-npx react-native info
-
-Pour redémarrer le serveur adb (Android Debug Bridge), l'outil qui se charge de faire le pont entre l'émulateur et l'ordinateur :
-
-Terminal
-
-adb kill-server  
-adb start-server
-
-Les manipulations suivantes sont souvent aidantes :
-
-* refermer l'émulateur
-* refermer la fenêtre Metro avec Ctrl + C
-* relancer l'application.
-
-Toujours lors du lancement de l'application dans l'émulateur, si vous obtenez une erreur du genre « Syntax error in cmake code when parsing string ... invalid character escape \U », ceci est dû à l'utilisation de l'outil [CMake](https://cmake.org/) sous Windows. Le problèmes est dû aux barres obliques inverses (\) utilisées par Windows, qui ne sont pas supportées par CMake. Ce problème est présent seulement sur certaines versions de React Native, par exemple la version 0.76.
-
-La solution consiste à utiliser une ancienne version d'Android, par exemple la version 0.75.
-
-## Pour plus d'information
-
-« Troubleshooting ». React Native. <https://reactnative.dev/docs/troubleshooting>
+L’ancienne procédure classique de création et de lancement avec la CLI est
+conservée dans [la fiche de référence](05-3-création-et-lancement-dun-projet-react-native-reference.md).
 
 ## 3.2 Environnement Web pour tester une application React Native
 
