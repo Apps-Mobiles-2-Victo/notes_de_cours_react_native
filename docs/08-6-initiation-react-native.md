@@ -427,6 +427,21 @@ React Native
   </React.Fragment>  
 ))}
 
+# Exercice 
+
+Créez un nouveau projet React Native nommé `ExerciceInitiationReactNative`, puis réalisez l'exercice dans ce projet.
+
+Créez une petite fiche de présentation de votre animal préféré.
+
+1. Dans `src/components/FicheAnimal.tsx`, créez un composant `FicheAnimal` à l'aide d'une fonction fléchée et exportez-le par défaut.
+2. Déclarez dans le composant des variables contenant le nom de l'animal, son espèce et une courte description.
+3. Affichez ces trois informations avec des composants `<Text>`. Insérez les valeurs des variables dans le JSX avec des accolades.
+4. Regroupez les composants `<Text>` dans un fragment.
+5. Importez `FicheAnimal` dans `App.tsx` et affichez-le dans un composant `<View>`.
+
+Vérifiez que l'application affiche les trois informations. Aucun style ni aucune propriété de composant n'est nécessaire pour cet exercice.
+
+
 ## 5.8 Ajouter des styles { #styles }
 
 Les styles dans React Native ressemblent beaucoup aux règles CSS en Web.
