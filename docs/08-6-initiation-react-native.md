@@ -32,7 +32,8 @@ Le fichier App.tsx est le fichier de base d'une application React Native.
 
 Au départ, on y retrouve ce code.
 
-``` Fichier App.tsx (React Native)
+```
+Fichier App.tsx (React Native)
 
 /\*\*  
  \* Sample React Native App  
