@@ -102,24 +102,28 @@ On y codera plutôt une fonction App() déclarée à l'aide de la [syntaxe des 
 
 Dans le return de cette fonction, on ajoutera des composants à l'aide de code [JSX](https://react.dev/learn/writing-markup-with-jsx) afin de préciser ce qui sera affiché.
 
-``` Fichier App.tsx (React Native)
+``` 
+Fichier App.tsx (React Native)
 
 import React from 'react';
 
 const App = () => {  
   return (  
-      ...  
+     ...
   );  
 };
 
 
 export default App;
 
+```
+
 Si vous préférez, il est possible déclarer un composant fonctionnel.
 
 Remarquez qu'ici, j'ai précisé que le type de retour est *JSX.Element*, c'est-à-dire un composant React Native.
 
-```Fichier App.tsx (React Native)
+```
+App.tsx (React Native)
 
 import React from 'react';  
 import type {JSX} from 'react';
@@ -159,16 +163,17 @@ La documentation officielle de React Native mentionne qu'il y a des basic compon
 
 Les composants de base sont les composants de plus bas niveau, par exemple :
 
-* [<View>](09-7-les-composants-du-noyau-core-components.md#view)
-* [<Text>](09-7-les-composants-du-noyau-core-components.md#text)
-* [<Image>](09-7-les-composants-du-noyau-core-components.md#image)
-* <ScrollView>
-* <TextInput>
-* [<Pressable>](09-7-les-composants-du-noyau-core-components.md#pressable)
+* [\<View\>](09-7-les-composants-du-noyau-core-components.md#view)
+* [\<Text\>](09-7-les-composants-du-noyau-core-components.md#text)
+* [\<Image\>](09-7-les-composants-du-noyau-core-components.md#image)
+* \<ScrollView\>
+* \<TextInput\>
+* [\<Pressable\>](09-7-les-composants-du-noyau-core-components.md#pressable)
 
 Voici un exemple d'utilisation de composants de base.
 
-``` React Native
+``` 
+React Native
 
 <View>  
   <Image  
@@ -188,10 +193,10 @@ Les composants du noyau regroupent l'ensemble des composants fournis par React N
 
 Parmi eux, on retrouve également d'autres composants de plus haut niveau, par exemple :
 
-* [<Button>](09-7-les-composants-du-noyau-core-components.md#button)
-* [<FlatList>](09-7-les-composants-du-noyau-core-components.md#flatlist)
-* [<Alert>](09-7-les-composants-du-noyau-core-components.md#alert)
-* <StatusBar>
+* [\<Button\>](09-7-les-composants-du-noyau-core-components.md#button)
+* [\<FlatList\>](09-7-les-composants-du-noyau-core-components.md#flatlist)
+* [\<Alert\>](09-7-les-composants-du-noyau-core-components.md#alert)
+* \<StatusBar\>
 
 Pour une liste plus complète : <https://reactnative.dev/docs/components-and-apis>.
 
@@ -215,9 +220,9 @@ Il est d'usage de placer chaque composant dans son propre fichier.
 
 Je vous présente deux syntaxes possibles. Les deux syntaxes offrent chacune quelques particularités mais dans l'ensemble, elles sont équivalentes.
 
-Remarquez que dans le return, il n'est pas possible de retourner plus d'un composant. Il est possible de retourner un composant qui en englobe d'autres, ou encore d'entourer plusieurs composants par [des fragments](#fragments) (<> ... </>).
+Remarquez que dans le *return*, il n'est pas possible de retourner plus d'un composant. Il est possible de retourner un composant qui en englobe d'autres, ou encore d'entourer plusieurs composants par [des fragments](#fragments) (<> ... </>).
 
-Nous prendrons l'habitude de placer tous les composants dans le dossier MonProjet/src/components. Vous devez créer le dossier src et son sous-dossier.
+Nous prendrons l'habitude de placer tous les composants dans le dossier *MonProjet/src/components*. Vous devez créer le dossier src et son sous-dossier.
 
 Parmi les fichiers que vous aurez modifiés dans votre projet, seul App.tsx demeurera à la racine.
 
@@ -227,6 +232,7 @@ Ce premier exemple utilise la [syntaxe des fonctions fléchées](24-21-quelques-
 
 C'est cette syntaxe qui sera utilisée partout dans les notes de cours.
 
+```
 Fichier MonComposantFleche.tsx (React Native)
 
 import React from 'react';  
@@ -242,11 +248,13 @@ const MonComposantFleche = () => {
 };  
   
 export default MonComposantFleche;
+```
 
 ## Syntaxe des fonctions
 
 Il est également possible d'utiliser la syntaxe des fonctions. On dira qu'on a un composant fonctionnel.
 
+```
 Fichier MonComposantFonction.tsx (React Native)
 
 import React from 'react';  
@@ -263,23 +271,23 @@ function MonComposantFonction(): JSX.Element {
 }  
   
 export default MonComposantFonction;
+```
 
 ## Composants de classe
 
-Il existe une troisième syntaxe qui consite à créer une classe qui hérite de Component. On dira qu'on a un composant de classe.
+Il existe une troisième syntaxe qui consiste à créer une classe qui hérite de Component. On dira qu'on a un composant de classe.
 
 Cependant, cette syntaxe n'est plus recommandée par l'équipe de React[1](https://react.dev/reference/react/Component) :
 
 > We recommend defining components as functions instead of classes.
 
+```
 React Native
 
 class MonComposantClasse extends Component {  
   constructor(props) {  
     super(props);  
   }
-
- 
 
   render() {  
     return (  
@@ -292,13 +300,14 @@ class MonComposantClasse extends Component {
 }
 
  
-
 export default MonComposantClasse;
+```
 
 ## Utiliser un composant
 
 Dans un cas comme dans l'autre, pour utiliser ce composant, vous pouvez utiliser ceci, par exemple dans le fichier App.tsx.
 
+```
 Fichier App.tsx (React Native)
 
 import React from 'react';  
@@ -316,6 +325,7 @@ const App = () => {
 };  
   
 export default App;
+```
 
 ## Source
 
@@ -360,15 +370,18 @@ C'est le cas notamment dans le return d'un composant.
 
 Le code qui suit ne compilera pas et il générera l'erreur « Les expressions JSX doivent avoir un élément parent. ».
 
+```
 React Native
 
 return (  
   <Text>{ami.prenom}</Text>  
   <Text>{ami.nomFamille}</Text>  
  );
+```
 
 Pour régler ce problème, on peut entourer les composants dans un autre composant plus englobant.
 
+```
 React Native
 
 return (  
@@ -377,6 +390,7 @@ return (
     <Text>{ami.nomFamille}</Text>  
   </View>  
  );
+```
 
 Il est aussi possible de l'entourer de [fragments](https://react.dev/reference/react/Fragment), c'est-à-dire des balises qui permettent de grouper des composants sans ajouter de composant et sans impact visuel.
 
@@ -391,7 +405,7 @@ return (
   </>  
 );
 
-On obtiendra le même résultata avec ceci :
+On obtiendra le même résultats avec ceci :
 
 React Native
 
@@ -427,6 +441,7 @@ Remarquez que le fichier de style portera l'extension .ts (TypeScript) et non .t
 
 Le nom du fichier utilisera la casse chameau donc il débutera par une minuscule puisque les fichiers dont le nom débute par une majuscule sont généralement des composants.
 
+```
 Fichier mesStyles.ts (React Native)
 
 import {StyleSheet} from 'react-native';  
@@ -466,6 +481,8 @@ const MonComposant = () => {
   
 export default MonComposant;
 
+```
+
 ## Affecter plusieurs classes CSS à un composant
 
 Dans le cas où un composant doit être affecté par plus d'une classe CSS, il faut placer les classes CSS dans un tableau.
@@ -503,18 +520,24 @@ const MonComposant = (props: MonComposantProps) => {
   );  
 };
 
+```
+
 Plutôt que d'utiliser le mot-clé type pour définir les propriétés, il est possible d'utiliser interface. Bien qu'il existe [quelques différences fonctionnelles](https://blog.logrocket.com/types-vs-interfaces-typescript/) entre ces deux syntaxes, elles peuvent toutes deux être utilisées dans le présent contexte.
 
+```
 React Native
 
 interface MonComposantProps {  
   texte: string;  
 }
 
+```
+
 ## Utilisation
 
 Pour fournir une valeur aux propriétés, la syntaxe ressemble à celle des attributs HTML.
 
+```
 JavaScript
 
 const App = () => {  
@@ -523,23 +546,20 @@ const App = () => {
   );  
 };
 
+```
+
 ## Propriétés par défaut
 
 Il est possible de définir une valeur par défaut pour les propriétés.
 
 De cette façon, si aucune valeur n'est fournie lors de l'utilisation du composant, c'est la valeur par défaut qui sera utilisée.
 
+```
 React Native
 
 type MonComposantProps = {  
   texte: string;  
 };
-
- 
-
- 
-
- 
 
 const defaultProps: MonComposantProps = {  
   texte: 'À venir...',  
@@ -556,6 +576,8 @@ const MonComposant = (props: MonComposantProps) => {
   
 MonComposant.defaultProps = defaultProps;
 
+```
+
 ## Pour plus d'information
 
 « Props ». React Native. <https://reactnative.dev/docs/props>
@@ -566,6 +588,7 @@ MonComposant.defaultProps = defaultProps;
 
 Les variables d'état React Native, appelées states, permettent de rafraîchir l'écran dès que leur valeur change.
 
+```
 React Native
 
 import React, {useState} from 'react';  
@@ -587,13 +610,19 @@ const MonComposant = () => {
   );  
 };
 
+```
+
+
 ## Variable d'état qui peut être nulle
 
 Pour indiquer à TypeScript qu'une variable d'état peut être nulle, on précisera son type comme suit :
 
+```
 React Native
 
 const [nombre, setNombre] = useState<number | null>(0);
+
+```
 
 ## Variable d'état initialisée à partir d'une propriété
 
@@ -601,9 +630,12 @@ Parfois, un composant recevra une valeur dans une propriété dans le but de mod
 
 On pourra à ce moment modifier une variable d'état à partir de cette propriété :
 
+```
 React Native
 
 const [texte, setTexte] = useState(props.texteOriginal);
+
+```
 
 ## La fonction de modification d'état est asynchrone
 
@@ -612,6 +644,8 @@ Attention : il ne faut jamais utiliser une variable d'état immédiatement aprè
 On peut contourner ce problème en travaillant avec une variable locale.
 
 Plutôt que de faire ceci :
+
+```
 
 React Native
 
@@ -622,7 +656,11 @@ if (quantite == 3) {
   ...  
 }
 
+```
+
 il faut faire :
+
+```
 
 React Native
 
@@ -634,7 +672,11 @@ if (quantiteLocale == 3) {
   ...  
 }
 
+```
+
 Une autre technique consiste à utiliser un [useEffect](12-10-les-hooks.md#use-effect) qui prendra effet quand cette variable d'état aura effectivement changé de valeur.
+
+```
 
 React Native
 
@@ -663,6 +705,8 @@ const MonComposant = () => {
     </>  
   );  
 };
+
+```
 
 ## Pour plus d'information
 
