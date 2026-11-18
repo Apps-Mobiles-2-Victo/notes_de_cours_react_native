@@ -4,8 +4,7 @@
 
 Prenon l'exemple d'une application React Native qui doit afficher les valeurs d'un tableau dont voici la structure.
 
-React Native
-
+```ts title="React Native"
 interface Ami {  
   id: number;  
   prenom: string;  
@@ -22,17 +21,18 @@ const amis: Ami[] = [
   {id: 2, prenom: 'Justin', nomFamille: 'Bellemare'},  
   {id: 3, prenom: 'Aurélie', nomFamille: 'Dubuc'},  
 ];
+```
 
 Pour afficher les valeurs d'un tel tableau à l'aide d'une boucle, vous pouvez utiliser la méthode [map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map).
 
-React Native
-
+```tsx title="React Native"
 {amis.map((ami, i) => (  
   <React.Fragment key={i}>  
     <Text>{ami.prenom}</Text>  
     <Text>{ami.nomFamille}</Text>  
   </React.Fragment>  
  ))}
+```
 
 ## Fragments pour spécifier la clé unique
 
@@ -44,11 +44,11 @@ Ceci est requis ici puisque si vous ne spécifiez pas de clé unique (attribut k
 
 Si on n'avait qu'un composant à afficher dans la boucle, il aurait été possible de lui passer directement l'attribut key.
 
-React Native
-
+```tsx title="React Native"
 {amis.map((ami, i) => (  
   <Text key={i}>{ami.prenom}</Text>  
  ))}
+```
 
 ## Si la valeur de i n'est pas toujours associée au même élément
 
@@ -58,14 +58,14 @@ Mais si le tableau devait être trié, par exemple après l'ajout d'un élément
 
 Dans un tel cas, on devra utiliser une valeur qui identifie chaque élément de façon unique, par exemple son identifiant s'il existe.
 
-React Native
-
+```tsx title="React Native"
 {amis.map((ami) => (  
   <React.Fragment key={ami.id}>  
     <Text>{ami.prenom}</Text>  
     <Text>{ami.nomFamille}</Text>  
   </React.Fragment>  
 ))}
+```
 
 En fait, lorsqu'on a accès à une donnée qui identifie chaque élément de façon unique, on devrait toujours l'utiliser comme clé plutôt que de travailler avec i.
 
@@ -123,12 +123,12 @@ Lorsqu'on copie un tableau  JavaScript dans un autre tableau à l'aide de l'op�
 
 Autrement dit, toute modification au premier tableau se reflète dans le second tableau.
 
-JavaScript
-
+```js title="JavaScript"
 const tableauOriginal = ['Table', 'Chaise', 'Bureau'];  
 const copieReference = tableauOriginal;  
 tableauOriginal[1]= 'Lampe';  
 console.log(copieReference[1]);   // la copie est également modifiée : 'Lampe'
+```
 
 ## Copie superficielle (shallow copy)
 
@@ -138,17 +138,16 @@ La première technique que je vous présente permet d'effectuer une copie superf
 
 Voyons d'abord un exemple sans élément objet. Les deux tableaux seront alors complètement distincts.
 
-JavaScript
-
+```js title="JavaScript"
 const tableauOriginal = ['Table', 'Chaise', 'Bureau'];  
 const copieSuperficielle = tableauOriginal.slice(0);  
 tableauOriginal[1]= 'Lampe';  
 console.log(copieSuperficielle[1]);   // la copie est inchangée : 'Chaise'
+```
 
 Maintenant, faisons le test avec des éléments objet.
 
-JavaScript
-
+```js title="JavaScript"
 const tableauOriginal = [  
     {id: 1, description: 'Table'},  
     {id: 2, description: 'Chaise'},  
@@ -159,11 +158,11 @@ const copieSuperficielle = tableauOriginal.slice(0);
 tableauOriginal[1].description = 'Lit';  
 console.log(copieSuperficielle[1]);   // l'élément objet de la copie est également modifié :   
                                       // {id: 2, description: 'Lit'}
+```
 
 La copie superficielle peut également être réalisée à l'aide de l'[opérateur de décomposition](https://fr.legacy.reactjs.org/docs/jsx-in-depth.html#spread-attributes) (spread operator).
 
-JavaScript
-
+```js title="JavaScript"
 const tableauOriginal = [  
     {id: 1, description: 'Table'},  
     {id: 2, description: 'Chaise'},  
@@ -174,6 +173,7 @@ const copieSuperficielle = {...tableauOriginal};
 tableauOriginal[1].description = 'Lit';  
 console.log(copieSuperficielle[1]);   // l'élément objet de la copie est également modifié :   
                                       // {id: 2, description: 'Lit'}
+```
 
 ## Copie profonde (deep copy)
 
@@ -181,8 +181,7 @@ Avec une copie profonde, tous les éléments du second tableau sont distincts de
 
 La technique la plus intéressante pour réaliser une copie profonde consiste à utiliser [structuredClone()](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone).
 
-JavaScript
-
+```js title="JavaScript"
 const tableauOriginal = [  
     {id: 1, description: 'Table'},  
     {id: 2, description: 'Chaise'},  
@@ -193,11 +192,11 @@ const copieProfonde = structuredClone(tableauOriginal);
 tableauOriginal[1].description = 'Lit';  
 console.log(copieProfonde[1]);   // l'élément objet de la copie demeure inchangé :   
                                  // {id: 2, description: 'Chaise'}
+```
 
 Les deux objets sont vraiment distincts peu importe le niveau de profondeur des éléments objet.
 
-JavaScript
-
+```js title="JavaScript"
 const tableauOriginal = [  
     {id: 1, description: 'Table', categorie: {code: 'a', description: 'Catégorie A'}},  
     {id: 2, description: 'Chaise', categorie: {code: 'b', description: 'Catégorie B'}},  
@@ -210,13 +209,13 @@ tableauOriginal[1].categorie = {code: 'd', description: 'Catégorie D'};
   
 console.log(copieProfonde[1]);   // l'élément objet de la copie demeure inchangé :   
                                 // {id: 2, description: 'Chaise', categorie": {code: 'b', description: "Catégorie B'}}
+```
 
 La méthode structuredClone() est largement supportée depuis 2021, mais pas dans tous les environnements. Par exemple, lors de mes tests en React Native en 2025, elle n'était pas implantée.
 
 Dans le code produit avant son arrivée, et dans les environnements où structuredClone() n'est pas implantée, les développeurs utilisent cette astuce pour effectuer un travail à peu près équivalent.
 
-JavaScript
-
+```js title="JavaScript"
 const tableauOriginal = [  
     {id: 1, description: 'Table', categorie: {code: 'a', description: 'Catégorie A'}},  
     {id: 2, description: 'Chaise', categorie: {code: 'b', description: 'Catégorie B'}},  
@@ -227,6 +226,7 @@ const copieProfonde = JSON.parse(JSON.stringify(tableauOriginal));
 tableauOriginal[1].categorie = {code: 'd', description: 'Catégorie D'};  
 console.log(copieProfonde[1]);   // l'élément objet de la copie demeure inchangé :   
                                  // {id: 2, description: 'Chaise', categorie": {code: 'b', description: "Catégorie B'}}
+```
 
 ## 20.4 Comment fonctionnent les fonctions fléchées { #fonctions-flechees }
 
@@ -256,19 +256,19 @@ Une fonction fléchée, c'est une façon différente, plus concise de déclarer 
 
 Plutôt que de déclarer une fonction régulière comme ceci :
 
-JavaScript
-
+```js title="JavaScript"
 function faireQuelqueChose() {  
   console.log('Test!');  
 }
+```
 
 on déclarera une fonction fléchée comme cela :
 
-JavaScript
-
+```js title="JavaScript"
 const faireQuelqueChose = () => {  
   console.log('Test!');  
 }
+```
 
 Remarquez :
 
@@ -280,45 +280,45 @@ Dans le cas où la fonction attend un ou plusieurs paramètres, on aura plutôt 
 
 Fonction régulière :
 
-JavaScript
-
+```js title="JavaScript"
 function faireQuelqueChose(unParametre) {  
   console.log(`Paramètre: ${unParametre}!`);  
 }
+```
 
 Fonction fléchée :
 
-JavaScript
-
+```js title="JavaScript"
 const faireQuelqueChose = (unParametre) => {  
   console.log(`Paramètre: ${unParametre}!`);  
 }
+```
 
 Oui mais la fonction fléchée dans cet exemple n'est pas plus concise que la fonction régulière.
 
 Pour donner un exemple vraiment équivalent, la fonction régulière aurait été elle aussi assignée à une variable. On voit que la syntaxe fléchée est plus concise dans ce contexte.
 
-JavaScript
-
+```js title="JavaScript"
 const faireQuelqueChose = function(unParametre) {  
   console.log(`Paramètre: ${unParametre}!`);  
 }
+```
 
 ## Quelques raccourcis { #raccourcis }
 
 Avec une fonction fléchée, il est possible d'omettre les parenthèses alentour du paramètre lorsqu'il n'y en a qu'un seul.
 
-JavaScript
-
+```js title="JavaScript"
 const faireQuelqueChose = unParametre => {  
   console.log(`Paramètre: ${unParametre}!`);  
 }
+```
 
 Il est également possible d'omettre les accolades lorsqu'il n'y a qu'une seule instruction et qu'il ne s'agit pas d'un return.
 
-JavaScript
-
+```js title="JavaScript"
 const faireQuelqueChose = unParametre => console.log(`Paramètre: ${unParametre}!`);
+```
 
 Remarquez que plusieurs développeurs préfèrent toujours utiliser les accolades et les parenthèses puisqu'elles contribuent à clarifier le code.
 
@@ -328,38 +328,38 @@ Lorsque la fonction doit faire un return et qu'elle ne comprend qu'une seule ins
 
 Version avec return explicite :
 
-JavaScript
-
-const doubler = nombre => { return nombre \* 2 };
+```js title="JavaScript"
+const doubler = nombre => { return nombre * 2 };
+```
 
 Version avec return implicite :
 
-JavaScript
-
-const doubler = nombre => nombre \* 2;
+```js title="JavaScript"
+const doubler = nombre => nombre * 2;
+```
 
 Si on écrit le return, il faut absolument utiliser les accolades même s'il n'y a qu'une seule instruction.
 
-JavaScript
-
-const doubler = nombre => return nombre \* 2;  
+```js title="JavaScript"
+const doubler = nombre => return nombre * 2;  
 console.log(doubler(3)); // Unexpected token 'return'
+```
 
 Et si on désire retourner une valeur et qu'on utilise les accolades, il faut absolument écrire le mot return.
 
-JavaScript
-
-const doubler = nombre => { nombre \* 2 }  
+```js title="JavaScript"
+const doubler = nombre => { nombre * 2 }  
 console.log(doubler(3)); // undefined car il y a des accolades sans return
+```
 
 ## Utilisation { #utilisation }
 
 Que la fonction ait été définie de façon régulière ou en tant que fonction fléchée, elle sera appelée de la même façon.
 
-JavaScript
-
+```js title="JavaScript"
 faireQuelqueChose('Allô!');  
 const resultat = doubler(3);
+```
 
 ### Exemple avec boucle { #boucle }
 
@@ -367,8 +367,7 @@ On pourrait définir et appeler la fonction fléchée directement comme fonction
 
 On n'aura alors pas besoin de l'assigner à une variable.
 
-JavaScript
-
+```js title="JavaScript"
 const valeurs = ['A', 'B', 'C'];
 
  
@@ -376,21 +375,21 @@ const valeurs = ['A', 'B', 'C'];
 valeurs.map((unParametre) => {  
   console.log(`Paramètre: ${unParametre}!`);  
 })
+```
 
 Sans les fonctions fléchées, le code est moins élégant.
 
-JavaScript
-
+```js title="JavaScript"
 valeurs.map(function(unParametre) {  
   console.log(`Paramètre: ${unParametre}!`);  
 })
+```
 
 ### Exemple avec fetch { #fetch }
 
 Lorsqu'on réalise un appel AJAX avec fetch, les fonctions fléchées sont particulièrement intéressantes.
 
-JavaScript
-
+```js title="JavaScript"
 fetch('https://...', {  
   method: 'POST',  
   headers: {  
@@ -412,11 +411,11 @@ fetch('https://...', {
  }).finally(() => {  
   // ...  
  });
+```
 
 Sans les fonctions fléchées, le code est ici aussi moins élégant.
 
-JavaScript
-
+```js title="JavaScript"
 fetch('https://...', {  
   method: 'POST',  
   headers: {  
@@ -438,6 +437,7 @@ fetch('https://...', {
  }).finally(function() {  
   // ...  
  });
+```
 
 ## Quelques différences { #differences }
 
@@ -447,8 +447,7 @@ Voyons maintenant quelques différences entre les fonctions régulières et les 
 
 Une fonction régulière peut être appelée dans le haut d'un fichier puis déclarée plus bas.
 
-JavaScript
-
+```js title="JavaScript"
 faireQuelqueChose('Appel avant déclaration');   // ok
 
  
@@ -456,21 +455,21 @@ faireQuelqueChose('Appel avant déclaration');   // ok
 function faireQuelqueChose(unParametre) {  
   console.log(`Paramètre: ${unParametre}!`);  
 }
+```
 
 Avec les fonctions fléchées, il faut absolument déclarer la fonction avant de l'appeler.
 
-JavaScript
-
+```js title="JavaScript"
 faireQuelqueChose('Appel avant déclaration');   // Uncaught ReferenceError: Cannot access 'faireQuelqueChose' before initialization  
   
 const faireQuelqueChose = unParametre => {  
   console.log(`Paramètre: ${unParametre}!`);  
 }
+```
 
 Par contre, ce code React fonctionne puisque le contenu du hook useEffect n'est exécuté que lorsque le composant est chargé.
 
-JavaScript
-
+```tsx title="React Native"
 useEffect(() => {  
   faireQuelqueChose('ok dans useEffect');  
  }, []);  
@@ -478,6 +477,7 @@ useEffect(() => {
 const faireQuelqueChose = unParametre => {  
   console.log(`Paramètre: ${unParametre}!`);  
 }
+```
 
 ### this { #this }
 
@@ -485,8 +485,7 @@ Dans une fonction régulière, le mot-clé this fait référence au contexte d'e
 
 Par exemple, dans un gestionnaire d'événement, il s'agit de l'élément du DOM qui a déclenché l'événement.
 
-JavaScript
-
+```js title="JavaScript"
 class MaClasse {  
   constructor() {  
     this.bouton = document.getElementById('bouton');  
@@ -502,13 +501,13 @@ class MaClasse {
   
 let test = new MaClasse();  
 test.maMethode();
+```
 
 Dans une fonction fléchée, le mot-clé this fait référence au contexte dans lequel la fonction a été créée.
 
 Par exemple, à l'intérieur d'une classe, il s'agit de l'instance de la classe.
 
-JavaScript
-
+```js title="JavaScript"
 class MaClasse {  
   constructor() {  
     this.bouton = document.getElementById('bouton');  
@@ -526,6 +525,7 @@ class MaClasse {
   
 let test = new MaClasse();  
 test.maMethode();
+```
 
 Voici un exemple que j'ai vécu il y a quelques années dans un programme réel.
 
@@ -533,8 +533,7 @@ Avant de réaliser que les fonctions fléchées pourraient régler mon problème
 
 Ce code fait partie d'une application WordPress qui utilise la bibliothèque [three.js](https://threejs.org/) pour afficher une image 3D.
 
-JavaScript
-
+```js title="JavaScript"
 class MonGestionnaireImages {  
   ...  
   chargerImage( urlImage ) {  
@@ -561,12 +560,12 @@ class MonGestionnaireImages {
  
 
   }  
+```
 }
 
 Le code serait beaucoup plus élégant avec une fonction fléchée :
 
-JavaScript
-
+```js title="JavaScript"
 class MonGestionnaireImages {  
   ...  
   chargerImage( urlImage ) {  
@@ -583,6 +582,7 @@ class MonGestionnaireImages {
     );   
   }  
 }
+```
 
 Selon vous, les parenthèses alentour de texture sont-elles obligatoires?
 
