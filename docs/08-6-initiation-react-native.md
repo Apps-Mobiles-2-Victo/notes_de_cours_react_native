@@ -355,7 +355,7 @@ Dans d'autres cas, on retrouve des doubles-accolades.
 <Image source={{ uri: 'https://apical.xyz/medias/fr/LogoApical.png' }} ... />
 ```
 
-## 5.7 Les fragments (<>...</> ou <React.Fragment>...</React.Fragment>) { #fragments }
+## 5.7 Les fragments (<>...</> ou `<React.Fragment>...</React.Fragment>`) { #fragments }
 
 Dans certains blocs React Native, il n'est pas possible d'avoir plus d'un composant.
 
