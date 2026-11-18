@@ -230,7 +230,7 @@ Je vous présente ici quelques technique pour accéder à cet objet à partir de
 
 Le cas le plus simple consiste à recevoir le paramètre directement de la route.
 
-Il n'y a rien à modifier du côté du composant <NavigationContainer> utilisé dans App.tsx. Tout se passe dans les composants associés à chacune des routes.
+Il n'y a rien à modifier du côté du composant &lt;NavigationContainer&gt; utilisé dans App.tsx. Tout se passe dans les composants associés à chacune des routes.
 
 Chaque composant recevra le paramètre comme suit :
 
@@ -354,7 +354,7 @@ const BarreNavigation = (props: BarreNavigationProps) => {
 
 Puisque les composants React Native utilisent le positionnement CSS flex par défaut, il est facile de placer un élément dans le bas complètement de l'écran, par exemple un bouton ou même une barre de navigation.
 
-L'astuce consiste à donner le style flex: 1 à une vue (balise <View>) et à y placer tout le code qui doit être placé dans l'écran. La partie qui doit être au bas de l'écran sera placée en dehors de cette vue.
+L'astuce consiste à donner le style flex: 1 à une vue (balise &lt;View&gt;) et à y placer tout le code qui doit être placé dans l'écran. La partie qui doit être au bas de l'écran sera placée en dehors de cette vue.
 
 ```ts title="styles.ts"
 import {StyleSheet} from 'react-native';

@@ -36,7 +36,7 @@ Pour afficher les valeurs d'un tel tableau à l'aide d'une boucle, vous pouvez u
 
 ## Fragments pour spécifier la clé unique
 
-Remarquez l'utilisation [des fragments](08-6-initiation-react-native.md#fragments), c'est-à-dire les balises <React.Fragment></React.Fragment>.  Elles sont l'équivalent de <></> mais elles permettent d'ajouter des propriétés.
+Remarquez l'utilisation [des fragments](08-6-initiation-react-native.md#fragments), c'est-à-dire les balises &lt;React.Fragment&gt;&lt;/React.Fragment&gt;.  Elles sont l'équivalent de &lt;&gt;&lt;/&gt; mais elles permettent d'ajouter des propriétés.
 
 Ceci est requis ici puisque si vous ne spécifiez pas de clé unique (attribut key) pour chaque itération, vous obtiendrez ce message d'erreur au bas de l'émulateur : « Each child in a list should have a uniaque "key" prop. ».
 

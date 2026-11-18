@@ -10,9 +10,9 @@ Dans sa plus simple expression, la validation d'un formulaire React Native consi
 
 Il est possible d'utiliser des composants spécialisés à cet effet, par exemple [react-hook-form](https://www.react-hook-form.com/), [Yup](https://www.npmjs.com/package/yup) ou [Formik](https://formik.org/). Cependant, effectuer la validation sans utiliser de composant externe vous aidera à mieux comprendre le processus.
 
-## Valider un <TextInput> avec onEndEditing
+## Valider un &lt;TextInput&gt; avec onEndEditing
 
-Pour un composant <TextInput>, l'attribut [onEndEditing](https://reactnative.dev/docs/textinput#onendediting) est tout indiqué pour effectuer la validation. Il permet de déterminer quelle fonction sera exécutée lorsque l'usager aura terminé la saisie, c'est-à-dire lorsque le composant perdra le focus.
+Pour un composant &lt;TextInput&gt;, l'attribut [onEndEditing](https://reactnative.dev/docs/textinput#onendediting) est tout indiqué pour effectuer la validation. Il permet de déterminer quelle fonction sera exécutée lorsque l'usager aura terminé la saisie, c'est-à-dire lorsque le composant perdra le focus.
 
 Il existe également un attribut [onBlur](https://reactnative.dev/docs/textinput#onblur) mais il pourrait ne pas donner correctement accès à la valeur saisie. C'est pourquoi onEndEditing est préférable pour effectuer la validation.
 
@@ -70,7 +70,7 @@ Pour avoir un aperçu de chacun, consultez ce site : <https://www.lefkowitz.me
 
 Dans un formulaire React Native, lorsque l'usager clique sur le bouton de soumission, il est intéressant de cacher le clavier virtuel afin de rendre tout l'espace disponible.
 
-Voici une technique simple pour y arriver : entourer l'écran ou une partie de l'écran dans une balise <ScrollView keyboardShouldPersistTaps='never'>.
+Voici une technique simple pour y arriver : entourer l'écran ou une partie de l'écran dans une balise &lt;ScrollView keyboardShouldPersistTaps='never'&gt;.
 
 Le clavier disparaîtra dès que l'usager clique en dehors d'un TextInput, que ce soit sur le fond de l'écran ou encore sur un bouton.
 

@@ -217,7 +217,7 @@ Il est d'usage de placer chaque composant dans son propre fichier.
 
 Je vous présente deux syntaxes possibles. Les deux syntaxes offrent chacune quelques particularités mais dans l'ensemble, elles sont équivalentes.
 
-Remarquez que dans le *return*, il n'est pas possible de retourner plus d'un composant. Il est possible de retourner un composant qui en englobe d'autres, ou encore d'entourer plusieurs composants par [des fragments](#fragments) (<> ... </>).
+Remarquez que dans le *return*, il n'est pas possible de retourner plus d'un composant. Il est possible de retourner un composant qui en englobe d'autres, ou encore d'entourer plusieurs composants par [des fragments](#fragments) (&lt;&gt; ... &lt;/&gt;).
 
 Nous prendrons l'habitude de placer tous les composants dans le dossier *MonProjet/src/components*. Vous devez créer le dossier src et son sous-dossier.
 
@@ -355,7 +355,7 @@ Dans d'autres cas, on retrouve des doubles-accolades.
 <Image source={{ uri: 'https://apical.xyz/medias/fr/LogoApical.png' }} ... />
 ```
 
-## 5.7 Les fragments (<>...</> ou `<React.Fragment>...</React.Fragment>`) { #fragments }
+## 5.7 Les fragments (&lt;&gt;...&lt;/&gt; ou `<React.Fragment>...</React.Fragment>`) { #fragments }
 
 Dans certains blocs React Native, il n'est pas possible d'avoir plus d'un composant.
 
@@ -385,7 +385,7 @@ return (
 
 Il est aussi possible de l'entourer de [fragments](https://react.dev/reference/react/Fragment), c'est-à-dire des balises qui permettent de grouper des composants sans ajouter de composant et sans impact visuel.
 
-Dans leur forme la plus simple, les fragments sont représentés par les symboles <> et </>.
+Dans leur forme la plus simple, les fragments sont représentés par les symboles &lt;&gt; et &lt;/&gt;.
 
 ```tsx title="Exemple React Native"
 

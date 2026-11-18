@@ -1,8 +1,8 @@
 # 6. Les composants du noyau (core components)
 
-## 6.1 <View> { #view }
+## 6.1 &lt;View&gt; { #view }
 
-Le composant [<View>](https://reactnative.dev/docs/view) est un conteneur qui permet notamment de spécifier une mise en forme.
+Le composant [&lt;View&gt;](https://reactnative.dev/docs/view) est un conteneur qui permet notamment de spécifier une mise en forme.
 
 Ce composant a un fonctionnement semblable à celui de la balise <div> en HTML.
 
@@ -25,9 +25,9 @@ const App = () => {
 export default App;
 ```
 
-## 6.2 <Text> { #text }
+## 6.2 &lt;Text&gt; { #text }
 
-Le composant [<Text>](https://reactnative.dev/docs/text) permet d'afficher un simple texte à l'écran.
+Le composant [&lt;Text&gt;](https://reactnative.dev/docs/text) permet d'afficher un simple texte à l'écran.
 
 ```tsx title="React Native"
 <Text>Bonjour!</Text>
@@ -50,9 +50,9 @@ Il est possible de lui ajouter [des styles](08-6-initiation-react-native.md#styl
 ```tsx title="React Native"
 <Text style={styles.titre}>Mon titre</Text>
 ```
-## 6.3 <Image> { #image }
+## 6.3 &lt;Image&gt; { #image }
 
-Le composant [<Image>](http://reactnative.dev/docs/image) permet d'afficher une image locale ou encore une image à partir d'un URL.
+Le composant [&lt;Image&gt;](http://reactnative.dev/docs/image) permet d'afficher une image locale ou encore une image à partir d'un URL.
 
 Attention : contrairement à SwiftUI et à Jetpack Compose, il n'y a pas d'icônes en React Native. Pour faire l'équivalent, on travaillera avec de petites images.
 
@@ -70,9 +70,9 @@ Dans le cas d'une image chargée à partir d'un URL, il faut absolument spécifi
 
 « Image Style Props ». React Native. <https://reactnative.dev/docs/image-style-props>
 
-## 6.4 <Button> { #button }
+## 6.4 &lt;Button&gt; { #button }
 
-Dans React Native, le composant [<Button>](https://reactnative.dev/docs/button), comme son nom l'indique, permet de créer un bouton cliquable.
+Dans React Native, le composant [&lt;Button&gt;](https://reactnative.dev/docs/button), comme son nom l'indique, permet de créer un bouton cliquable.
 
 Il a l'avantage d'ajuster l'apparence selon la plateforme cible : Android ou iOS. De plus, il est très simple à utiliser.
 
@@ -93,7 +93,7 @@ Voici l'apparence du bouton sur chacune des plateformes.
 | Button sur Android |  | Button sur iOS |
 | Androïd |  | iOS |
 
-Si vous désirez créer un bouton avec une apparence personnalisée, vous devez vous tourner vers d'autres composants, par exemple [<Pressable>](#pressable).
+Si vous désirez créer un bouton avec une apparence personnalisée, vous devez vous tourner vers d'autres composants, par exemple [&lt;Pressable&gt;](#pressable).
 
 ```tsx title="React Native"
 <Pressable  
@@ -103,7 +103,7 @@ Si vous désirez créer un bouton avec une apparence personnalisée, vous devez 
  </Pressable>
 ```
 
-Il existe également le composant <TouchableOpacity> mais React Native suggère que ce composant pourrait disparaître[1](https://reactnative.dev/docs/touchableopacity).
+Il existe également le composant &lt;TouchableOpacity&gt; mais React Native suggère que ce composant pourrait disparaître[1](https://reactnative.dev/docs/touchableopacity).
 
 > If you're looking for a more extensive and future-proof way to handle touch-based input, check out the Pressable API.
 
@@ -115,9 +115,9 @@ Il existe également le composant <TouchableOpacity> mais React Native suggère 
 
 « Buttons on React Native: Understanding the difference and which one to use ». Medium. <https://gabrielvrl.medium.com/buttons-on-react-native-understanding-the-difference-and-which-one-to-use-756760140119>
 
-## 6.5 <Pressable> { #pressable }
+## 6.5 &lt;Pressable&gt; { #pressable }
 
-Le composant [<Pressable>](https://reactnative.dev/docs/pressable) permet de réagir à un clic sur n'importe quoi à l'écran.
+Le composant [&lt;Pressable&gt;](https://reactnative.dev/docs/pressable) permet de réagir à un clic sur n'importe quoi à l'écran.
 
 Ici, on réagit à un clic sur du texte :
 
@@ -173,9 +173,9 @@ boutonPresse: {
  },
 ```
 
-## 6.6 <FlatList> { #flatlist }
+## 6.6 &lt;FlatList&gt; { #flatlist }
 
-Le composant [<FlatList>](https://reactnative.dev/docs/flatlist.html) est intéressant pour afficher une liste d'items en colonne ou en quadrillé.
+Le composant [&lt;FlatList&gt;](https://reactnative.dev/docs/flatlist.html) est intéressant pour afficher une liste d'items en colonne ou en quadrillé.
 
 Pour lister des données dont le type comprend un identifiant :
 
@@ -211,7 +211,7 @@ Si on a besoin de connaître l'index de chaque item :
 />
 ```
 
-## 6.7 <Alert> { #alert }
+## 6.7 &lt;Alert&gt; { #alert }
 
 Avec React Native, [Alert](https://reactnative.dev/docs/alert) permet d'afficher un popup qui permet par exemple d'afficher un message ou de demander une confirmation.
 

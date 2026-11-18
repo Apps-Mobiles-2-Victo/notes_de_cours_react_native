@@ -138,7 +138,7 @@ Si l'API génère du JSON, son utilisation se fera de la même façon que pour 
 
 Mais souvent, les API d'images génèrent directement une image. De façon plus précise, ces API effectuent une redirection pour retourner une image.
 
-La solution la plus simple pour utiliser un tel API est de placer l'URL directement dans une balise <Image>.
+La solution la plus simple pour utiliser un tel API est de placer l'URL directement dans une balise &lt;Image&gt;.
 
 ```tsx title="React Native"
 <Image source={{uri: `https://api.dicebear.com/9.x/personas/png?seed=${seed}`}} style={mesStyles.image} />
