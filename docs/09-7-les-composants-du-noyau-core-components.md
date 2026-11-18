@@ -6,7 +6,7 @@ Le composant [<View>](https://reactnative.dev/docs/view) est un conteneur qui pe
 
 Ce composant a un fonctionnement semblable à celui de la balise <div> en HTML.
 
-React Native
+```tsx title="React Native"
 
 import React from 'react';
 
@@ -23,48 +23,48 @@ const App = () => {
  
 
 export default App;
+```
 
 ## 6.2 <Text> { #text }
 
 Le composant [<Text>](https://reactnative.dev/docs/text) permet d'afficher un simple texte à l'écran.
 
-React Native
-
+```tsx title="React Native"
 <Text>Bonjour!</Text>
+```
 
 Pour forcer un saut de ligne :
 
-React Native
-
+```tsx title="React Native"
 <Text>Bonjour{'\n'}tout le monde!</Text>
+```
 
 Pour afficher une variable :
 
-React Native
-
+```tsx title="React Native"
 <Text>{maVariable}</Text>
+```
 
 Il est possible de lui ajouter [des styles](08-6-initiation-react-native.md#styles).
 
-React Native
-
+```tsx title="React Native"
 <Text style={styles.titre}>Mon titre</Text>
-
+```
 ## 6.3 <Image> { #image }
 
 Le composant [<Image>](http://reactnative.dev/docs/image) permet d'afficher une image locale ou encore une image à partir d'un URL.
 
 Attention : contrairement à SwiftUI et à Jetpack Compose, il n'y a pas d'icônes en React Native. Pour faire l'équivalent, on travaillera avec de petites images.
 
-React Native
-
+```tsx title="React Native"
 <Image source={require('../images/home.png')} />
+```
 
 Dans le cas d'une image chargée à partir d'un URL, il faut absolument spécifier sa taille [à l'aide d'un style](08-6-initiation-react-native.md#styles) puisque React Native n'est pas en mesure de connaître sa taille avant que le téléchargement soit complété.
 
-React Native
-
+```tsx title="React Native"
 <Image source={{ uri: 'https://apical.xyz/medias/fr/LogoApical.png' }} style={styles.logo} />
+```
 
 ## Pour plus d'information
 
@@ -78,13 +78,13 @@ Il a l'avantage d'ajuster l'apparence selon la plateforme cible : Android ou iO
 
 Par contre, il n'est pas possible de modifier son apparence sauf pour modifier sa couleur.
 
-React Native
-
+```tsx title="React Native"
 <Button  
   onPress={...}  
   title="Je suis un Button"  
   color="#2acfcaff"  
  />
+```
 
 Voici l'apparence du bouton sur chacune des plateformes.
 
@@ -95,13 +95,13 @@ Voici l'apparence du bouton sur chacune des plateformes.
 
 Si vous désirez créer un bouton avec une apparence personnalisée, vous devez vous tourner vers d'autres composants, par exemple [<Pressable>](#pressable).
 
-React Native
-
+```tsx title="React Native"
 <Pressable  
   style={mesStyles.bouton}  
   onPress={...}>  
   <Text style={mesStyles.texteBouton} adjustsFontSizeToFit>Cliquez ici</Text>  
  </Pressable>
+```
 
 Il existe également le composant <TouchableOpacity> mais React Native suggère que ce composant pourrait disparaître[1](https://reactnative.dev/docs/touchableopacity).
 
@@ -121,28 +121,27 @@ Le composant [<Pressable>](https://reactnative.dev/docs/pressable) permet de ré
 
 Ici, on réagit à un clic sur du texte :
 
-React Native
-
+```tsx title="React Native"
 <Pressable  
   style={mesStyles.bouton}  
   onPress={...}>  
   <Text style={mesStyles.texteBouton} adjustsFontSizeToFit>Cliquez ici</Text>  
  </Pressable>
+```
 
 Ici, on réagit à un clic sur une image :
 
-React Native
-
+```tsx title="React Native"
 <Pressable onPress={...}>  
   <Image source={require('../images/home.png')} style={mesStyles.icone} />  
  </Pressable>
+```
 
 ## Effet sur le clic
 
 Fait intéressant : il est possible de modifier le style au moment du clic pour améliorer l'expérience utilisateur.
 
-React Native
-
+```tsx title="React Native"
 <Pressable  
   onPress={...}  
   style={({ pressed }) => [  
@@ -150,11 +149,11 @@ React Native
     pressed && mesStyles.boutonPresse  
   ]}  
  >
+```
 
 Les classes CSS pourraient ressembler à ceci. Le bouton sera plus foncé au moment de cliquer dessus.
 
-Fichier mesStyles.ts (React Native)
-
+```ts title="mesStyles.ts"
 boutonBase: {  
   paddingVertical: 10,  
   paddingHorizontal: 20,  
@@ -164,14 +163,15 @@ boutonBase: {
  boutonPresse: {  
   backgroundColor: 'rgb(11, 45, 80)',  
  },
+```
 
 Il peut également être intéressant de jouer avec l'opacité.
 
-Fichier mesStyles.ts (React Native)
-
+```ts title="mesStyles.ts"
 boutonPresse: {  
   opacity: 0.2,  
  },
+```
 
 ## 6.6 <FlatList> { #flatlist }
 
@@ -179,19 +179,18 @@ Le composant [<FlatList>](https://reactnative.dev/docs/flatlist.html) est intér
 
 Pour lister des données dont le type comprend un identifiant :
 
-React Native
-
+```tsx title="React Native"
 <FlatList  
   contentContainerStyle={styles.listedonnees}  
   numColumns={1}  
   data={donnees}  
   renderItem={({item}) => <Text>{item.nom}</Text>}  
 />
+```
 
 Si les données ne possèdent pas d'identifiant :
 
-React Native
-
+```tsx title="React Native"
 <FlatList  
   contentContainerStyle={styles.listedonnees}  
   numColumns={1}  
@@ -199,24 +198,24 @@ React Native
   keyExtractor={(item, i) => String(i)}  
   renderItem={({item}) => <Text>{item.nom}</Text>}  
 />
+```
 
 Si on a besoin de connaître l'index de chaque item :
 
-React Native
-
+```tsx title="React Native"
 <FlatList  
   contentContainerStyle={styles.listedonnees}  
   numColumns={1}  
   data={donnees}  
   renderItem={({item, index}) => <Text>{index}: {item.nom}</Text>}  
 />
+```
 
 ## 6.7 <Alert> { #alert }
 
 Avec React Native, [Alert](https://reactnative.dev/docs/alert) permet d'afficher un popup qui permet par exemple d'afficher un message ou de demander une confirmation.
 
-React Native
-
+```tsx title="React Native"
 const confirmerSuppression = (description: string) => {  
   Alert.alert('Confirmation', `Désirez-vous vraiment supprimer l'item ${description}?`, [  
     {  
@@ -241,3 +240,4 @@ return (
   />  
   ...  
 );
+```
