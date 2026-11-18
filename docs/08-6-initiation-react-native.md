@@ -32,8 +32,7 @@ Le fichier App.tsx est le fichier de base d'une application React Native.
 
 Au départ, on y retrouve ce code.
 
-```
-Fichier App.tsx (React Native)
+```tsx title="App.tsx"
 
 /\*\*  
  \* Sample React Native App  
@@ -103,8 +102,7 @@ On y codera plutôt une fonction App() déclarée à l'aide de la [syntaxe des 
 
 Dans le return de cette fonction, on ajoutera des composants à l'aide de code [JSX](https://react.dev/learn/writing-markup-with-jsx) afin de préciser ce qui sera affiché.
 
-``` 
-Fichier App.tsx (React Native)
+```tsx title="App.tsx"
 
 import React from 'react';
 
@@ -123,8 +121,7 @@ Si vous préférez, il est possible déclarer un composant fonctionnel.
 
 Remarquez qu'ici, j'ai précisé que le type de retour est *JSX.Element*, c'est-à-dire un composant React Native.
 
-```
-App.tsx (React Native)
+```tsx title="App.tsx"
 
 import React from 'react';  
 import type {JSX} from 'react';
@@ -147,7 +144,7 @@ Ces composants React Native jouent un rôle qui ressemble à celui des balises H
 
 Pour les utiliser, vous devez ajouter l'instruction 
 
-```
+```tsx title="App.tsx"
 import { View, Text } from 'react-native'; 
 ```
 
@@ -173,8 +170,7 @@ Les composants de base sont les composants de plus bas niveau, par exemple :
 
 Voici un exemple d'utilisation de composants de base.
 
-``` 
-React Native
+```tsx title="React Native"
 
 <View>  
   <Image  
@@ -233,8 +229,7 @@ Ce premier exemple utilise la [syntaxe des fonctions fléchées](24-21-quelques-
 
 C'est cette syntaxe qui sera utilisée partout dans les notes de cours.
 
-```
-Fichier MonComposantFleche.tsx (React Native)
+```tsx title="MonComposantFleche.tsx"
 
 import React from 'react';  
 import {Text} from 'react-native';  
@@ -255,8 +250,7 @@ export default MonComposantFleche;
 
 Il est également possible d'utiliser la syntaxe des fonctions. On dira qu'on a un composant fonctionnel.
 
-```
-Fichier MonComposantFonction.tsx (React Native)
+```tsx title="MonComposantFonction.tsx"
 
 import React from 'react';  
 import type {JSX} from 'react';  
@@ -282,8 +276,7 @@ Cependant, cette syntaxe n'est plus recommandée par l'équipe de React[1](https
 
 > We recommend defining components as functions instead of classes.
 
-```
-React Native
+```tsx title="MonComposantClasse.tsx"
 
 class MonComposantClasse extends Component {  
   constructor(props) {  
@@ -308,8 +301,7 @@ export default MonComposantClasse;
 
 Dans un cas comme dans l'autre, pour utiliser ce composant, vous pouvez utiliser ceci, par exemple dans le fichier App.tsx.
 
-```
-Fichier App.tsx (React Native)
+```tsx title="App.tsx"
 
 import React from 'react';  
 import {View} from 'react-native';  
@@ -350,18 +342,18 @@ export default App;
 
 Parfois, le code React Native comprend des accolades. Ceci signifie qu'il faut évaluer du code JavaScript.
 
-JavaScript
-
+```tsx title="Exemple React Native"
 <Text>{props.nom}</Text>
+```
 
 Dans d'autres cas, on retrouve des doubles-accolades.
 
 * Les accolades extérieures indiquent qu'il faut évaluer du code JavaScript.
 * Les accolades intérieures représentent un objet JavaScript. On le reconnaît à ses paires propriété: valeur.
 
-React Native
-
+```tsx title="Exemple React Native"
 <Image source={{ uri: 'https://apical.xyz/medias/fr/LogoApical.png' }} ... />
+```
 
 ## 5.7 Les fragments (<>...</> ou <React.Fragment>...</React.Fragment>) { #fragments }
 
@@ -371,8 +363,7 @@ C'est le cas notamment dans le return d'un composant.
 
 Le code qui suit ne compilera pas et il générera l'erreur « Les expressions JSX doivent avoir un élément parent. ».
 
-```
-React Native
+```tsx title="Exemple React Native"
 
 return (  
   <Text>{ami.prenom}</Text>  
@@ -382,8 +373,7 @@ return (
 
 Pour régler ce problème, on peut entourer les composants dans un autre composant plus englobant.
 
-```
-React Native
+```tsx title="Exemple React Native"
 
 return (  
   <View>  
@@ -397,7 +387,7 @@ Il est aussi possible de l'entourer de [fragments](https://react.dev/reference/r
 
 Dans leur forme la plus simple, les fragments sont représentés par les symboles <> et </>.
 
-React Native
+```tsx title="Exemple React Native"
 
 return (  
   <>  
@@ -405,10 +395,11 @@ return (
     <Text>{ami.nomFamille}</Text>  
   </>  
 );
+```
 
 On obtiendra le même résultats avec ceci :
 
-React Native
+```tsx title="Exemple React Native"
 
 return (  
   <React.Fragment>  
@@ -416,10 +407,11 @@ return (
     <Text>{ami.nomFamille}</Text>  
   </React.Fragment>  
 );
+```
 
 Cette dernière syntaxe permet d'ajouter des propriétés au fragment, par exemple la clé unique (attribut key) pour chaque itération.
 
-React Native
+```tsx title="Exemple React Native"
 
 {amis.map((ami) => (  
   <React.Fragment key={ami.id}>  
@@ -427,6 +419,7 @@ React Native
     <Text>{ami.nomFamille}</Text>  
   </React.Fragment>  
 ))}
+```
 
 # Exercice 
 
@@ -457,8 +450,7 @@ Remarquez que le fichier de style portera l'extension .ts (TypeScript) et non .t
 
 Le nom du fichier utilisera la casse chameau donc il débutera par une minuscule puisque les fichiers dont le nom débute par une majuscule sont généralement des composants.
 
-```
-Fichier mesStyles.ts (React Native)
+```ts title="mesStyles.ts"
 
 import {StyleSheet} from 'react-native';  
   
@@ -473,9 +465,9 @@ const mesStyles = StyleSheet.create({
 });  
   
 export {mesStyles};
+```
 
-Fichier MonComposant.tsx
-
+```tsx title="MonComposant.tsx"
 import React from 'react';  
 import {View, Image, Text} from 'react-native';  
 import { mesStyles } from '../styles/mesStyles';
@@ -503,11 +495,11 @@ export default MonComposant;
 
 Dans le cas où un composant doit être affecté par plus d'une classe CSS, il faut placer les classes CSS dans un tableau.
 
-React Native
-
+```tsx title="Exemple React Native"
 <View style={[mesStyles.conteneur, mesStyles.accueil]}>  
   ...  
 </View>
+```
 
 ## Pour plus d'information
 
@@ -521,8 +513,7 @@ Les propriétés, appelées props, sont des valeurs de base que l'on peut passer
 
 Pour recevoir et utiliser une propriété, le composant utilise cette syntaxe :
 
-React Native
-
+```tsx title="MonComposant.tsx"
 type MonComposantProps = {  
   texte: string;  
 };  
@@ -540,8 +531,7 @@ const MonComposant = (props: MonComposantProps) => {
 
 Plutôt que d'utiliser le mot-clé type pour définir les propriétés, il est possible d'utiliser interface. Bien qu'il existe [quelques différences fonctionnelles](https://blog.logrocket.com/types-vs-interfaces-typescript/) entre ces deux syntaxes, elles peuvent toutes deux être utilisées dans le présent contexte.
 
-```
-React Native
+```ts title="MonComposantProps.ts"
 
 interface MonComposantProps {  
   texte: string;  
@@ -553,8 +543,7 @@ interface MonComposantProps {
 
 Pour fournir une valeur aux propriétés, la syntaxe ressemble à celle des attributs HTML.
 
-```
-JavaScript
+```tsx title="App.tsx"
 
 const App = () => {  
   return (  
@@ -570,8 +559,7 @@ Il est possible de définir une valeur par défaut pour les propriétés.
 
 De cette façon, si aucune valeur n'est fournie lors de l'utilisation du composant, c'est la valeur par défaut qui sera utilisée.
 
-```
-React Native
+```tsx title="MonComposant.tsx"
 
 type MonComposantProps = {  
   texte: string;  
@@ -604,8 +592,7 @@ MonComposant.defaultProps = defaultProps;
 
 Les variables d'état React Native, appelées states, permettent de rafraîchir l'écran dès que leur valeur change.
 
-```
-React Native
+```tsx title="MonComposant.tsx"
 
 import React, {useState} from 'react';  
 import {Text, Button} from 'react-native';  
@@ -633,8 +620,7 @@ const MonComposant = () => {
 
 Pour indiquer à TypeScript qu'une variable d'état peut être nulle, on précisera son type comme suit :
 
-```
-React Native
+```ts title="MonComposant.tsx"
 
 const [nombre, setNombre] = useState<number | null>(0);
 
@@ -646,8 +632,7 @@ Parfois, un composant recevra une valeur dans une propriété dans le but de mod
 
 On pourra à ce moment modifier une variable d'état à partir de cette propriété :
 
-```
-React Native
+```ts title="MonComposant.tsx"
 
 const [texte, setTexte] = useState(props.texteOriginal);
 
@@ -661,9 +646,7 @@ On peut contourner ce problème en travaillant avec une variable locale.
 
 Plutôt que de faire ceci :
 
-```
-
-React Native
+```ts title="MonComposant.tsx"
 
 setQuantite(...);  
   
@@ -676,9 +659,7 @@ if (quantite == 3) {
 
 il faut faire :
 
-```
-
-React Native
+```ts title="MonComposant.tsx"
 
 const quantiteLocale = ...  
   
@@ -692,9 +673,7 @@ if (quantiteLocale == 3) {
 
 Une autre technique consiste à utiliser un [useEffect](12-10-les-hooks.md#use-effect) qui prendra effet quand cette variable d'état aura effectivement changé de valeur.
 
-```
-
-React Native
+```tsx title="MonComposant.tsx"
 
 const MonComposant = () => {  
   ...
