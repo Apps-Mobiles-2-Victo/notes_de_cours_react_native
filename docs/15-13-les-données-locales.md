@@ -6,12 +6,12 @@ Quand une application React Native a besoin d'une base de données SQLite, elle 
 
 Les modèles seront placés dans le dossier src/models à la racine du projet.
 
-Fichier src/models/Categorie.ts
-
+```ts title="src/models/Categorie.ts"
 export interface Categorie {  
   id: number | null;  
   description: string;  
 }
+```
 
 L'interface d'un modèle sera utilisée avec [le hook useContext](12-10-les-hooks.md#use-context) afin qu'une variable d'état qui l'implémente puisse être déclarée dans le plus proche parent et être disponible dans tous les enfants.
 
@@ -21,14 +21,14 @@ L'interface d'un modèle sera utilisée avec [le hook useContext](12-10-les-hook
 
 Pour installer le paquet SQLite pour React Native :
 
-Terminal
-
+```bash title="Terminal"
 cd /chemin/MonProjet
 
  
 
 npm install --save react-native-sqlite-storage  
 npm install --save @types/react-native-sqlite-storage
+```
 
 Il y a des paquets supplémentaires à installer si vous produisez des applications pour iOS mais pas si vous visez Android.
 
@@ -44,8 +44,7 @@ Le problème est que JCenter, un gestionnaire de dépendances, [a été fermé e
 
 Attention : ces modifications seront écrasées si vous [réinstallez les paquets de l'application](26-23-recréer-certains-dossiers-du-projet.md#node-modules).
 
-Fichier MonProjet/node\_modules/react-native-sqlite-storage/platforms/android/build.gradle
-
+```groovy title="MonProjet/node_modules/react-native-sqlite-storage/platforms/android/build.gradle"
 buildscript {  
     repositories {  
         google()  
@@ -56,6 +55,7 @@ buildscript {
 
     dependencies {  
         ...  
+```
     }  
 }  
 ...
@@ -70,8 +70,7 @@ Il est d'usage de coder toutes les requêtes à la base de données dans un mêm
 
 Comme pour toutes les requêtes dans une base de données, il faut utiliser des requêtes préparées en SQLite lorsque la requête comprend des variables qui proviennent de l'usager.
 
-Fichier src/services/dbService.ts (React Native)
-
+```ts title="src/services/dbService.ts"
 // inspiré de https://blog.logrocket.com/using-sqlite-with-react-native/  
 import {  
   enablePromise,  
@@ -119,24 +118,24 @@ export const getDBConnection = async () => {
 };  
   
  export const ajouterCategorie = async (db: SQLiteDatabase, categorie: Categorie) => { ... };
+```
 
 Pour effectuer une requête préparée :
 
-Fichier src/services/dbService.ts (React Native)
-
+```ts title="src/services/dbService.ts"
 const resultat = await db.executeSql('SELECT id, description FROM categories WHERE id = ?', [id]);
+```
 
 Pour retrouver l'identifiant d'un enregistrement nouvellement ajouté :
 
-Fichier src/services/dbService.ts (React Native)
-
+```ts title="src/services/dbService.ts"
 const resultat = await db.executeSql(requeteInsertion, [donneeChamp1, donneeChamp2, donneeChamp3]);  
  const id = resultat[0].insertId;
+```
 
 Pour initialiser la base de données :
 
-Fichier App.tsx
-
+```tsx title="App.tsx"
 const App = () => {  
   const [categories, setCategories] = useState<Categorie[]>([]);
 
@@ -177,11 +176,11 @@ const App = () => {
     ...  
   );  
 };
+```
 
 Pour effectuer une requête à la base de données :
 
-MonComposant.tsx (React Native)
-
+```tsx title="MonComposant.tsx"
 const MonComposant = ({navigation}: Props) => {  
   ...  
   
@@ -202,6 +201,7 @@ const MonComposant = ({navigation}: Props) => {
       ...  
     }  
   };  
+```
   
   return (  
     ...  

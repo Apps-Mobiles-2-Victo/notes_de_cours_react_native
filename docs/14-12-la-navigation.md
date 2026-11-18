@@ -32,8 +32,7 @@ npx pod-install ios
 
 Typiquement, le système de navigation sera déclaré dans le fichier principal de l'application.
 
-Fichier App.tsx (React Native)
-
+```tsx title="App.tsx"
 import React from 'react';  
 ...  
 import {NavigationContainer} from '@react-navigation/native';  
@@ -62,14 +61,16 @@ const App = () => {
     </NavigationContainer>  
   );  
 };
+```
+
 
 Par défaut, une barre de titre apparaîtra dans le haut de chaque page et affichera le nom de la route.
 
 Il est possible de spécifier un titre pour chaque route afin que ce titre soit affiché dans la barre de navigation au lieu du nom.
 
-Fichier App.tsx (React Native)
-
+```tsx title="App.tsx"
 <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Accueil' }} />
+```
 
 ## Utilisation
 
@@ -79,8 +80,7 @@ Les paramètres de la route, s'il y a lieu, pourront être retrouvés à l'aide 
 
 Pour naviguer d'une route à l'autre, on utilisera [navigation.navigate](https://reactnavigation.org/docs/navigating/#navigating-to-a-new-screen).
 
-Fichier EditScreen.tsx
-
+```tsx title="EditScreen.tsx"
 import React from 'react';  
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';  
 ...  
@@ -108,9 +108,8 @@ const EditScreen = ({route, navigation}: Props) => {
   );  
 };
 
- 
-
 export default EditScreen;
+```
 
 Dès qu'on navigue vers une route, une flèche apparaît dans la barre de titre afin de permettre le retour à la page précédente.
 
@@ -140,8 +139,7 @@ Selon la documentation de React Navigation[1](https://reactnavigation.org/docs/p
 
 > Avoid passing the full data which will be displayed on the screen itself (e.g. pass a user id instead of user object).
 
-React Native
-
+```tsx title="React Native"
 <Button  
   title="Modifier"  
   onPress={() => {  
@@ -150,6 +148,7 @@ React Native
     });  
   }}  
  />
+```
 
 ## Source
 
@@ -165,9 +164,9 @@ Il est possible de retourner à la page précédente par programmation, et donc 
 
 Pour revenir à la page précédente :
 
-JavaScript
-
+```js title="JavaScript"
 navigation.goBack();
+```
 
 ## 11.4 Paramètres d'un composant utilisé par deux routes différentes
 
@@ -175,13 +174,13 @@ Prenons le cas où un même composant permet d'afficher un formulaire d'ajout ou
 
 Voici comment les paramètres seront définis pour les deux routes requises.
 
-Fichier App.tsx (React Native)
-
+```ts title="App.tsx"
 export type RootStackParamList = {  
   Ajouter: undefined;  
   Modifier: {id: number};  
   ...  
 };  
+```
   
 ...
 
@@ -189,8 +188,7 @@ Si les routes Ajouter et Modifier sont associés au composant nommé Formulaire,
 
 Voici comment déclarer correctement ces paramètres.
 
-Fichier Formulaire.tsx
-
+```tsx title="Formulaire.tsx"
 // Code emprunté généré par Microsoft Copilot, novembre 2024  
 type AjouterProps = NativeStackScreenProps<RootStackParamList, 'Ajouter'>;  
 type ModifierProps = NativeStackScreenProps<RootStackParamList, 'Modifier'>;  
@@ -205,6 +203,7 @@ const Formulaire = ({route, navigation}: Props) => {
 };  
   
 export default Formulaire;
+```
 
 ## 11.5 Route avec paramètre optionnel
 
@@ -212,12 +211,12 @@ Une route peut avoir un paramètre optionnel.
 
 Pour déclarer les types de cette route, on procédera comme suit :
 
-React Native
-
+```ts title="App.tsx"
 export type RootStackParamList = {  
   ...  
   MonComposant: {maProp: string} | undefined;  
 };
+```
 
 ## 11.6 Accéder à la navigation de partout
 
@@ -235,12 +234,10 @@ Il n'y a rien à modifier du côté du composant <NavigationContainer> utilisé 
 
 Chaque composant recevra le paramètre comme suit :
 
-React Native
-
+```tsx title="HomeScreen.tsx"
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';  
 ...
 
- 
 
 // Pour la vérification de type des paramètres (voir https://reactnavigation.org/docs/typescript#type-checking-screens)
 
@@ -261,14 +258,15 @@ const HomeScreen = ({route, navigation}: Props) => {
     ...  
   );  
 };
+```
 
 Ou, si la route n'a aucun paramètre :
 
-React Native
-
+```tsx title="HomeScreen.tsx"
 const HomeScreen = ({navigation}: Props) => {  
   ...  
 };
+```
 
 ## Méthode useNavigation()
 
@@ -278,16 +276,15 @@ Ce hook permet de retrouver l'objet navigation du composant dans lequel il est a
 
 Sous JavaScript, la variable de navigation peut être initialisée comme suit :
 
-Terminal
-
+```js title="JavaScript"
 const navigation = useNavigation();
+```
 
 Si vous travaillez avec TypeScript, il vous faudra préciser le type de useNavigation(). Si vous ne le faites pas, vous aurez un avertissement. Le code fonctionnera tout de même mais vous devez apporter les correctifs nécessaires.
 
 Voici un extrait de code qui initialise la variable de navigation avec useNavigation().
 
-React Native
-
+```tsx title="HomeScreen.tsx"
 import {useNavigation, NavigationProp} from '@react-navigation/native';  
 import {RootStackParamList} from "./App"  
 ...  
@@ -306,6 +303,7 @@ const HomeScreen = () => {
     ...  
   );  
 };
+```
 
 Cette technique permet également d'accéder à l'objet navigation dans un composant qui n'est pas associé à une route, tout comme la technique suivante.
 
@@ -315,12 +313,11 @@ Prenons le cas où vous codez une barre de navigation dans un composant. Ce comp
 
 Pour avoir accès à l'objet navigation, le composant peut le recevoir en tant que propriété.
 
-Composant parent (React Native)
-
+```tsx title="Composant parent"
 <BarreNavigation navigation={navigation} />
+```
 
-Composant enfant (React Native)
-
+```tsx title="BarreNavigation.tsx"
 ...  
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 
@@ -329,6 +326,7 @@ import {NavigationProp, ParamListBase} from '@react-navigation/native';
 type BarreNavigationProps = {  
   navigation: NavigationProp<ParamListBase>;  
 };
+```
 
  
 
@@ -358,8 +356,7 @@ Puisque les composants React Native utilisent le positionnement CSS flex par dé
 
 L'astuce consiste à donner le style flex: 1 à une vue (balise <View>) et à y placer tout le code qui doit être placé dans l'écran. La partie qui doit être au bas de l'écran sera placée en dehors de cette vue.
 
-Fichier styles.ts (React Native)
-
+```ts title="styles.ts"
 import {StyleSheet} from 'react-native';
 
  
@@ -374,9 +371,9 @@ const styles = StyleSheet.create({
  
 
 export {styles};
+```
 
-Fichier MonComposant.tsx (Reat Native)
-
+```tsx title="MonComposant.tsx"
 ...  
   
  return (  
@@ -387,6 +384,7 @@ Fichier MonComposant.tsx (Reat Native)
     <Text>Ceci apparaîtra dans le bas de l'écran.</Text>  
   </>  
  );
+```
 
 ![Élément dans le bas de l'écran](assets/14-12-la-navigation-50.png)
 
@@ -400,11 +398,8 @@ En effet, la règle flex: 1 est un raccourci pour flex-grow: 1, flex-shrink: 1,
 
 Voici un exemple avec un ScrollView.
 
-Fichier styles.ts (React Native)
-
+```ts title="styles.ts"
 import {StyleSheet} from 'react-native';
-
- 
 
 const styles = StyleSheet.create({  
   conteneur: {  
@@ -417,12 +412,10 @@ const styles = StyleSheet.create({
   ...  
 });
 
- 
-
 export {styles};
+```
 
-Fichier MonComposant.tsx (Reat Native)
-
+```tsx title="MonComposant.tsx"
 ...  
   
  return (  
@@ -435,13 +428,13 @@ Fichier MonComposant.tsx (Reat Native)
     <Text>Ceci apparaîtra dans le bas de l'écran.</Text>  
   </>  
  );
+```
 
 ### FlatList
 
 Et voici un exemple avec un [FlatList](09-7-les-composants-du-noyau-core-components.md#flatlist).
 
-Fichier src/styles/styles.ts (React Native)
-
+```ts title="src/styles/styles.ts"
 import {StyleSheet} from 'react-native';
 
  
@@ -460,9 +453,9 @@ const styles = StyleSheet.create({
  
 
 export {styles};
+```
 
-Fichier src/components/MonComposant.tsx (Reat Native)
-
+```tsx title="src/components/MonComposant.tsx"
 ...  
   
  return (  
@@ -478,3 +471,4 @@ Fichier src/components/MonComposant.tsx (Reat Native)
     <Text>Ceci apparaîtra dans le bas de l'écran.</Text>  
   </>  
  );
+```
