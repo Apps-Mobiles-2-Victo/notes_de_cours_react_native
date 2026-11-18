@@ -20,8 +20,7 @@ Quant à l'attribut [onChangeText](https://reactnative.dev/docs/textinput#onchan
 
 Pour afficher les erreurs de validation, une technique intéressante consiste à initialiser une variable qui dit si la valeur entrée est valide ou non et à afficher un message seulement si la valeur n'est pas valide.
 
-React Native
-
+```tsx title="React Native"
 const [nom, setNom] = useState('');  
   
 // la valeur null évite d'afficher le message avant que la validation n'ait eu lieu  
@@ -31,7 +30,6 @@ const validerNom = () => {
   setNomValide(nom.length < 100);  
  };
 
- 
 
 return (  
   ...  
@@ -47,6 +45,7 @@ return (
   )}  
   ...  
 );
+```
 
 ## 14.2 Configurer le bon clavier virtuel
 
@@ -54,14 +53,14 @@ Le choix du clavier qui apparaît quand on clique sur un élément de formulaire
 
 Par exemple, pour saisir une valeur numérique :
 
-React Native
-
+```tsx title="React Native"
 <TextInput  
   value={age}  
   onChangeText={setAge}  
   keyboardType="numeric"  
   ...  
  />
+```
 
 Les différents types de claviers sont listés ici : <https://reactnative.dev/docs/0.75/textinput#keyboardtype>
 
@@ -75,8 +74,7 @@ Voici une technique simple pour y arriver : entourer l'écran ou une partie de l
 
 Le clavier disparaîtra dès que l'usager clique en dehors d'un TextInput, que ce soit sur le fond de l'écran ou encore sur un bouton.
 
-React Native
-
+```tsx title="React Native"
 <View style={styles.conteneur}>  
   <Text style={styles.titre}>Mon application</Text>  
   <ScrollView keyboardShouldPersistTaps='never'>  
@@ -93,3 +91,4 @@ React Native
     />  
   </ScrollView>  
  </View>
+```

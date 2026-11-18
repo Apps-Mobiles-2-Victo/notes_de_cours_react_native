@@ -12,8 +12,7 @@ Si vous désirez effectuer une copie de la base de données ou encore la supprim
 
 C'est React Native qui s'est chargé de donner un nom par défaut. Cette information est disponible dans le fichier MonProjet/android/app/build.gradle.
 
-Fichier build.gradle
-
+```groovy title="build.gradle"
 ...
 
  
@@ -33,6 +32,7 @@ android {
     versionCode 1  
     versionName "1.0"  
  }  
+```
  ...  
 }
 

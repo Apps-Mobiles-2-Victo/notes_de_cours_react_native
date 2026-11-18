@@ -14,16 +14,15 @@ Un des avantages de cette syntaxe est qu'elle peut être appelée dans un foncti
 
 Le fonctionnement de base d'une promesse va comme suit :
 
-React Native
-
+```js title="React Native"
 promesse  
 .then(...)  
 .catch(...)
+```
 
 Voici un exemple d'appel d'API avec fetch et la syntaxe des promesses.
 
-React Native
-
+```js title="React Native"
 const appelerApi = () => {  
   fetch(url)  
   .then(response => {  
@@ -42,6 +41,7 @@ const appelerApi = () => {
     // instructions à faire quand l'appel est terminé ou quand l'appel a échoué  
   });   
  };
+```
 
 ## Syntaxe avec async/await
 
@@ -53,8 +53,7 @@ Si un appel d'API est utilisé dans une fonction, cette fonction doit être asyn
 
 De plus, il faut entourer le fetch d'un try... catch pour récupérer les erreurs potentielles.
 
-React Native
-
+```js title="React Native"
 const appelerApi = async () => {  
   try {  
     const response = await fetch(url);  
@@ -71,6 +70,7 @@ const appelerApi = async () => {
     // instructions à faire quand l'appel est terminé ou quand l'appel a échoué  
   }  
  };
+```
 
 ## Appel de type POST, avec en-tête et corps
 
@@ -80,8 +80,7 @@ J'ai également inclus la technique pour fournir des informations d'en-tête à 
 
 Syntaxe .then() :
 
-React Native
-
+```js title="React Native"
 const appelerApi = () => {  
   fetch(url, {  
     method: 'POST',  
@@ -96,11 +95,11 @@ const appelerApi = () => {
      ...   // même chose qu'avec une requête GET  
   });  
 };
+```
 
 Syntaxe async/await :
 
-JavaScript
-
+```js title="JavaScript"
 const appelerApi = async () => {  
   try {  
     const response = await fetch(url, {  
@@ -121,6 +120,7 @@ const appelerApi = async () => {
     ...   // même chose qu'avec une requête GET  
   }  
 };
+```
 
 ## Erreur « TypeError: Network request failed »
 
@@ -140,16 +140,15 @@ Mais souvent, les API d'images génèrent directement une image. De façon plus 
 
 La solution la plus simple pour utiliser un tel API est de placer l'URL directement dans une balise <Image>.
 
-React Native
-
+```tsx title="React Native"
 <Image source={{uri: `https://api.dicebear.com/9.x/personas/png?seed=${seed}`}} style={mesStyles.image} />
+```
 
 Si vous tenez à passer par un appel fetch (mais pourquoi vous voudriez faire ça?), il faut utiliser response.url (notez l'absence de parenthèses) afin de récupérer l'URL finale.
 
 Il s'agit souvent de l'URL utilisé pour réaliser le fetch mais parfois, il pourrait avoir été modifié par des redirections.
 
-React Native
-
+```js title="React Native"
 const appelerApi = () => {  
   fetch(url)  
   .then(response => {  
@@ -168,6 +167,7 @@ const appelerApi = () => {
     // instructions à faire quand l'appel est terminé ou quand l'appel a échoué  
   });   
  };
+```
 
 ## 18.3 fetch vs Axios
 
@@ -189,8 +189,7 @@ Voici un exemple qui montre une requête API simple avec fetch puis avec Axios.
 
 Dans un premier temps, le code est illustré avec la syntaxe .then().
 
-React Native
-
+```js title="React Native"
 fetch('https://reactnative.dev/movies.json')  
 .then(response => {  
   if (!response.ok) {  
@@ -207,9 +206,9 @@ fetch('https://reactnative.dev/movies.json')
 .finally(() => {  
   ...  
 });
+```
 
-React Native
-
+```js title="React Native"
 axios.get('https://reactnative.dev/movies.json')  
  .then(response => {  
   setData(response.data.movies);  
@@ -221,17 +220,18 @@ axios.get('https://reactnative.dev/movies.json')
  .finally(() => {  
   ...  
  });
+```
 
 Voici ces mêmes extraits de code avec la syntaxe async/await.
 
-React Native
-
+```js title="React Native"
 try {  
   // Code de la doc React Native : https://reactnative.dev/docs/network  
   const response = await fetch('https://reactnative.dev/movies.json');  
   if (!response.ok) {  
     throw new Error(`Erreur API : ${response.status} ${response.statusText}`);  
   }  
+```
   const result = await response.json();  
   setData(result.movies);   // met à jour une variable d'état  
 } catch (error) {  
@@ -240,8 +240,7 @@ try {
   ...  
  }
 
-React Native
-
+```js title="React Native"
 try {  
   const response = await axios.get('https://reactnative.dev/movies.json');  
   setData(response.data.movies);   // met à jour une variable d'état  
@@ -251,3 +250,4 @@ try {
  } finally {  
   ...  
  }
+```
