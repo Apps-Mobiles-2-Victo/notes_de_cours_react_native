@@ -8,11 +8,11 @@ Le prinicipe est le suivant : avec un ET logique, si la première condition est
 
 Donc, l'affichage qui suit le ET ne sera pas réalisé si la condition est fausse.
 
-React Native
-
+```tsx title="React Native"
 {uneVariable &&  
   <Text>Ceci est affiché seulement si uneVariable est à true.</Text>  
 }
+```
 
 ## 7.2 Afficher une chose ou une autre selon une condition
 
@@ -20,10 +20,10 @@ L'opérateur ternaire peut être utilisé pour afficher une chose ou une autre s
 
 Attention : contrairement à l'affichage conditionnel avec un ET logique qui nécessite deux caractères &, il n'y a qu'un seul caractère ? ici.
 
-React Native
-
+```tsx title="React Native"
 {uneVariable ?  
   <Text>La condition est remplie.</Text>  
 :  
   <Text>La condition n'est pas remplie.</Text>  
 }
+```

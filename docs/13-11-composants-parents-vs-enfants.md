@@ -8,8 +8,7 @@ Dans certains cas, cependant, ce flux peut être inversé c'est-à-dire qu'un co
 
 Pour que ce soit possible, le composant parent doit passer en paramètre au composant enfant une référence à la fonction du composant parent qui devra être exécutée. Dans cet exemple, le paramètre s'appelle onClick (il aurait pu porter n'importe quel autre nom) et il contient une référence à la fonction faireQuelqueChose définie dans le parent.
 
-Fichier App.tsx (React Native)
-
+```tsx title="App.tsx"
 const App = () => {  
   ...  
   
@@ -22,22 +21,17 @@ const App = () => {
   );  
 };
 
- 
-
- 
-
- 
-
 export default App;
+```
 
 Dans le composant enfant, un appel à cette fonction pourra être réalisé au moment opportun.
 
-Fichier MonComposantEnfant.tsx (React Native)
-
+```tsx title="MonComposantEnfant.tsx"
 type MonComposantEnfantProps = {  
   ...  
   onClick(): void;  
 };  
+
   
 const MonComposantEnfant = (props: MonComposantEnfantProps) => {  
   return (  
@@ -48,3 +42,4 @@ const MonComposantEnfant = (props: MonComposantEnfantProps) => {
 };  
   
 export default MonComposantEnfant;
+```

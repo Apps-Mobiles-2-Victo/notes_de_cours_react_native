@@ -26,8 +26,7 @@ Le hook [useEffect](https://react.dev/reference/react/useEffect) permet d'effect
 
 Mais si on ne fournit aucune variable en paramètre, le traitement n'aura lieu qu'une seule fois, lorsque le composant vient de se charger.
 
-React Native
-
+```tsx title="MonComposant.tsx"
 const MonComposant = () => {  
   ...  
   
@@ -39,42 +38,42 @@ const MonComposant = () => {
     ...  
   );  
 };
+```
 
 ## 9.3 Réagir seulement lorsqu'une variable d'état a changé de valeur (useEffect) { #use-effect }
 
 Le hook [useEffect](https://react.dev/reference/react/useEffect) permet d'effectuer un traitement seulement lorsqu'une variable change de valeur.
 
-React Native
-
+```tsx title="React Native"
 useEffect(() => {  
   ...   // Ce code sera effectué seulement lorsque maVariable change de valeur.  
 }, [maVariable]);
+```
 
 Il sera utile notamment pour effectuer un traitement qui requiert que le changement de valeur soit effectivement fait.
 
-React Native
-
+```tsx title="React Native"
 setMaVariable('nouvelle valeur');   // la nouvelle valeur ne sera effective que lors du prochain rendu  
 ...  
 useEffect(() => {  
   ...   // Ici, on sait que le changement de valeur a eu lieu.  
 }, [maVariable]);
+```
 
 ## 9.4 Appeler une fonction asynchrone dans un useEffect
 
 Si vous utilisez le hook useEffect pour appeler une fonction asynchrone lorsqu'une variable change de valeur, vous obtiendrez l'erreur « Les expressions 'await' sont autorisées uniquement dans les fonctions asynchrones et aux niveaux supérieurs des modules. ».
 
-React Native
-
+```tsx title="React Native"
 useEffect(() => {  
   const db = await getDBConnection();  
   ...  
 }, [id]);
+```
 
 Une des techniques pour régler ce problème consiste à définir une fonction asynchrone dans le useEffect et immédiatement appeler cette fonction.
 
-React Native
-
+```tsx title="React Native"
 useEffect(() => {  
   // pour appeler une fonction asynchrone dans un useEffect, il faut déclarer une fonction async qui fait le await puis appeler cette fonction.  
   // autres pistes de solutions : https://stackoverflow.com/questions/53332321/react-hook-warnings-for-async-function-in-useeffect-useeffect-function-must-ret  
@@ -91,6 +90,7 @@ useEffect(() => {
 
   retrouverItem();  
  }, [id]);
+```
 
 Je vous propose une autre syntaxe que vous pourriez rencontrer mais qui est moins facile à comprendre pour un débutant.
 
@@ -100,13 +100,13 @@ Notez que cet acronyme se prononce « iffy ».
 
 Dans le contexte actuel, la IIFE est asynchrone mais il est possible d'avoir une IIFE sans le mot-clé async.
 
-React Native
-
+```tsx title="React Native"
 useEffect(() => {  
   (async () => {  
     ...  
   })();   // ces parenthèses sont ce qui fait que la fonction est immédiatement invoquée  
  }, [id]);
+```
 
 ## 9.5 Rendre une variable d'état disponible à tous les enfants (useContext) { #use-context }
 
@@ -116,8 +116,7 @@ Pour l'utiliser avec TypeScript, il faut d'abord définir le type d'information 
 
 Ce type peut être défini dans le même fichier que la définition d'une interface.
 
-Fichier src/models/Categorie.ts
-
+```ts title="src/models/Categorie.ts"
 export interface Categorie {  
   id: number | null;  
   description: string;  
@@ -129,13 +128,13 @@ export type CategorieContextType = {
   categories: Categorie[];  
   setCategories: (categories: Categorie[]) => void;  
 };
+```
 
 La définition du contexte sera effectuée dans le composant le plus proche parent de ceux qui en ont besoin.
 
 Dans cet exemple, j'ai utilisé le composant de base de l'application.
 
-Fichier App.tsx (React Native)
-
+```tsx title="App.tsx"
 ...  
 import {Categorie,CategorieContextType} from "./models/Categorie";  
   
@@ -150,15 +149,16 @@ const App = () => {
     </CategoriesContext.Provider>  
   );  
 };
+```
 
 Dans un composant enfant, on retrouvera le contexte comme suit :
 
-Composant enfant (Reat Native)
-
+```tsx title="Composant enfant"
 const ComposantEnfant = () => {  
   const {categories, setCategories} = React.useContext(CategoriesContext) as CategorieContextType;  
   ...   // il est désormais possible d'utiliser la variable categories et de la modifier à l'aide de setCategories.  
 };
+```
 
 ## Pour plus d'information
 
@@ -200,8 +200,7 @@ De façon plus précise, le code sera exécuté seulement si le composant a le f
 
 Dans le cas où useCallback n'a aucune dépendance (lorqu'on retrouve [] comme second paramètre), le code sera exécuté lorsque le composant gagne le focus.
 
-React Native
-
+```tsx title="React Native"
 useFocusEffect(  
   useCallback(() => {  
     // code à exécuter à chaque fois que le composant gagne le focus, par exemple retrouver des informations dans la BD.  
@@ -211,6 +210,7 @@ useFocusEffect(
     };  
   }, [])  
  );
+```
 
 ## Pour plus d'information
 
