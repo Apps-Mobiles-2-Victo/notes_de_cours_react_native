@@ -157,16 +157,16 @@ Dans la littérature, on retrouve deux appellations :
 
 ## Composants de base (basic components) { #basic }
 
-La documentation officielle de React Native mentionne qu'il y a des basic components[1](https://reactnative.dev/docs/components-and-apis#basic-components).
+La documentation officielle de React Native mentionne qu'il y a des basic components [1](https://reactnative.dev/docs/components-and-apis#basic-components).
 
 Les composants de base sont les composants de plus bas niveau, par exemple :
 
-* [\<View\>](09-7-les-composants-du-noyau-core-components.md#view)
-* [\<Text\>](09-7-les-composants-du-noyau-core-components.md#text)
-* [\<Image\>](09-7-les-composants-du-noyau-core-components.md#image)
-* \<ScrollView\>
-* \<TextInput\>
-* [\<Pressable\>](09-7-les-composants-du-noyau-core-components.md#pressable)
+* [&lt;View&gt;](09-7-les-composants-du-noyau-core-components.md#view)
+* [&lt;Text&gt;](09-7-les-composants-du-noyau-core-components.md#text)
+* [&lt;Image&gt;](09-7-les-composants-du-noyau-core-components.md#image)
+* &lt;ScrollView&gt;
+* &lt;TextInput&gt;
+* [&lt;Pressable&gt;](09-7-les-composants-du-noyau-core-components.md#pressable)
 
 Voici un exemple d'utilisation de composants de base.
 
@@ -190,10 +190,10 @@ Les composants du noyau regroupent l'ensemble des composants fournis par React N
 
 Parmi eux, on retrouve également d'autres composants de plus haut niveau, par exemple :
 
-* [\<Button\>](09-7-les-composants-du-noyau-core-components.md#button)
-* [\<FlatList\>](09-7-les-composants-du-noyau-core-components.md#flatlist)
-* [\<Alert\>](09-7-les-composants-du-noyau-core-components.md#alert)
-* \<StatusBar\>
+* [&lt;Button&gt;](09-7-les-composants-du-noyau-core-components.md#button)
+* [&lt;FlatList&gt;](09-7-les-composants-du-noyau-core-components.md#flatlist)
+* [&lt;Alert&gt;](09-7-les-composants-du-noyau-core-components.md#alert)
+* &lt;StatusBar&gt;
 
 Pour une liste plus complète : <https://reactnative.dev/docs/components-and-apis>.
 
