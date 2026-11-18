@@ -11,7 +11,7 @@ Avec React Native, votre code vous permettra de créer une application pour Andr
 * Vous aurez besoin d'un ordinateur Apple pour tester et pour publier une application pour iOS.
 * Il faudra probablement apporter quelques modifications au code afin de le rendre optimal pour Android ou pour iOS. Le but est d'obtenir une application qui est le plus près de l'apparence et du comportement par défaut de la plateforme.
 
-![Welcome to React Native](assets/04-2-installation-de-react-native-31.png)
+<img src="assets/04-2-installation-de-react-native-31.png" alt="Welcome to React Native" width="400">
 
 ## Pour plus d'information
 

@@ -31,7 +31,15 @@ embarque le bundle JavaScript, sans serveur Metro) dans l’image Docker :
 Le script conserve les caches Gradle et Android dans les volumes Docker
 `gradle-home-cache` et `android-sdk-cache`. Les versions du NDK et des Build-Tools téléchargées pendant le build sont ainsi réutilisées aux exécutions suivantes.
 
-Le premiers builds peuvent être longs, mais les suivants seront beaucoup plus rapides.
+!!! note
+    Le premier build va être long (5-10mins), mais les suivants seront beaucoup plus rapides.
+
+
+Vous pouvez suivre l'utilisation des ressources du conteneur Docker pendant le build avec Docker Desktop :
+
+![docker desktop container stats](./assets/DockerDesktopContainerStats.png)
+
+## Lancer l’APK sur un AVD d’Android Studio depuis WSL
 
 Le fichier produit est
 `examples/<Nom Projet>/android/app/build/outputs/apk/release/app-release.apk`.
