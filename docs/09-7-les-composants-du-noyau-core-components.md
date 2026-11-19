@@ -50,6 +50,7 @@ Il est possible de lui ajouter [des styles](08-6-initiation-react-native.md#styl
 ```tsx title="React Native"
 <Text style={styles.titre}>Mon titre</Text>
 ```
+
 ## 6.3 &lt;Image&gt; { #image }
 
 Le composant [&lt;Image&gt;](http://reactnative.dev/docs/image) permet d'afficher une image locale ou encore une image à partir d'un URL.
@@ -81,7 +82,7 @@ Par contre, il n'est pas possible de modifier son apparence sauf pour modifier s
 ```tsx title="React Native"
 <Button  
   onPress={...}  
-  title="Je suis un Button"  
+  title="Je suis un bouton (Button)"  
   color="#2acfcaff"  
  />
 ```
@@ -102,14 +103,6 @@ Si vous désirez créer un bouton avec une apparence personnalisée, vous devez 
   <Text style={mesStyles.texteBouton} adjustsFontSizeToFit>Cliquez ici</Text>  
  </Pressable>
 ```
-
-Il existe également le composant &lt;TouchableOpacity&gt; mais React Native suggère que ce composant pourrait disparaître [1](https://reactnative.dev/docs/touchableopacity).
-
-> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the Pressable API.
-
-## Source
-
-1. «  TouchableOpacity ». React Native. <https://reactnative.dev/docs/touchableopacity>
 
 ## Pour plus d'information
 
