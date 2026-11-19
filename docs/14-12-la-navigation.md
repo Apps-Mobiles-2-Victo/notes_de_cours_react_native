@@ -135,7 +135,7 @@ Voir « [Passer des paramètres à une route](#parametres-route) ».
 
 Quand une route a besoin de savoir sur quel objet elle doit travailler, il est préférable de passer en paramètre à la route seulement l'identifiant de l'objet plutôt que l'objet en tant que tel.
 
-Selon la documentation de React Navigation[1](https://reactnavigation.org/docs/params/#:~:text=What%20should%20be%20in%20params):
+Selon la documentation de React Navigation [1](https://reactnavigation.org/docs/params/#:~:text=What%20should%20be%20in%20params):
 
 > Avoid passing the full data which will be displayed on the screen itself (e.g. pass a user id instead of user object).
 

@@ -272,7 +272,7 @@ export default MonComposantFonction;
 
 Il existe une troisième syntaxe qui consiste à créer une classe qui hérite de Component. On dira qu'on a un composant de classe.
 
-Cependant, cette syntaxe n'est plus recommandée par l'équipe de React[1](https://react.dev/reference/react/Component) :
+Cependant, cette syntaxe n'est plus recommandée par l'équipe de React [1](https://react.dev/reference/react/Component) :
 
 > We recommend defining components as functions instead of classes.
 

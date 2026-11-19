@@ -4,7 +4,7 @@
 
 Le composant [&lt;View&gt;](https://reactnative.dev/docs/view) est un conteneur qui permet notamment de spécifier une mise en forme.
 
-Ce composant a un fonctionnement semblable à celui de la balise <div> en HTML.
+Ce composant a un fonctionnement semblable à celui de la balise &lt;div&gt; en HTML.
 
 ```tsx title="React Native"
 
@@ -103,7 +103,7 @@ Si vous désirez créer un bouton avec une apparence personnalisée, vous devez 
  </Pressable>
 ```
 
-Il existe également le composant &lt;TouchableOpacity&gt; mais React Native suggère que ce composant pourrait disparaître[1](https://reactnative.dev/docs/touchableopacity).
+Il existe également le composant &lt;TouchableOpacity&gt; mais React Native suggère que ce composant pourrait disparaître [1](https://reactnative.dev/docs/touchableopacity).
 
 > If you're looking for a more extensive and future-proof way to handle touch-based input, check out the Pressable API.
 
