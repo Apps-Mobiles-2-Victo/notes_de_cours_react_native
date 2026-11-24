@@ -61,7 +61,8 @@ Attention : contrairement à SwiftUI et à Jetpack Compose, il n'y a pas d'icô
 <Image source={require('../images/home.png')} />
 ```
 
-Dans le cas d'une image chargée à partir d'un URL, il faut absolument spécifier sa taille [à l'aide d'un style](08-6-initiation-react-native.md#styles) puisque React Native n'est pas en mesure de connaître sa taille avant que le téléchargement soit complété.
+!!! Note
+    Dans le cas d'une image chargée à partir d'un URL, il faut absolument **spécifier sa taille** [à l'aide d'un style](08-6-initiation-react-native.md#styles) puisque React Native n'est pas en mesure de connaître sa taille avant que le téléchargement soit complété (*width* and *height*).
 
 ```tsx title="React Native"
 <Image source={{ uri: 'https://apical.xyz/medias/fr/LogoApical.png' }} style={styles.logo} />
