@@ -10,23 +10,25 @@ Remarquez que pour un projet React Web, il est plutôt conseillé d'utiliser [Re
 
 ## Installation
 
-Pour travailler avec React Navigation, vous devez installer quelques paquets.
+Pour travailler avec React Navigation, vous devez installer quelques paquets. (fait par le script *create-react-native-app* lors de la création du projet)
 
+```
 Terminal
 
 cd /chemin/MonProjet
 
- 
-
 npm install @react-navigation/native  
 npm install react-native-screens  
 npm install @react-navigation/native-stack
+```
 
 Si vous développez pour iOS, ajoutez également ceci :
 
+```
 Terminal
 
 npx pod-install ios
+```
 
 ## Définition du système de navigation
 
@@ -472,3 +474,11 @@ export {styles};
   </>  
  );
 ```
+
+## Exercice 3 - ajout de navigation
+
+1. Ajoutez deux composants personnalisés à votre projet (suite de l'exercice 2).:
+    - Le premier servira éventuellement à afficher un formulaire d'ajout.
+    - Le second sera éventuellement un formulaire de modification.
+<br>Pour l'instant, ils ne feront qu'afficher un texte bidon.
+1. Ajoutez un système de navigation qui permet de passer d'une page à l'autre.<br>La page de modification sera atteinte par un clic sur un icône vis-à-vis une des images dans le composant qui affiche la liste d'images (ou, si vous préférez, dans le bas de l'image zoomée).
