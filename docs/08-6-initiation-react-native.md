@@ -94,6 +94,10 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
+Le code initial utilise `SafeAreaProvider` et `useSafeAreaInsets` pour tenir compte des zones de l'écran occupées, par exemple, par la barre d'état ou la caméra. Le fournisseur rend ces informations accessibles aux composants descendants, et le hook permet de les récupérer.
+
+Nous simplifierons d'abord ce code pour découvrir les composants. Nous reviendrons à la [gestion des zones sécuritaires](#zones-securitaires) après avoir vu les styles.
+
 La moindre modification à ce code sera immédiatement reflétée dans l'émulateur une fois l'application lancée.
 
 Tout ce code peut être effacé.
@@ -507,7 +511,63 @@ Dans le cas où un composant doit être affecté par plus d'une classe CSS, il f
 
 « React Native Styling: Structure for Style Organization  ». Thoughtbot. <https://thoughtbot.com/blog/structure-for-styling-in-react-native>
 
-## 5.9 Propriétés
+## 5.9 Les zones sécuritaires de l'écran { #zones-securitaires }
+
+Certaines parties de l'écran peuvent être occupées par la barre d'état, la caméra ou les contrôles de navigation du système. La bibliothèque `react-native-safe-area-context` permet de connaître les espaces à réserver pour éviter d'y placer du contenu.
+
+Placez `SafeAreaProvider` près de la racine de l'application. Dans un composant descendant, appelez `useSafeAreaInsets()` pour obtenir les espaces nécessaires en haut (`top`), en bas (`bottom`), à gauche (`left`) et à droite (`right`).
+
+```tsx title="App.tsx"
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
+
+const App = () => {
+  return (
+    <SafeAreaProvider>
+      <Contenu />
+    </SafeAreaProvider>
+  );
+};
+
+const Contenu = () => {
+  const insets = useSafeAreaInsets();
+
+  return (
+    <View
+      style={[
+        styles.conteneur,
+        {
+          paddingTop: insets.top,
+          paddingBottom: insets.bottom,
+          paddingLeft: insets.left,
+          paddingRight: insets.right,
+        },
+      ]}>
+      <Text>Bonjour!</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  conteneur: {
+    flex: 1,
+  },
+});
+
+export default App;
+```
+
+Le hook doit être appelé dans un composant situé **à l'intérieur** de `SafeAreaProvider` : appelé directement dans `App`, il ne pourrait pas accéder au fournisseur que celle-ci retourne. Les valeurs peuvent varier selon l'appareil et l'orientation. Adaptez les côtés utilisés à votre interface et évitez d'appliquer deux fois le même espace.
+
+## Pour plus d'information
+
+« react-native-safe-area-context ». Documentation. <https://appandflow.github.io/react-native-safe-area-context/>
+
+## 5.10 Propriétés
 
 Les propriétés, appelées props, sont des valeurs de base que l'on peut passer à un composant. Elles sont immuables, c'est-à-dire que leur valeur ne peut pas être modifiée.
 
@@ -588,7 +648,7 @@ MonComposant.defaultProps = defaultProps;
 
 « Mastering TypeScript: A Guide to Choosing Between ‘type’ and ‘interface’ ». Medium. <https://levelup.gitconnected.com/mastering-typescript-a-guide-to-choosing-between-type-and-interface-c31d3527693b>
 
-## 5.10 Variables d'état (useState) { #use-state }
+## 5.11 Variables d'état (useState) { #use-state }
 
 Les variables d'état React Native, appelées states, permettent de rafraîchir l'écran dès que leur valeur change.
 

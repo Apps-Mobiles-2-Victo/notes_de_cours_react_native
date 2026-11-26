@@ -54,6 +54,8 @@ Cette bibliothèque permet de gérer le défilement lors de l'apparition du clav
 
 Cette bibliothèque permet de travailler avec un composant <SafeAreaView> qui assurera que le visuel de l'application ne soit pas caché sous les zones comme la zone de la caméra dans le haut de l'écran.
 
+Consultez la section sur les [zones sécuritaires de l'écran](08-6-initiation-react-native.md#zones-securitaires) pour un exemple avec `SafeAreaProvider` et `useSafeAreaInsets`.
+
 ## Pour plus d'information
 
 « AppAndFlow / react-native-safe-area-context ». GitHub. <https://github.com/AppAndFlow/react-native-safe-area-context>
