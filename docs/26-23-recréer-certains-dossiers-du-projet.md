@@ -8,7 +8,7 @@ Ce dossier peut facilement être recréé à partir des informations du fichier 
 
 La procédure qui suit permet donc d'installer un projet React Native sur un autre ordinateur à partir d'un fichier .zip ou à partir de Git.
 
-* Assurez-vous d'avoir pris en note les configurations effectuées dans les fichiers du dossier node\_modules, par exemple [celles qui permettent d'utiliser la bibliothèque react-native-sqlite-storage](15-13-les-données-locales.md#sqlite).
+* Assurez-vous d'avoir pris en note les modifications particulières effectuées dans les fichiers du dossier node\_modules, car elles seront perdues lors de la réinstallation.
 * Si ce n'est pas déjà fait, supprimez le dossier node\_modules du projet.
 * Supprimez le fichier package-lock.json situé à la racine du projet.
 * Dans une fenêtre Terminal, lancez ces commandes.

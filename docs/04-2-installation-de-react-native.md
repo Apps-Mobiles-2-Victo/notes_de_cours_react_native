@@ -93,7 +93,7 @@ Vous êtes maintenant prêts à [créer votre premier projet React Native](05-3-
 !!! note
     Les anciennes instructions d'installation (sans Docker) sont conservées pour référence dans [Installation classique de React Native](installation-classique-reference.md).
 
-# Exercice
+# Exercice initial
 
 * Procéder à l'installation de React Native via Docker Desktop et bâtir `build` l'APK de test. Assurez-vous que l'APK fonctionne correctement sur l'émulateur Android.
 * Faites une modification dans le code source de l'application de test pour afficher un autre message que « Bonjour Android ! » et ajouter l'image de votre choix via un URL public.

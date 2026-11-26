@@ -2,7 +2,7 @@
 
 ## 9.1 Qu'est-ce qu'un hook React Native?
 
-Dans React et React Native, les hooks sont un mécanisme qui permet de suivre l'état d'un composant de type fonction (functional component).
+Dans React et React Native, les *hooks* sont des fonctions qui permettent aux composants fonctionnels d'utiliser des fonctionnalités de React, comme l'état, les effets et le contexte.
 
 Parmi les hooks les plus utilisés, notons :
 
@@ -13,6 +13,7 @@ Parmi les hooks les plus utilisés, notons :
 * [useMemo](#use-memo): permet de mémoriser des informations longues à calculer.
 * [useCallback](#use-callback): permet de mettre une fonction en cache entre deux rendus
 * [useFocusEffect](#use-focus-effect): permet d'effectuer du code lorsqu'un écran prend le focus (fonctionne avec React Navigation)
+* [useSafeAreaInsets](08-6-initiation-react-native.md#zones-securitaires): permet d'obtenir les espaces sécuritaires de l'écran (fourni par `react-native-safe-area-context`)
 
 ## Pour plus d'information
 

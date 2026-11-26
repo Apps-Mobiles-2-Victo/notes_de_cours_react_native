@@ -425,9 +425,9 @@ Cette dernière syntaxe permet d'ajouter des propriétés au fragment, par exemp
 ))}
 ```
 
-# Exercice 
+# Exercice 1
 
-Créez un nouveau projet React Native nommé `ExerciceInitiationReactNative`, puis réalisez l'exercice dans ce projet.
+Créez un nouveau projet React Native nommé `Exercice1`, puis réalisez l'exercice dans ce projet.
 
 Créez une petite fiche de présentation de votre animal préféré.
 
@@ -562,6 +562,36 @@ export default App;
 ```
 
 Le hook doit être appelé dans un composant situé **à l'intérieur** de `SafeAreaProvider` : appelé directement dans `App`, il ne pourrait pas accéder au fournisseur que celle-ci retourne. Les valeurs peuvent varier selon l'appareil et l'orientation. Adaptez les côtés utilisés à votre interface et évitez d'appliquer deux fois le même espace.
+
+### Utiliser `SafeAreaView`
+
+Si vous souhaitez simplement ajouter les espaces sécuritaires au contenu, vous pouvez utiliser `SafeAreaView` de `react-native-safe-area-context` plutôt que le hook. Ce composant applique automatiquement ces espaces comme marges intérieures (`padding`).
+
+```tsx title="App.tsx"
+import React from 'react';
+import {StyleSheet, Text} from 'react-native';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+
+const App = () => {
+  return (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.conteneur}>
+        <Text>Bonjour!</Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  );
+};
+
+const styles = StyleSheet.create({
+  conteneur: {
+    flex: 1,
+  },
+});
+
+export default App;
+```
+
+Importez bien `SafeAreaView` de `react-native-safe-area-context`, et non de `react-native`. Utilisez plutôt `useSafeAreaInsets` lorsque vous devez accéder aux valeurs pour les appliquer ou les combiner vous-même.
 
 ## Pour plus d'information
 
